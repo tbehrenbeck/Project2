@@ -2,8 +2,7 @@ require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var session = require("express-session");
-var passport = require("passport");
+var passport = require("./config/passport");
 
 var db = require("./models");
 
@@ -25,7 +24,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Authentication
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(require("express-session")({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
