@@ -19,45 +19,55 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     password: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
 
     // Profile
     // Goal (INTEGER: 0, 1, 2 - predefined goals user will select)
     goal: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
 
     gender: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.STRING
     },
 
     age: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
 
     weight: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
 
     height: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
 
     // User selects predefined options (0-4)
     activityLevel: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+      type: DataTypes.INTEGER
     },
 
     mealCount: {
       type: DataTypes.INTEGER,
-      allowNull: false
+    },
+
+    recCals: {
+      type: DataTypes.INTEGER
+    },
+
+    protein: {
+      type: DataTypes.INTEGER
+    },
+
+    carbs: {
+      type: DataTypes.INTEGER
+    },
+
+    fats: {
+      type: DataTypes.INTEGER
     }
 
   });

@@ -6,4 +6,3 @@
 - Brittani Slimp
 - Adams Lowe
 - Austin Walker
-- 

@@ -17,9 +17,32 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/test"), function(req,res) {
-    res.send("success");
-  };
+  // Set up profile
+  app.post("/api/setupProfile", function(req,res) {
+    var name = req.body.name;
+
+    var profile = {
+      goal: req.body.goal,
+      gender: req.body.gender,
+      age: req.body.age,
+      weight: req.body.weight,
+      height: req.body.height,
+      activityLevel: req.body.activityLevel,
+      mealCount: req.body.mealCount,
+      recCals: req.body.recCals,
+      protein: req.body.protein,
+      carbs: req.body.carbs,
+      fats: req.body.fats
+    };
+
+    db.User.update(profile, {
+      where: {
+        name: name
+      }
+    }).then(function() {
+      return res.json({success: true, message: "User data added to database"});
+    });
+  });
 
   // Test
   app.get("/api/test", function (req, res) {
