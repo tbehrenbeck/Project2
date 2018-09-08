@@ -1,14 +1,29 @@
 var db = require("../models");
 
 module.exports = function(app) {
+
   // Load index page
-  app.get("/test", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
+  app.get("/", function(req,res) {
+    res.redirect("/index.html");
+  });
+
+  // Load index page
+  app.get("/createAccount", function(req,res) {
+    res.redirect("/createAccount.html");
+  });
+
+  app.get("/recipeSearch", function(req,res) {
+    res.redirect("/recipeSearch.html");
+  });
+
+  app.get("/:user/profile", function(req,res) {
+    var user = req.body.user;
+    var data = db.User.findOne({
+      where: {
+        user: user
+      }
     });
+    res.render("profile", {data: data});
   });
 
 
