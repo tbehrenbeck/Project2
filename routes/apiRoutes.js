@@ -1,24 +1,29 @@
 var db = require("../models");
+var passport = require("../config/passport");
+// var path = require("path");
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+module.exports = function (app) {
+
+  // Login
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json({success: true});
+  });
+
+  // Sign up
+  app.post("/api/signup", function (req, res) {
+    console.log(req.body);
+    db.User.create(req.body).then(function () {
+      res.json({success: true, message: "successfully made account"});
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  app.post("/api/test"), function(req,res) {
+    res.send("success");
+  };
+
+  // Test
+  app.get("/api/test", function (req, res) {
+    res.send("IN PROGRESS");
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
 };
