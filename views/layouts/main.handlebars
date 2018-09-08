@@ -1,15 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- CSS RESET -->
+  <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <title>Project 2</title>
 </head>
 
 <body>
-  {{{body}}}
+
+  <div class="jumbotron jumbotron-fluid" style="height: 180px; padding-top: 30px">
+    <div class="container" style="text-align: center">
+      <h1 class="display-4">Project 2</h1>
+      <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ab.</p>
+    </div>
+  </div>
+
+  <div class="card" style="width: 65%; margin: auto; margin-bottom: 50px;">
+
+    <div class="card-header">
+      <h2>John Doe</h2>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Calories Remaining</h5>
+      <h6 class="card-text">4,200</h6>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo dignissimos quod, dicta corporis accusamu</p>
+    </div>
+    <hr>
+
+    <div class="card">
+      <div class="card-header">
+        Nutrition Breakdown
+      </div>
+      <div class="card-body">
+        <p>calories:<span>{{ }}</span></p>
+        <p>protein:<span>{{ }}</span></p>
+        <p>carbohydrates:<span>{{ }}</span></p>
+        <p>fats:<span>{{ }}</span></p>
+        <p>total meal count:<span>{{ }}</span></p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <!-- JAVASCRIPT -->
+  <script src="/js/index.js"></script>
 </body>
 
 </html>
