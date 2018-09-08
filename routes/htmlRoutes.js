@@ -9,7 +9,7 @@ module.exports = function(app) {
 
   // Load index page
   app.get("/createAccount", function(req,res) {
-    res.redirect("/createAccount.html");
+    res.redirect("/macro.html");
   });
 
   app.get("/recipeSearch", function(req,res) {
