@@ -1,43 +1,7 @@
 $(document).ready(function(){
 
-  $(".body-info").addClass("hidden");
-  $(".pa-factor").addClass("hidden");
-  $(".submit").addClass("hidden");
-
-  var goal = 0;
-  var goalStr = "";
-
-  $("#bf-goal").on("click", function(){
-    $(this).removeClass("inactive");
-    $(".gm-goal").addClass("inactive");
-    $(".mw-goal").addClass("inactive");
-    goalStr = $(this).attr("value");
-    if (goal !=1){
-      goal = 1;
-    };
-  });
-
-  $("#gm-goal").on("click", function(){
-    $(this).removeClass("inactive");
-    $(".bf-goal").addClass("inactive");
-    $(".mw-goal").addClass("inactive");
-    goalStr = $(this).attr("value");
-    if (goal !=2){
-      goal = 2;
-    };
-  });
-
-  $("#mw-goal").on("click", function(){
-    $(this).removeClass("inactive");
-    $(".gm-goal").addClass("inactive");
-    $(".bf-goal").addClass("inactive");
-    goalStr = $(this).attr("value");
-    if (goal !=3){
-      goal = 3;
-    };
-  });
-
-  //calculate maintenance calories need: weight, height, age, activity, gender
+  
+  //calculate maintenance calories 
   function calcCals (kg, pa, age, ht, gender){
     if (gender == "male"){
       return Math.round(((kg*10)+(ht*6.25)-(5*age)+5)*pa);
@@ -57,26 +21,26 @@ $(document).ready(function(){
     switch(goal){
     case 1:
       //Lose body fat -- 
-      //20% below main cals, fats 25%, protein 1g/pound, 
-      recCals = maintenanceCals - (maintenanceCals*0.2);
-      protein = (wt * 1.0);
-      fats = ((recCals * 0.25)/9);
+      //20% below main cals, fats 30%, protein 1g/pound, 
+      recCals = maintenanceCals - (maintenanceCals*0.20);
+      protein = (wt * 1.2);
+      fats = ((recCals * 0.30)/9);
       carbs = (recCals - (protein*4) - (fats*9))/4;
       break;
     case 2:
       //Gain muscle -- 
-      //10% above main cals, fats 20%, protein 1g/pound, 
+      //10% above main cals, fats 20%, protein 1.2g/pound, 
       recCals = maintenanceCals + (maintenanceCals*0.1);
-      protein = (wt * 1.0);
+      protein = (wt * 1.2);
       fats = ((recCals * 0.20)/9);
       carbs = (recCals - (protein*4) - (fats*9))/4;
       break;
     case 3:
       //Maintain weight-- 
-      //maintenance cals, fats 25%, protein 1.2g/pound, 
+      //maintenance cals, fats 25%, protein 1.1g/pound, 
       recCals = maintenanceCals;
-      protein = (wt * 1.0);
-      fats = ((recCals * 0.25)/9);
+      protein = (wt * 1.1);
+      fats = ((recCals * 0.30)/9);
       carbs = (recCals - (protein*4) - (fats*9))/4;
       break;
     }
@@ -92,8 +56,10 @@ $(document).ready(function(){
 
   $("#submit").on("click touchstart", function(event){
     event.preventDefault();
-    var pa = parseFloat($("input[name='pa']:checked").val());
-    var meal_count = parseInt($("input[id='meal-count']").val());
+
+    var goal = parseInt($(".goal:selected").val());
+    var pa = parseFloat($(".pa:selected").attr("data-multiplier"));
+    var meal_count = parseInt($("#meal-count").val());
         
     var wt = parseInt($("#weight").val());
     var kg = Math.round(wt/2.2);
