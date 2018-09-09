@@ -1,34 +1,43 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
   // Load index page
-  app.get("/", function(req,res) {
+  app.get("/", function (req, res) {
     res.redirect("/index.html");
   });
 
-  // Load index page
-  app.get("/createAccount", function(req,res) {
-    res.redirect("/macro.html");
+  // Load create account page
+  app.get("/createAccount", function (req, res) {
+    res.redirect("/createAccount.html");
   });
 
-  app.get("/recipeSearch", function(req,res) {
+  // Load a user's profile
+  app.get("/profile/:username", function (req, res) {
+    var username = req.params.username;
+    db.User.findOne({
+      where: {
+        username: username
+      }
+    }).then(function(data) {
+      if (data == null) {
+        return res.send(`Username ${username} not found`);
+      };
+      res.render("profile", { data: data });
+    });
+  });
+
+
+  app.get("/recipeSearch", function (req, res) {
     res.redirect("/recipeSearch.html");
   });
 
-  app.get("/:user/profile", function(req,res) {
-    var user = req.body.user;
-    var data = db.User.findOne({
-      where: {
-        user: user
-      }
-    });
-    res.render("profile", {data: data});
-  });
+
 
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };
