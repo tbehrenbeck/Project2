@@ -31,7 +31,7 @@ module.exports = function (app) {
             return res.json({success: bcryptResult, token: token, username: username});
             // If incorrect password...
           } else {
-            return res.json({success: false})
+            return res.json({success: false, message: "Incorrect password"});
           }
         }
       });
