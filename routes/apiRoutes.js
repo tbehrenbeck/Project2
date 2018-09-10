@@ -20,14 +20,16 @@ module.exports = function (app) {
       }
       var hashedPassword = data.password;
 
+      // Compare hashed password with DB
       bcrypt.compare(attemptedPassword, hashedPassword, function(err, bcryptResult) {
         if (err) {
           return res.json({success: false, message: "Incorrect password"});
         } else {
+          // If correct password...
           if (bcryptResult) {
-            console.log(bcryptResult);
             var token = jwt.sign({ id: data.id, expires: Date.now() + 360000 }, "keyboard cat");
-            return res.json({success: bcryptResult, token: token});
+            return res.json({success: bcryptResult, token: token, username: username});
+            // If incorrect password...
           } else {
             return res.json({success: false})
           }
@@ -75,7 +77,26 @@ module.exports = function (app) {
 
   // Logout
   app.get("/api/logout", function (req, res) {
-    res.redirect("/");
+    res.redirect("/logout.html");
+  });
+
+  // Verify token
+  app.post("/api/token", function(req,res) {
+    var token = req.body.token;
+    jwt.verify(token, "keyboard cat", function(err, decoded) {
+      if (err) {
+        return res.json({validToken: false})
+      }
+      db.User.findOne({
+        where: {
+          id: decoded.id
+        }
+      }).then(function(data) {
+        console.log(data.username);
+        return res.json({validToken: true, username: data.username});
+      });
+    });
+    
   });
 
 };

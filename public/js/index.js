@@ -1,3 +1,17 @@
+// Verify if user selected "remember me" and logged in
+var token = localStorage.getItem("token");
+console.log(token);
+$.ajax({
+  url: "/api/token",
+  method: "POST",
+  data: {token: token}
+}).then(function(data) {
+  if (data.validToken) {
+    location.replace(`/profile/${data.username}`);
+  };
+});
+
+
 $(document).ready(function() {
 
   // Modal helper function
@@ -22,8 +36,9 @@ $(document).ready(function() {
       method: "POST",
       data: {username: username, password: password, rememberMe: rememberMe}
     }).then(function(data) {
-      console.log(data.username)
-      // location.replace(`/profile/${data.username}`);
+      console.log(data.username);
+      localStorage.setItem("token", data.token);
+      location.replace(`/profile/${data.username}`);
     });
 
   });
