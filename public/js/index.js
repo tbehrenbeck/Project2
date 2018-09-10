@@ -1,17 +1,18 @@
 // Verify if user selected "remember me" and logged in
 var token = localStorage.getItem("token");
-console.log(token);
-$.ajax({
-  url: "/api/token",
-  method: "POST",
-  data: {token: token}
-}).then(function(data) {
-  if (data.validToken) {
-    var html = 
-      `Welcome back ${data.fullName}! <a href="/profile/${data.username}">Click here</a> to view your profile.`;
-    $("#welcome-back-box").html(html);
-  };
-});
+if (token) {
+  $.ajax({
+    url: "/api/token",
+    method: "POST",
+    data: {token: token}
+  }).then(function(data) {
+    if (data.validToken) {
+      var html = 
+        `Welcome back ${data.fullName}! <a href="/profile/${data.username}">Click here</a> to view your profile.`;
+      $("#welcome-back-box").html(html);
+    };
+  });
+};
 
 
 $(document).ready(function() {
@@ -31,15 +32,18 @@ $(document).ready(function() {
     var password = $("#password").val().trim();
     var rememberMe = $("#remember-me").is(":checked");
 
-    // LOGIN FUNCTION GOES HERE...
-    // Temporary code below
     $.ajax({
       url: "/api/login",
       method: "POST",
       data: {username: username, password: password, rememberMe: rememberMe}
     }).then(function(data) {
-      console.log(data.username);
-      localStorage.setItem("token", data.token);
+      if (!data.success) {
+        return showModal("Error", data.message);
+      };
+      console.log(data);
+      if (rememberMe) {
+        localStorage.setItem("token", data.token);
+      };
       location.replace(`/profile/${data.username}`);
     });
 
