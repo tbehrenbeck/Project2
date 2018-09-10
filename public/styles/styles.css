@@ -1,3 +1,26 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.circle {
+  border: 2px solid black;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
+}
+
+.circle-text {
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  margin: auto;
+  font-size: 25px;
+  line-height: 1.6;
+}
+
+.card.summary {
+  border: none;
+}
