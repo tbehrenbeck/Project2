@@ -1,12 +1,14 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var jwt = require("jsonwebtoken");
 // var path = require("path");
 
 module.exports = function (app) {
 
   // Login (passport)
   app.post("/api/login", passport.authenticate("local"), function(req,res) {
-    res.json("/profile");
+    var token = jwt.sign({ id: req.user.id, expires: Date.now() + 360000 }, process.env.SECRETPHRASE);
+    res.json({url: "/profile", token: token});
   });
 
   // Create account
@@ -28,6 +30,7 @@ module.exports = function (app) {
       fats: req.body.fats
     };
 
+    // Add user to DB
     db.User.create(profile).then(function () {
       res.json({ success: true, message: "User data added to database" });
     }).catch(function (err) {
@@ -38,7 +41,7 @@ module.exports = function (app) {
         return res.json({success: false, message: "Username/email already registerd. <a href='/'>Click here to login.</a>"});
       default:
         return res.json({success: false, message: "Internal server error"});
-      };
+      }
     });
   });
 
@@ -49,22 +52,22 @@ module.exports = function (app) {
   });
 
   // Verify token
-  // app.post("/api/token", function(req,res) {
-  //   var token = req.body.token;
-  //   jwt.verify(token, process.env.SECRETPHRASE, function(err, decoded) {
-  //     if (err) {
-  //       return res.json({validToken: false})
-  //     }
-  //     db.User.findOne({
-  //       where: {
-  //         id: decoded.id
-  //       }
-  //     }).then(function(data) {
-  //       console.log(data.username);
-  //       return res.json({validToken: true, username: data.username, fullName: data.fullName});
-  //     });
-  //   });
+  app.post("/api/token", function(req,res) {
+    var token = req.body.token;
+    jwt.verify(token, process.env.SECRETPHRASE, function(err, decoded) {
+      if (err) {
+        return res.json({validToken: false});
+      }
+      db.User.findOne({
+        where: {
+          id: decoded.id
+        }
+      }).then(function(data) {
+        console.log(data.username);
+        return res.json({validToken: true, username: data.username, fullName: data.fullName});
+      });
+    });
     
-  // });
+  });
 
 };

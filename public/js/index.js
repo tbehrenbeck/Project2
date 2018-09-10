@@ -1,3 +1,19 @@
+// Check for token, log user in if exists
+var token = localStorage.getItem("token");
+if (token) {
+  $.ajax({
+    url: "/api/token",
+    method: "POST",
+    data: {token: token}
+  }).then(function(data) {
+    if (data.validToken) {
+      var html =
+        `Welcome back ${data.fullName}! <a href="/profile">Click here</a> to view your profile.`;
+      $("#welcome-back-box").html(html);
+    };
+  });
+};
+
 $(document).ready(function() {
 
   // Modal helper function
@@ -20,12 +36,8 @@ $(document).ready(function() {
       method: "POST",
       data: {username: username, password: password, rememberMe: rememberMe}
     }).then(function(data) {
-      // if (!data.success) {
-      //   return showModal("Error", data.message);
-      // };
-      console.log(data);
-      window.location.replace(data);
-
+      localStorage.setItem("token", data.token);
+      window.location.replace(data.url);
     }).fail(function() {
       showModal("Oops!", "Username or password is incorrect.");
     });
