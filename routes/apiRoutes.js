@@ -49,24 +49,6 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
-  // // Verify token
-  // app.post("/api/token", function (req, res) {
-  //   var token = req.body.token;
-  //   jwt.verify(token, process.env.SECRETPHRASE, function (err, decoded) {
-  //     if (err) {
-  //       return res.json({ validToken: false });
-  //     }
-  //     db.User.findOne({
-  //       where: {
-  //         id: decoded.id
-  //       }
-  //     }).then(function (data) {
-  //       console.log(data.username);
-  //       return res.json({ validToken: true, username: data.username, fullName: data.fullName });
-  //     });
-  //   });
-  // });
-
   // Get user data (if logged in)
   app.get("/api/user_data", function (req, res) {
     if (req.user === undefined) {

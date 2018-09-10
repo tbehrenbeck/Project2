@@ -30,11 +30,9 @@ module.exports = function (app) {
     });
   });
 
-
   app.get("/recipeSearch", function (req, res) {
     res.redirect("/recipeSearch.html");
   });
-
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
