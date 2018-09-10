@@ -54,7 +54,6 @@ module.exports = function (app) {
       weight: req.body.weight,
       height: req.body.height,
       activityLevel: req.body.activityLevel,
-      mealCount: req.body.mealCount,
       recCals: req.body.recCals,
       protein: req.body.protein,
       carbs: req.body.carbs,
