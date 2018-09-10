@@ -84,7 +84,6 @@ body {
   position: relative;
   text-align: center;
 }
-
 .circle-text {
   position: absolute;
   top: 35%;
@@ -93,7 +92,7 @@ body {
   font-size: 25px;
   line-height: 1.6;
 }
-
 .card.summary {
   border: none;
 }
+/* Create an Account */ 
