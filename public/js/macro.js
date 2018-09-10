@@ -78,7 +78,6 @@ $(document).ready(function(){
 
     var goal = parseInt($(".goal:selected").val());
     var pa = parseFloat($(".pa:selected").attr("data-multiplier"));
-    var meal_count = parseInt($("#meal-count").val());
         
     var wt = parseInt($("#weight").val());
     var kg = Math.round(wt/2.2);
@@ -102,7 +101,6 @@ $(document).ready(function(){
     macros.weight = wt;
     macros.height = ht;
     macros.activityLevel = pa;
-    macros.mealCount = meal_count;
 
     // CHANGE THIS LATER
     macros.name = "test";
