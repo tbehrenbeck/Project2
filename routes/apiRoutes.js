@@ -1,48 +1,16 @@
 var db = require("../models");
 var passport = require("../config/passport");
-var bcrypt = require("bcrypt");
-var jwt = require("jsonwebtoken");
 // var path = require("path");
 
 module.exports = function (app) {
 
-  // Login
-  app.post("/api/login", function (req, res) {
-    var username = req.body.username;
-    var attemptedPassword = req.body.password;
-    db.User.findOne({
-      where: {
-        username: username
-      }
-    }).then(function(data) {
-      if (data === null) {
-        return res.json({success: false, message: "Username not found"});
-      }
-      var hashedPassword = data.password;
-
-      // Compare hashed password with DB
-      bcrypt.compare(attemptedPassword, hashedPassword, function(err, bcryptResult) {
-        if (err) {
-          return res.json({success: false, message: "Incorrect password"});
-        } else {
-          // If correct password...
-          if (bcryptResult) {
-            var token = jwt.sign({ id: data.id, expires: Date.now() + 360000 }, process.env.SECRETPHRASE);
-            return res.json({success: bcryptResult, token: token, username: username});
-            // If incorrect password...
-          } else {
-            return res.json({success: false, message: "Incorrect password"});
-          }
-        }
-      });
-    });
-
+  // Login (passport)
+  app.post("/api/login", passport.authenticate("local"), function(req,res) {
+    res.json("/profile");
   });
 
-  // Set up profile
+  // Create account
   app.post("/api/createAccount", function (req, res) {
-    var username = req.body.username;
-
     var profile = {
       fullName: req.body.fullName,
       username: req.body.username,
@@ -76,26 +44,27 @@ module.exports = function (app) {
 
   // Logout
   app.get("/api/logout", function (req, res) {
-    res.redirect("/logout.html");
+    req.logout();
+    res.redirect("/");
   });
 
   // Verify token
-  app.post("/api/token", function(req,res) {
-    var token = req.body.token;
-    jwt.verify(token, process.env.SECRETPHRASE, function(err, decoded) {
-      if (err) {
-        return res.json({validToken: false})
-      }
-      db.User.findOne({
-        where: {
-          id: decoded.id
-        }
-      }).then(function(data) {
-        console.log(data.username);
-        return res.json({validToken: true, username: data.username, fullName: data.fullName});
-      });
-    });
+  // app.post("/api/token", function(req,res) {
+  //   var token = req.body.token;
+  //   jwt.verify(token, process.env.SECRETPHRASE, function(err, decoded) {
+  //     if (err) {
+  //       return res.json({validToken: false})
+  //     }
+  //     db.User.findOne({
+  //       where: {
+  //         id: decoded.id
+  //       }
+  //     }).then(function(data) {
+  //       console.log(data.username);
+  //       return res.json({validToken: true, username: data.username, fullName: data.fullName});
+  //     });
+  //   });
     
-  });
+  // });
 
 };

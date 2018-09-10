@@ -4,8 +4,12 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function (app) {
 
   // Load index page
-  app.get("/", function (req, res) {
-    res.redirect("/index.html");
+  app.get("/", isAuthenticated, function (req, res) {
+    var user = {
+      username: req.user.username,
+      fullName: req.user.fullName
+    }
+    res.render("index", {data: user})
   });
 
   // Load create account page
@@ -14,13 +18,14 @@ module.exports = function (app) {
   });
 
   // Load a user's profile
-  app.get("/profile/:username", function (req, res) {
-    var username = req.params.username;
+  app.get("/profile", isAuthenticated, function (req, res) {
+    var username = req.user.username;
+
     db.User.findOne({
       where: {
         username: username
       }
-    }).then(function(data) {
+    }).then(function (data) {
       if (data == null) {
         return res.send(`Username ${username} not found`);
       };
@@ -32,8 +37,6 @@ module.exports = function (app) {
   app.get("/recipeSearch", function (req, res) {
     res.redirect("/recipeSearch.html");
   });
-
-
 
 
   // Render 404 page for any unmatched routes
