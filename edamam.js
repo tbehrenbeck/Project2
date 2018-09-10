@@ -130,7 +130,7 @@ function callEdamamAPI(){
   
         var recipe = new Recipe (name, healthLabels, dietLabels, source, sourceUrl, imgUrl, ingredientLines, servYield, totalTime, calories, fatQty, fatUnit, satFatQty, satFatUnit, transFatQty, transFatUnit, carbsQty, carbsUnit, fiberQty, fiberUnit, sugarQty, sugarUnit, proteinQty, proteinUnit, cholesterolQty, cholesterolUnit, sodiumQty, sodiumUnit);
 
-        // push recipe data to recipeResultsArray Array
+        // push recipe data to recipeResultsArray
         recipeResultsArray.push(recipe);
       }
       console.log(recipeResultsArray);
