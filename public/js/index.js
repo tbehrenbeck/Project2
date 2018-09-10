@@ -26,6 +26,8 @@ $(document).ready(function() {
       console.log(data);
       window.location.replace(data);
 
+    }).fail(function() {
+      showModal("Oops!", "Username or password is incorrect.");
     });
 
   });

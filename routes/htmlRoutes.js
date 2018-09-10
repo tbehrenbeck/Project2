@@ -1,15 +1,12 @@
 var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
+var path = require("path");
 
 module.exports = function (app) {
 
   // Load index page
-  app.get("/", isAuthenticated, function (req, res) {
-    var user = {
-      username: req.user.username,
-      fullName: req.user.fullName
-    }
-    res.render("index", {data: user})
+  app.get("/", function (req, res) {
+    res.sendFile(path.resolve(__dirname, "../public/main.html"));
   });
 
   // Load create account page
