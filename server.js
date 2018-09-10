@@ -24,7 +24,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Authentication
-app.use(require("express-session")({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(require("express-session")({ secret: process.env.SECRETPHRASE, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
