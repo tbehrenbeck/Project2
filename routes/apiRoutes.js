@@ -27,7 +27,7 @@ module.exports = function (app) {
         } else {
           // If correct password...
           if (bcryptResult) {
-            var token = jwt.sign({ id: data.id, expires: Date.now() + 360000 }, "keyboard cat");
+            var token = jwt.sign({ id: data.id, expires: Date.now() + 360000 }, process.env.SECRETPHRASE);
             return res.json({success: bcryptResult, token: token, username: username});
             // If incorrect password...
           } else {
@@ -83,7 +83,7 @@ module.exports = function (app) {
   // Verify token
   app.post("/api/token", function(req,res) {
     var token = req.body.token;
-    jwt.verify(token, "keyboard cat", function(err, decoded) {
+    jwt.verify(token, process.env.SECRETPHRASE, function(err, decoded) {
       if (err) {
         return res.json({validToken: false})
       }
@@ -93,7 +93,7 @@ module.exports = function (app) {
         }
       }).then(function(data) {
         console.log(data.username);
-        return res.json({validToken: true, username: data.username});
+        return res.json({validToken: true, username: data.username, fullName: data.fullName});
       });
     });
     
