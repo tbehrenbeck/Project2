@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <img class="float-left" src="https://via.placeholder.com/200x250">
+                    <img class="float-left" src="http://advaion.com/wp-content/uploads/2017/11/placeholder.png" style="height:250px;">
                 </div>
                 <div class="col-md-8">
                     <div class="card-text">
@@ -58,9 +58,56 @@
         </div>
         <div class="card-body">
             <form>
-                <select>dropdown</select>
-                <select>dropdown</select>
-                <button>Search</button>
+                <label for="protein-options"><h5>Pick your Protein</h5></label>
+                <select id="protein-options">
+                    <option></option>
+                    <option value="chicken">chicken</option>
+                    <option value="beef">beef</option>
+                    <option value="pork">pork</option>
+                    <option value="turkey">turkey</option>
+                    <option value="fish">fish</option>
+                    <option value="shrimp">shrimp</option>
+                </select>
+                <br>
+                <label for="calorie-range"><h5>Calorie Range</h5></label>
+                <input type="number" id="min-cals" placeholder="min" name="min-cals" min="0" max="5000">
+                <input type="number" id="max-cals" placeholder="max" name="max-cals" min="0" max="5000">
+                <div id="diet">
+                    <label for="diet-options"><h5>Diet Options</h5></label>
+                    <select id="diet-options">
+                        <option></option>
+                        <option value="high-protein">high protein</option>
+                        <option value="high-fiber">high fiber</option>
+                        <option value="low-fat">low fat</option>
+                        <option value="low-carb">low carb</option>
+                        <option value="low-sodium">low sodium</option>
+                    </select>
+                </div>
+                   <div id="health">
+                    <label for="health-options"><h5>Additional Health Options</h5></label>
+                    <select id="health-options">
+                        <option></option>
+                        <option value="pescatarian">pescatarian</option>
+                        <option value="vegetarian">vegetarian</option>
+                        <option value="vegan">vegan</option>
+                        <option value="paleo">paleo</option>
+                        <option value="kosher">kosher</option>
+                        <option value="dairy-free">dairy-free</option>
+                        <option value="gluten-free">gluten-free</option>
+                        <option value="peanut-free">peanut-free</option>
+                        <option value="shellfish-free">shellfish-free</option>
+                        <option value="pork-free">pork-free</option>
+                        <option value="alcohol-free">alcohol-free</option>
+                        <option value="soy-free">soy-free</option>
+                        <option value="egg-free">egg-free</option>
+                        <option value="wheat-free">wheat-free</option>
+                        <option value="low-sugar">low-sugar</option>
+                        <option value="celery-free">celery-free</option>
+                        
+                    </select>
+                </div>
+
+                <button id="search">Search</button>
             </form>
             
         </div>
