@@ -93,7 +93,7 @@ module.exports = function (app) {
         }
       }).then(function(data) {
         console.log(data.username);
-        return res.json({validToken: true, username: data.username});
+        return res.json({validToken: true, username: data.username, fullName: data.fullName});
       });
     });
     
