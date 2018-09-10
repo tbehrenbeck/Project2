@@ -7,7 +7,9 @@ $.ajax({
   data: {token: token}
 }).then(function(data) {
   if (data.validToken) {
-    location.replace(`/profile/${data.username}`);
+    var html = 
+      `Welcome back ${data.fullName}! <a href="/profile/${data.username}">Click here</a> to view your profile.`;
+    $("#welcome-back-box").html(html);
   };
 });
 
