@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+  // Modal helper function
+  function showModal(modalTitle, modalBody) {
+    $("#modal-title").html(modalTitle);
+    $("#modal-body").html(modalBody);
+    $("#error-modal").modal("toggle");
+  };
   
   //calculate maintenance calories 
   function calcCals (kg, pa, age, ht, gender){
@@ -57,6 +63,19 @@ $(document).ready(function(){
   $("#submit").on("click touchstart", function(event){
     event.preventDefault();
 
+    // Validate input
+    var inputs = document.getElementsByTagName("input");
+    for (var i=0; i < inputs.length; i++) {
+      if (inputs[i].value === "") {
+        return showModal("Oops!", "Please fill out all the forms before submitting!");
+      };
+    };
+
+    var fullName = $("#fullName").val().trim();
+    var username = $("#username").val().trim();
+    var email = $("#email").val().trim();
+    var password = $("#password").val().trim();
+
     var goal = parseInt($(".goal:selected").val());
     var pa = parseFloat($(".pa:selected").attr("data-multiplier"));
     var meal_count = parseInt($("#meal-count").val());
@@ -73,6 +92,10 @@ $(document).ready(function(){
             
     var macros = calcMacros(goal, maintenanceCals, wt);
 
+    macros.fullName = fullName;
+    macros.username = username;
+    macros.email = email;
+    macros.password = password;
     macros.goal = goal;
     macros.gender = gender;
     macros.age = age;
@@ -88,11 +111,16 @@ $(document).ready(function(){
 
     // Send user data to server
     $.ajax({
-      url: "/api/setupProfile",
+      url: "/api/createAccount",
       method: "POST",
       data: macros
-    }).then(function() {
-        console.log("Successfully sent data to server");
+    }).then(function(data) {
+        if (data.success) {
+          return showModal("Success!", `Your profile has been created successfully!<br><a href='/profile/${username}'>View profile</a>`)
+          console.log("Successfully added your profile!");
+        } else {
+          return showModal("Oops!", data.message);
+        };
     });
 
   });

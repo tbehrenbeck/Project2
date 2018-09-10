@@ -8,7 +8,7 @@
 <div class="card" style="width: 65%; margin: auto; margin-bottom: 50px;">
 
     <div class="card-header">
-        <h2>John Doe</h2>
+        <h2>{{data.fullName}}</h2>
     </div>
     <div class="card-body">
         <h5 class="card-title">Calories Remaining</h5>
@@ -22,11 +22,10 @@
             Nutrition Breakdown
         </div>
         <div class="card-body">
-            <p>calories:<span>{{ }}</span></p>
-            <p>protein:<span>{{ }}</span></p>
-            <p>carbohydrates:<span>{{ }}</span></p>
-            <p>fats:<span>{{ }}</span></p>
-            <p>total meal count:<span>{{ }}</span></p>
+            <p>Recommended calorie intake:<span>{{data.recCals}}</span></p>
+            <p>Protein:<span>{{data.protein}}</span></p>
+            <p>Carbohydrates:<span>{{data.carbs}}</span></p>
+            <p>Fats:<span>{{data.fats}}</span></p>
         </div>
     </div>
 

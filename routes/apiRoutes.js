@@ -5,23 +5,20 @@ var passport = require("../config/passport");
 module.exports = function (app) {
 
   // Login
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    res.json({success: true});
-  });
-
-  // Sign up
-  app.post("/api/signup", function (req, res) {
-    console.log(req.body);
-    db.User.create(req.body).then(function () {
-      res.json({success: true, message: "successfully made account"});
-    });
+  app.post("/api/login", function (req, res) {
+    var username = req.body.username;
+    res.json({success: true, username: username});
   });
 
   // Set up profile
-  app.post("/api/setupProfile", function(req,res) {
-    var name = req.body.name;
+  app.post("/api/createAccount", function (req, res) {
+    var username = req.body.username;
 
     var profile = {
+      fullName: req.body.fullName,
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
       goal: req.body.goal,
       gender: req.body.gender,
       age: req.body.age,
@@ -35,18 +32,23 @@ module.exports = function (app) {
       fats: req.body.fats
     };
 
-    db.User.update(profile, {
-      where: {
-        name: name
-      }
-    }).then(function() {
-      return res.json({success: true, message: "User data added to database"});
+    db.User.create(profile).then(function () {
+      res.json({ success: true, message: "User data added to database" });
+    }).catch(function (err) {
+      switch(err.errors[0].validatorKey) {
+      case "isEmail":
+        return res.json({success: false, message: "Invalid email address"});
+      case "not_unique":
+        return res.json({success: false, message: "Username/email already registerd. <a href='/'>Click here to login.</a>"});
+      default:
+        return res.json({success: false, message: "Internal server error"});
+      };
     });
   });
 
-  // Test
-  app.get("/api/test", function (req, res) {
-    res.send("IN PROGRESS");
+  // Logout
+  app.get("/api/logout", function (req, res) {
+    res.redirect("/");
   });
 
 };
