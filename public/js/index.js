@@ -22,8 +22,8 @@ $(document).ready(function() {
       method: "POST",
       data: {username: username, password: password, rememberMe: rememberMe}
     }).then(function(data) {
-      console.log(data);
-      location.replace(`/profile/${data.username}`);
+      console.log(data.username)
+      // location.replace(`/profile/${data.username}`);
     });
 
   });

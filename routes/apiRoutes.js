@@ -1,5 +1,7 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var bcrypt = require("bcrypt");
+var jwt = require("jsonwebtoken");
 // var path = require("path");
 
 module.exports = function (app) {
@@ -7,7 +9,32 @@ module.exports = function (app) {
   // Login
   app.post("/api/login", function (req, res) {
     var username = req.body.username;
-    res.json({success: true, username: username});
+    var attemptedPassword = req.body.password;
+    db.User.findOne({
+      where: {
+        username: username
+      }
+    }).then(function(data) {
+      if (data === null) {
+        return res.json({success: false, message: "Username not found"});
+      }
+      var hashedPassword = data.password;
+
+      bcrypt.compare(attemptedPassword, hashedPassword, function(err, bcryptResult) {
+        if (err) {
+          return res.json({success: false, message: "Incorrect password"});
+        } else {
+          if (bcryptResult) {
+            console.log(bcryptResult);
+            var token = jwt.sign({ id: data.id, expires: Date.now() + 360000 }, "keyboard cat");
+            return res.json({success: bcryptResult, token: token});
+          } else {
+            return res.json({success: false})
+          }
+        }
+      });
+    });
+
   });
 
   // Set up profile
