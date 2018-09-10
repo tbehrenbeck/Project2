@@ -51,11 +51,15 @@ body {
   margin: 10px 0;
 }
 #title h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  width: 100%;
+  overflow: visible;
   font: 400 120px/1.5 'Pacifico', Helvetica, sans-serif;
   color: #ffffff;
   text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1), 14px 14px 0px rgba(0,0,0,0.05);
-}
-#projectName {
   text-align: center;
   margin: 75px 0 50px 0;
-} 
+}
