@@ -1,3 +1,4 @@
+/* Landing Page */
 body {
   margin: 0;
   padding: 0;
@@ -50,6 +51,16 @@ body {
   cursor: pointer;
   margin: 10px 0;
 }
+.newAccount {
+  margin: 5px;
+  font-size: .9rem;
+}
+.newAccount a {
+  color: #4caf50;
+}
+.newAccount a:hover {
+  color: #000000;;
+}
 #title h1 {
   position: absolute;
   top: 50%;
@@ -63,7 +74,7 @@ body {
   text-align: center;
   margin: 75px 0 50px 0;
 }
-
+/* Profile Page */
 .circle {
   border: 2px solid black;
   border-radius: 50%;
