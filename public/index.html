@@ -46,15 +46,39 @@
                 <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
             <label>
-                <input type="checkbox" type='checkbox' value='No' name="remember"> Remember me
+                <input type="checkbox" type='checkbox' value='No' id="remember-me"> Remember me
             </label><br>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary" id="submit-button">Login</button>
         </form>
         <div class="card-footer text-right">
+<<<<<<< HEAD
             <a href="#">create account</a>
+=======
+            <a href="/createAccount">create account</a>
+>>>>>>> master
         </div>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Oops!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <!-- Intentionally left blank -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
