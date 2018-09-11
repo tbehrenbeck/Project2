@@ -140,4 +140,5 @@ function callEdamamAPI(){
 
 // LOGIC
 // call function to build queryURL
-callEdamamAPI();
+// callEdamamAPI();
+module.exports = callEdamamAPI;

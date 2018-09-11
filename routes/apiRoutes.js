@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var callEdamamAPI = require("../edamam");
 
 module.exports = function (app) {
 
@@ -83,7 +84,7 @@ module.exports = function (app) {
   // Recipe search
   app.post("/api/recipeSearch", function(req,res) {
     console.log(req.body);
-    // USE REQUEST MODULE??
+    callEdamamAPI();
     res.json({success: true});
   });
 
