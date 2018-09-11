@@ -76,9 +76,8 @@ module.exports = function (app) {
         id: req.user.id
       }
     }).then(function() {
-      res.json({success: true})
+      res.json({success: true});
     });
-
   });
 
   // Recipe search
