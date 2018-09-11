@@ -38,7 +38,9 @@
                                 </span>
                                 <div class="card-text text-center">fat</div>
                             </div>
-
+                        </div>
+                        <div class="row">
+                            <button class="mt-3">Update Macros</button>
                         </div>
 
                         <!-- <p>Recommended calorie intake:<span>{{data.recCals}}</span></p>
@@ -63,7 +65,7 @@
                     <span id="protein">
                         {{!-- <label for="protein-options"><h5>Pick your Protein</h5></label> --}}
                         <select class="dropdown float-left" id="protein-options">
-                            <option>Protein</option>
+                            <option>Select your protein...</option>
                             <option value="chicken">chicken</option>
                             <option value="beef">beef</option>
                             <option value="pork">pork</option>
@@ -75,7 +77,7 @@
                     <span id="diet">
                         {{!-- <label for="diet-options"><h5>Diet Options</h5></label> --}}
                         <select class="dropdown" id="diet-options">
-                            <option>Diet Options</option>
+                            <option>Special diet options...</option>
                             <option value="high-protein">high protein</option>
                             <option value="high-fiber">high fiber</option>
                             <option value="low-fat">low fat</option>
@@ -86,7 +88,7 @@
                     <span id="health">
                         {{!-- <label for="health-options"><h5>Additional Health Options</h5></label> --}}
                         <select class="dropdown float-right" id="health-options">
-                            <option>Health Options</option>
+                            <option>Other health options...</option>
                             <option value="pescatarian">pescatarian</option>
                             <option value="vegetarian">vegetarian</option>
                             <option value="vegan">vegan</option>
@@ -120,9 +122,13 @@
                         </div>
                     </div>
                 </div>
+               <div class="row">
+                  <div class="mx-auto mt-3" style="width:80%">
+                      <button id="search-btn">Search</button>
+                  </div>
+               </div>
                
-
-                <button id="search-btn">Search</button>
+                
             </form>
             
         </div>
