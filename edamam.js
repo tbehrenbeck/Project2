@@ -142,4 +142,4 @@ function callEdamamAPI(queryText, lowerCalorieRange, upperCalorieRange, health, 
 }
 
 // EXPORT LOGIC
-module.exports = callEdamamAPI()
+module.exports = callEdamamAPI;
