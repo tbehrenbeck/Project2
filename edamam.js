@@ -9,23 +9,25 @@ require("dotenv").config();
 var keys = require("./keys.js");
 
 // vars to build queryURL
-var queryText = "chicken"; // only required search parameter
-var lowerCalorieRange = "100"; // if upperCalorie range is used, lowerCalorie range must also be used
-var upperCalorieRange = "300"; // if lowerCalorie range is used, upperCalorie range must also be used
-var health = "peanut-free"; // Options: alcohol-free, celery-free, crustacean-free, dairy-free, egg-free, fish-free, gluten-free, kidney-friendly, kosher, low-potassium, lupine-free, mustard-free, No-oil-added, low-sugar, paleo, peanut-free, pescatarian, pork-free, red-meat-free, sesame-free, shellfish-free, soy-free, sugar-conscious, tree-nut-free, vegan, vegetarian, wheat-free
-var diet = "high-protein"; // Options: balanced, high-protein, high-fiber, low-fat, low-carb, low-sodium
-var excluded = "";
+var queryText = ""; // only required search parameter
+var lowerCalorieRange = ""; // if upperCalorie range is used, lowerCalorie range must also be used
+var upperCalorieRange = ""; // if lowerCalorie range is used, upperCalorie range must also be used
+var health = ""; // Options: alcohol-free, celery-free, crustacean-free, dairy-free, egg-free, fish-free, gluten-free, kidney-friendly, kosher, low-potassium, lupine-free, mustard-free, No-oil-added, low-sugar, paleo, peanut-free, pescatarian, pork-free, red-meat-free, sesame-free, shellfish-free, soy-free, sugar-conscious, tree-nut-free, vegan, vegetarian, wheat-free
+var diet = ""; // Options: balanced, high-protein, high-fiber, low-fat, low-carb, low-sodium
+var excluded = ""; // hard coded to null -- future dev will allow user to change this
 var from = "0"; // range for number of search results
-var to = "10"; // range for number of search results
+var to = "100"; // range for number of search results -- hard coded to return 100 results -- future dev will allow user to change this
 var queryUrl = "";
 
 // var to hold all recipe search results
 var recipeResultsArray = [];
 
 // FUNCTIONS
+// Function to get search parameters from user input in porfile.html
+
 // Build query URL. URL won't work if any parameter is left blank -- any blank parameter must be exlcuded from the URL.
-function buildQueryURL() {
-  queryUrl += ("https://api.edamam.com/search?q=" + queryText); // add REEQUIRED search parameter "queryText" to URL
+function buildQueryURL(queryText, lowerCalorieRange, upperCalorieRange, health, diet) {
+  queryUrl += ("https://api.edamam.com/search?q=" + queryText); // add REQUIRED search parameter "queryText" to URL
   queryUrl += ("&app_id=" + keys.edamam.appID + "&app_key=" + keys.edamam.apiKey); // add api ID and key to URL
   // for each of the following OPTIONAL parameters, if parameter exists, add it to URL
   if (health !== "") {
@@ -81,8 +83,8 @@ function Recipe(name, healthLabels, dietLabels, source, sourceURL, imgURL, ingre
 }
 
 // function to query the Edamam API
-function callEdamamAPI(){
-  buildQueryURL();
+function callEdamamAPI(queryText, lowerCalorieRange, upperCalorieRange, health, diet) {
+  buildQueryURL(queryText, lowerCalorieRange, upperCalorieRange, health, diet);
   console.log("query URL built");
   console.log(queryUrl);
 
@@ -139,7 +141,5 @@ function callEdamamAPI(){
   });
 }
 
-// LOGIC
-// call function to build queryURL
-// callEdamamAPI();
-module.exports = callEdamamAPI;
+// EXPORT LOGIC
+module.exports = callEdamamAPI()
