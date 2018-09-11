@@ -179,7 +179,6 @@ input.invalid {
 .card.summary {
   border: none;
 }
-<<<<<<< HEAD
 
 #profile-summary, 
 #profile-search{
@@ -188,7 +187,7 @@ input.invalid {
 
 .dropdown {
   display: inline-block;
-  position: absolute;
+  /* position: absolute; */
   overflow: hidden;
   height: 45px;
   width: 200px;
@@ -204,5 +203,3 @@ input.invalid {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
  
 }
-=======
->>>>>>> master
