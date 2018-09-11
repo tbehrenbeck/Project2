@@ -20,7 +20,7 @@ var to = "100"; // range for number of search results -- hard coded to return 10
 var queryUrl = "";
 
 // var to hold all recipe search results
-var recipeResultsArray = [];
+// var recipeResultsArray = [];
 
 // FUNCTIONS
 // Function to get search parameters from user input in porfile.html
@@ -51,13 +51,13 @@ function buildQueryURL(queryText, lowerCalorieRange, upperCalorieRange, health, 
 }
 
 // function to build a string to hold the details of each new recipe (this string will be pushed to the recipeResultsArray)
-function Recipe(name, healthLabels, dietLabels, source, sourceURL, imgURL, ingredientLines, servYield, totalTime, calories, fatQty, fatUnit, satFatQty, satFatUnit, transFatQty, transFatUnit, carbsQty, carbsUnit, fiberQty, fiberUnit, sugarQty, sugarUnit, proteinQty, proteinUnit, cholesterolQty, cholesterolUnit, sodiumQty, sodiumUnit){
+function Recipe(name, healthLabels, dietLabels, source, sourceURL, imgURL, ingredientLines, servYield, totalTime, calories, fatQty, fatUnit, satFatQty, satFatUnit, transFatQty, transFatUnit, carbsQty, carbsUnit, fiberQty, fiberUnit, sugarQty, sugarUnit, proteinQty, proteinUnit, cholesterolQty, cholesterolUnit, sodiumQty, sodiumUnit) {
   this.name = name;
-  this. healthLabels = healthLabels;
+  this.healthLabels = healthLabels;
   this.dietLabels = dietLabels;
   this.source = source;
   this.sourceURL = sourceURL;
-  this. imgURL = imgURL;
+  this.imgURL = imgURL;
   this.ingredientLines = ingredientLines;
   this.servYield = servYield;
   this.totalTime = totalTime;
@@ -73,7 +73,7 @@ function Recipe(name, healthLabels, dietLabels, source, sourceURL, imgURL, ingre
   this.fiberQty = fiberQty;
   this.fiberUnit = fiberUnit;
   this.sugarQty = sugarQty;
-  this.sugarUnit = sugarUnit; 
+  this.sugarUnit = sugarUnit;
   this.proteinQty = proteinQty;
   this.proteinUnit = proteinUnit;
   this.cholesterolQty = cholesterolQty;
@@ -87,19 +87,19 @@ function callEdamamAPI(queryText, lowerCalorieRange, upperCalorieRange, health, 
   buildQueryURL(queryText, lowerCalorieRange, upperCalorieRange, health, diet);
   console.log("query URL built");
   console.log(queryUrl);
-
+  var recipeResultsArray = [];
   // request recipes from Edamam API
   request(queryUrl, function (error, response, body) {
-  
+
     // If the request is successful
     if (error) {
       throw error;
     }
     else {
-      var response = JSON.parse(body).hits;
+      var response = JSON.parse(body);
       // loop through all recipe hits
-      for (var i = 0; i < response.length ; i++) {
-        var recipe = JSON.parse(body).hits[i].recipe;
+      for (var i = 0; i < response.length; i++) {
+        var recipe = JSON.parse(body)[i].recipe;
         // local variables to hold contents of each recipe
         var name = recipe.label;
         var healthLabels = recipe.healthLabels;
@@ -110,32 +110,69 @@ function callEdamamAPI(queryText, lowerCalorieRange, upperCalorieRange, health, 
         var ingredientLines = recipe.ingredientLines;
         var servYield = recipe.yield;
         var totalTime = recipe.totalTime;
-        var calories = ((recipe.calories).toFixed(1))/servYield;
-        var fatQty = ((recipe.totalNutrients.FAT.quantity).toFixed(1))/servYield;
+        var calories = ((recipe.calories).toFixed(1)) / servYield;
+        var fatQty = ((recipe.totalNutrients.FAT.quantity).toFixed(1)) / servYield;
         var fatUnit = recipe.totalNutrients.FAT.unit;
-        var satFatQty = ((recipe.totalNutrients.FASAT.quantity).toFixed(1))/servYield;
+        var satFatQty = ((recipe.totalNutrients.FASAT.quantity).toFixed(1)) / servYield;
         var satFatUnit = recipe.totalNutrients.FASAT.unit;
-        var transFatQty = ((recipe.totalNutrients.FATRN.quantity).toFixed(1))/servYield;
+        var transFatQty = ((recipe.totalNutrients.FATRN.quantity).toFixed(1)) / servYield;
         var transFatUnit = recipe.totalNutrients.FATRN.unit;
-        var carbsQty = ((recipe.totalNutrients.CHOCDF.quantity).toFixed(1))/servYield;
+        var carbsQty = ((recipe.totalNutrients.CHOCDF.quantity).toFixed(1)) / servYield;
         var carbsUnit = recipe.totalNutrients.CHOCDF.unit;
-        var fiberQty = ((recipe.totalNutrients.FIBTG.quantity).toFixed(1))/servYield;
+        var fiberQty = ((recipe.totalNutrients.FIBTG.quantity).toFixed(1)) / servYield;
         var fiberUnit = recipe.totalNutrients.FIBTG.unit;
-        var sugarQty = ((recipe.totalNutrients.SUGAR.quantity).toFixed(1))/servYield;
+        var sugarQty = ((recipe.totalNutrients.SUGAR.quantity).toFixed(1)) / servYield;
         var sugarUnit = recipe.totalNutrients.SUGAR.unit;
-        var proteinQty = ((recipe.totalNutrients.PROCNT.quantity).toFixed(1))/servYield;
+        var proteinQty = ((recipe.totalNutrients.PROCNT.quantity).toFixed(1)) / servYield;
         var proteinUnit = recipe.totalNutrients.PROCNT.unit;
-        var cholesterolQty = ((recipe.totalNutrients.CHOLE.quantity).toFixed(1))/servYield;
+        var cholesterolQty = ((recipe.totalNutrients.CHOLE.quantity).toFixed(1)) / servYield;
         var cholesterolUnit = recipe.totalNutrients.CHOLE.unit;
-        var sodiumQty = ((recipe.totalNutrients.NA.quantity).toFixed(1))/servYield;
+        var sodiumQty = ((recipe.totalNutrients.NA.quantity).toFixed(1)) / servYield;
         var sodiumUnit = recipe.totalNutrients.NA.unit;
-  
-        var recipe = new Recipe (name, healthLabels, dietLabels, source, sourceUrl, imgUrl, ingredientLines, servYield, totalTime, calories, fatQty, fatUnit, satFatQty, satFatUnit, transFatQty, transFatUnit, carbsQty, carbsUnit, fiberQty, fiberUnit, sugarQty, sugarUnit, proteinQty, proteinUnit, cholesterolQty, cholesterolUnit, sodiumQty, sodiumUnit);
+
+        var recipe = new Recipe(name, healthLabels, dietLabels, source, sourceUrl, imgUrl, ingredientLines, servYield, totalTime, calories, fatQty, fatUnit, satFatQty, satFatUnit, transFatQty, transFatUnit, carbsQty, carbsUnit, fiberQty, fiberUnit, sugarQty, sugarUnit, proteinQty, proteinUnit, cholesterolQty, cholesterolUnit, sodiumQty, sodiumUnit);
 
         // push recipe data to recipeResultsArray
         recipeResultsArray.push(recipe);
+        console.log(recipeResultsArray);
       }
+
+      console.log(body);
+
+
+      console.log("------recipeResultsArray-------------")
       console.log(recipeResultsArray);
+      console.log("------recipeResultsArray-------------")
+
+      recipeFunc(recipeResultsArray);
+
+      function recipeFunc(rawData) {
+        console.log("------rawData-------------")
+
+        console.log(rawData);
+        console.log("--------rawData-----------")
+
+        // var recipes = [];
+        // for (var i = 0; i < rawData.length; i++) {
+        //   var recipe = {
+        //     title: rawData[i].recipe.label,
+        //     url: rawData[i].recipe.url,
+        //     pic: rawData[i].recipe.image,
+        //     calories: rawData[i].recipe.calories,
+        //     fats: rawData[i].recipe.totalNutrients.FAT.quantity,
+        //     protein: rawData[i].recipe.totalNutrients.PROCNT.quantity,
+        //     carbs: rawData[i].recipe.totalNutrients.CHOCDF.quantity,
+        //     serves: rawData[i].recipe.yield
+        //   };
+        //   recipes.push(recipe);
+        // };
+        // console.log("________recipes");
+        // console.log(recipes);
+        // console.log("________recipes");
+      }
+
+
+
       return recipeResultsArray;
     }
   });

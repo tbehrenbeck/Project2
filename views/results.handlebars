@@ -6,26 +6,26 @@
       {{#each data}}
       <div class="card mx-auto my-3" style="width:70%">
           <div class="card-header">
-              <h3 class="card-title"> Recipe Title </h3>
+              <h3 class="card-title">{{data.ttile}}</h3>
           </div>
           <div class="card-body">
               <div class="row">
                   <div class="col-md-4">
-                    <img src="https://via.placeholder.com/200x150">
+                    <img src="{{data.url}}">
                   </div>
                   <div class="col-md-5">
                       <h5>Nutrition Profile (per serving):</h5>
                     <ul>
-                        <li>calories: 500</li>
-                        <li>protein: 25g</li>
-                        <li>carbs: 200g</li>
-                        <li>fats: 20g</li>
+                        <li>calories: {{data.calories}}</li>
+                        <li>protein: {{data.protein}}g</li>
+                        <li>carbs: {{data.carbs}}g</li>
+                        <li>fats: {{data.fats}}g</li>
                     </ul>
                   </div>
                   <div class="col-md-3">
                       <h6>Cook Time: 1 hour</h6>
-                      <h6>Servings: 6</h6>
-                      <a href="#">recipe link</a>
+                      <h6>Servings: {{data.serves}}</h6>
+                      <a href="{{data.url}}">recipe link</a>
                     </div>
               </div>
           </div>
