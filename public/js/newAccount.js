@@ -13,6 +13,8 @@ function showTab(n) {
   }
   if (n === x.length - 1) {
     document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").setAttribute("class", "submitButton");
+    document.getElementById("nextBtn").removeAttribute("onclick");
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
