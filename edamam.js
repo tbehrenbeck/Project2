@@ -26,29 +26,41 @@ var queryUrl = "";
 // Function to get search parameters from user input in porfile.html
 
 // Build query URL. URL won't work if any parameter is left blank -- any blank parameter must be exlcuded from the URL.
-function buildQueryURL(queryText, lowerCalorieRange, upperCalorieRange, health, diet) {
-  queryUrl += ("https://api.edamam.com/search?q=" + queryText); // add REQUIRED search parameter "queryText" to URL
-  queryUrl += ("&app_id=" + keys.edamam.appID + "&app_key=" + keys.edamam.apiKey); // add api ID and key to URL
-  // for each of the following OPTIONAL parameters, if parameter exists, add it to URL
-  if (health !== "") {
-    queryUrl += ("&health=" + health);
-  }
-  if (lowerCalorieRange !== "") {
-    queryUrl += ("&from=0&to=3&calories=" + lowerCalorieRange + "-" + upperCalorieRange);
-  }
-  if (health !== "") {
-    queryUrl += ("&health=" + health);
-  }
-  if (diet !== "") {
-    queryUrl += ("&diet=" + diet);
-  }
-  if (excluded !== "") {
-    queryUrl += ("&excluded=" + excluded);
-  }
-  if (to !== "") {
-    queryUrl += ("&from=" + from + "&to=" + to + '"');
-  }
-}
+// function buildQueryURL(queryText, lowerCalorieRange, upperCalorieRange, health, diet) {
+//   queryUrl += ("https://api.edamam.com/search?q=" + queryText); // add REQUIRED search parameter "queryText" to URL
+//   queryUrl += ("&app_id=" + keys.edamam.appID + "&app_key=" + keys.edamam.apiKey); // add api ID and key to URL
+//   // for each of the following OPTIONAL parameters, if parameter exists, add it to URL
+//   if (health !== "") {
+//     queryUrl += ("&health=" + health);
+//   }
+//   if (lowerCalorieRange !== "") {
+//     queryUrl += ("&from=0&to=3&calories=" + lowerCalorieRange + "-" + upperCalorieRange);
+//   }
+//   if (health !== "") {
+//     queryUrl += ("&health=" + health);
+//   }
+//   if (diet !== "") {
+//     queryUrl += ("&diet=" + diet);
+//   }
+//   if (excluded !== "") {
+//     queryUrl += ("&excluded=" + excluded);
+//   }
+//   if (to !== "") {
+//     queryUrl += ("&from=" + from + "&to=" + to + '"');
+//   };
+//   console.log(queryUrl);
+//   return queryUrl;
+// };
+
+function buildQueryURL(protein, lower, upper, health, diet) {
+  var queryURL = 
+    `https://api.edamam.com/search?app_id=${keys.edamam.appID}&app_key=${keys.edamam.apiKey}&` +
+    `q=${protein}&calories=${lower}-${upper}&` +
+    `health=${health}&diet=${diet}`;
+  console.log(queryURL);
+  return queryURL;
+};
+
 
 // function to build a string to hold the details of each new recipe (this string will be pushed to the recipeResultsArray)
 function Recipe(name, healthLabels, dietLabels, source, sourceURL, imgURL, ingredientLines, servYield, totalTime, calories, fatQty, fatUnit, satFatQty, satFatUnit, transFatQty, transFatUnit, carbsQty, carbsUnit, fiberQty, fiberUnit, sugarQty, sugarUnit, proteinQty, proteinUnit, cholesterolQty, cholesterolUnit, sodiumQty, sodiumUnit) {
@@ -152,31 +164,30 @@ function callEdamamAPI(queryText, lowerCalorieRange, upperCalorieRange, health, 
         console.log(rawData);
         console.log("--------rawData-----------")
 
-        // var recipes = [];
-        // for (var i = 0; i < rawData.length; i++) {
-        //   var recipe = {
-        //     title: rawData[i].recipe.label,
-        //     url: rawData[i].recipe.url,
-        //     pic: rawData[i].recipe.image,
-        //     calories: rawData[i].recipe.calories,
-        //     fats: rawData[i].recipe.totalNutrients.FAT.quantity,
-        //     protein: rawData[i].recipe.totalNutrients.PROCNT.quantity,
-        //     carbs: rawData[i].recipe.totalNutrients.CHOCDF.quantity,
-        //     serves: rawData[i].recipe.yield
-        //   };
-        //   recipes.push(recipe);
-        // };
-        // console.log("________recipes");
-        // console.log(recipes);
-        // console.log("________recipes");
+        var recipes = [];
+        for (var i = 0; i < rawData.length; i++) {
+          var recipe = {
+            title: rawData[i].recipe.label,
+            url: rawData[i].recipe.url,
+            pic: rawData[i].recipe.image,
+            calories: rawData[i].recipe.calories,
+            fats: rawData[i].recipe.totalNutrients.FAT.quantity,
+            protein: rawData[i].recipe.totalNutrients.PROCNT.quantity,
+            carbs: rawData[i].recipe.totalNutrients.CHOCDF.quantity,
+            serves: rawData[i].recipe.yield
+          };
+          recipes.push(recipe);
+        };
+        console.log("________recipes");
+        console.log(recipes);
+        console.log("________recipes");
       }
 
-
-
+      console.log(recipeResultsArray);
       return recipeResultsArray;
     }
   });
 }
 
 // EXPORT LOGIC
-module.exports = callEdamamAPI;
+module.exports = buildQueryURL;

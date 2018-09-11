@@ -1,6 +1,7 @@
 var db = require("../models");
 var passport = require("../config/passport");
-var callEdamamAPI = require("../edamam");
+var buildQueryURL = require("../edamam");
+var request = require("request");
 
 module.exports = function (app) {
 
@@ -67,7 +68,7 @@ module.exports = function (app) {
   });
 
   // Edit profile pic
-  app.post("/api/updateProfilePic", function(req,res) {
+  app.post("/api/updateProfilePic", function (req, res) {
     var newObj = {
       profilePic: req.body.link
     };
@@ -76,34 +77,39 @@ module.exports = function (app) {
       where: {
         id: req.user.id
       }
-    }).then(function() {
-      res.json({success: true});
+    }).then(function () {
+      res.json({ success: true });
     });
   });
 
   // Recipe search
-  app.get("/api/recipeSearch", function(req,res) {
-    
-    callEdamamAPI("chicken", 10, 1000, "", "");
-    
-    // console.log(rawData);
-    // var recipes = [];
-    // for (var i=0; i < rawData.hits.length; i++) {
-    //   var recipe = {
-    //     title: rawData.hits[i].recipe.label,
-    //     url: rawData.hits[i].recipe.url,
-    //     pic: rawData.hits[i].recipe.image,
-    //     calories: rawData.hits[i].recipe.calories,
-    //     fats: rawData.hits[i].recipe.totalNutrients.FAT.quantity,
-    //     protein: rawData.hits[i].recipe.totalNutrients.PROCNT.quantity,
-    //     carbs: rawData.hits[i].recipe.totalNutrients.CHOCDF.quantity,
-    //     serves: rawData.hits[i].recipe.yield
-    //   };
-    //   recipes.push(recipe);
-    // };
-    // console.log(recipes);
-    // res.json(recipes);
-    res.json("recipes");
+  app.post("/api/recipeSearch", function (req, res) {
+
+    var queryURL = buildQueryURL(req.body.protein, req.body.lowerCalorieRange, req.body.upperCalorieRange, req.body.health, req.body.diet);
+
+    request(queryURL, function (err, response, body) {
+      if (err) {
+        throw err;
+      };
+
+      var rawData = JSON.parse(body);
+      var recipes = [];
+      for (var i = 0; i < rawData.hits.length; i++) {
+        var recipe = {
+          title: rawData.hits[i].recipe.label,
+          url: rawData.hits[i].recipe.url,
+          pic: rawData.hits[i].recipe.image,
+          calories: rawData.hits[i].recipe.calories,
+          fats: rawData.hits[i].recipe.totalNutrients.FAT.quantity,
+          protein: rawData.hits[i].recipe.totalNutrients.PROCNT.quantity,
+          carbs: rawData.hits[i].recipe.totalNutrients.CHOCDF.quantity,
+          serves: rawData.hits[i].recipe.yield
+        };
+        recipes.push(recipe);
+      };
+      return res.json(recipes);
+    });
+
   });
 
 };
