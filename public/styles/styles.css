@@ -75,15 +75,23 @@ body {
   margin: 75px 0 50px 0;
 }
 /* Create an Account */
-
 #regForm {
   border: none;
   outline: none;
   background: none;
   margin: 100px auto;
   padding: 40px;
-  width: 40%;
+  width: 60%;
   min-width: 300px;
+  font-size: 18px;
+}
+#progress {
+  margin-bottom: 40px;
+}
+.tab p {
+  margin: 30px 0;
+  width: 100%;
+  outline: none;
 }
 .tab input {
   border: none;
@@ -91,6 +99,8 @@ body {
   background: none;
   color: #000000;
   font-size: 18px;
+  width: 100%;
+  padding-left: 12px;
   border-bottom: 2px solid #4caf50;
 }
 .tab input:focus {
@@ -98,10 +108,11 @@ body {
   outline: none;
 }
 .tab input::placeholder {
+  padding-left: 0px;
   color: #000000;
 }
 input.invalid {
-  background-color: #f5ebeb;
+  background-color: #ffdddd;
   border-radius: 25px;
 }
 .tab {
@@ -115,13 +126,37 @@ input.invalid {
   border: none;
   border-radius: 50%;
   display: inline-block;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 .step.active {
   opacity: 1;
 }
 .step.finish {
   background-color: #4caf50;
+}
+#prevBtn {
+  background: none;
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+#prevBtn:focus {
+  outline: none;
+}
+#nextBtn {
+  background: none;
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 5px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+#nextBtn:focus {
+  outline: none;
 }
 /* Profile Page */
 .circle {

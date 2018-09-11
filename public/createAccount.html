@@ -21,69 +21,73 @@
 </head>
 
 <body>
-    <form id="regForm" action="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="regForm" action="">
 
-        <!-- Circles which indicates the steps of the form: -->
-        <div style="text-align:center;margin-top:40px;">
-            <span class="step"></span>
-            <span class="step"></span>
-            <span class="step"></span>
-        </div>
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div id="progress" style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
 
-        <!-- One "tab" for each step in the form: -->
-        <div class="tab">
-            <h4>CREATE YOUR ACCOUNT</h4>
+                    <!-- One "tab" for each step in the form: -->
+                    <div class="tab">
+                        <h3 style="text-decoration: underline">CREATE YOUR ACCOUNT</h3>
+                        <span>Answer a couple quick questions and you'll be all set!</span>
+                        <p><input type="text" class="form-control" id="fullName" placeholder="Full Name" oninput="this.className = ''"></p>
+                        <p><input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email"
+                                oninput="this.className = ''"></p>
+                        <p><input type="text" class="form-control" id="username" placeholder="Username" oninput="this.className = ''"></p>
+                        <p><input type="password" class="form-control" id="password" placeholder="Password" oninput="this.className = ''"></p>
+                    </div>
 
+                    <div class="tab">
+                        <div class="form-group" id="fitness-goal">
+                            <label for="goal">I want to...</label>
+                            <select class="form-control" id="goal">
+                                <option></option>
+                                <option class="goal" id="bf-goal" value="1">Lose Body Fat</option>
+                                <option class="goal" id="gm-goal" value="2">Gain Muscle</option>
+                                <option class="goal" id="mw-goal" value="3">Maintain weight</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="pa-factor">
+                            <label for="activity">I exercise:</label>
+                            <select class="form-control" id="goal">
+                                <option></option>
+                                <option name="pa" class="pa" value="1" data-multiplier="1.2">0 days a week</option>
+                                <option name="pa" class="pa" value="2" data-multiplier="1.375">1-2 days a week</option>
+                                <option name="pa" class="pa" value="3" data-multiplier="1.55">3-4 days a week</option>
+                                <option name="pa" class="pa" value="4" data-multiplier="1.725">5-6 days a week</option>
+                                <option name="pa" class="pa" value="5" data-multiplier="1.9">5-7 days a week (athletic
+                                    training)</option>
+                            </select>
+                        </div>
+                    </div>
 
-            <p><input type="text" class="form-control" id="fullName" placeholder="Full Name" oninput="this.className = ''"></p>
-            <p><input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email"
-                    oninput="this.className = ''"></p>
-            <p><input type="text" class="form-control" id="username" placeholder="Username" oninput="this.className = ''"></p>
-            <p><input type="password" class="form-control" id="password" placeholder="Password" oninput="this.className = ''"></p>
-        </div>
+                    <div class="tab">
+                        <p><input placeholder="Gender" name="gender" oninput="this.className = ''"></p>
+                        <p><input placeholder="Age" id="age" oninput="this.className = ''"></p>
+                        <span><input id="feet" placeholder="Height-ft" oninput="this.className = ''" style="width: 48.99%;"></span>
+                        <span><input id="inches" placeholder="Height-in" oninput="this.className = ''" style="width: 48.99%"></span>
+                        <br>
+                        <p><input id="weight" placeholder="Weight- lbs" oninput="this.className = ''"></p>
+                    </div>
 
-        <div class="tab">
-            <h4>Fitness Goals</h4>
-            <div class="form-group" id="fitness-goal">
-                <label for="goal">I want to...</label>
-                <select class="form-control" id="goal">
-                    <option></option>
-                    <option class="goal" id="bf-goal" value="1">Lose Body Fat</option>
-                    <option class="goal" id="gm-goal" value="2">Gain Muscle</option>
-                    <option class="goal" id="mw-goal" value="3">Maintain weight</option>
-                </select>
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
-            <div class="form-group" id="pa-factor">
-                <label for="activity">I exercise:</label>
-                <select class="form-control" id="goal">
-                    <option></option>
-                    <option name="pa" class="pa" value="1" data-multiplier="1.2">0 days a week</option>
-                    <option name="pa" class="pa" value="2" data-multiplier="1.375">1-2 days a week</option>
-                    <option name="pa" class="pa" value="3" data-multiplier="1.55">3-4 days a week</option>
-                    <option name="pa" class="pa" value="4" data-multiplier="1.725">5-6 days a week</option>
-                    <option name="pa" class="pa" value="5" data-multiplier="1.9">5-7 days a week (athletic training)</option>
-                </select>
-            </div>
         </div>
-
-        <div class="tab">
-            <h4>Just a couple more questions </h4>
-            <p><input placeholder="Gender" name="gender" oninput="this.className = ''"></p>
-            <p><input placeholder="Age" id="age" oninput="this.className = ''"></p>
-            <span><input id="feet" placeholder="Height-ft" oninput="this.className = ''" style="width: 45%;"></span>
-            <span><input id="inches" placeholder="Height-in" oninput="this.className = ''" style="width: 45%"></span>
-            <br><br>
-            <p><input id="weight" placeholder="Weight- lbs" oninput="this.className = ''"></p>
-        </div>
-
-        <div style="overflow:auto;">
-            <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-            </div>
-        </div>
-
-    </form>
+    </div>
 
 
     <!-- Modal -->
