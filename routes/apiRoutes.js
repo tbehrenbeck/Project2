@@ -30,15 +30,18 @@ module.exports = function (app) {
 
     // Add user to DB
     db.User.create(profile).then(function () {
-      res.json({ success: true, message: "User data added to database" });
+      res.redirect(307, "/api/login");
+      // res.json({ success: true, message: "User data added to database" });
     }).catch(function (err) {
-      switch (err.errors[0].validatorKey) {
-      case "isEmail":
-        return res.json({ success: false, message: "Invalid email address" });
-      case "not_unique":
-        return res.json({ success: false, message: "Username/email already registerd. <a href='/'>Click here to login.</a>" });
-      default:
-        return res.json({ success: false, message: "Internal server error" });
+      if (err) {
+        switch (err.errors[0].validatorKey) {
+          case "isEmail":
+            return res.json({ success: false, message: "Invalid email address" });
+          case "not_unique":
+            return res.json({ success: false, message: "Username/email already registerd. <a href='/'>Click here to login.</a>" });
+          default:
+            return res.json({ success: false, message: "Internal server error" });
+        }
       }
     });
   });
