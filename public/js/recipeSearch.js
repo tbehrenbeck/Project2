@@ -15,23 +15,6 @@ $(document).ready(function () {
     var destUrl = `/recipeSearch/${protein}/${lower}/${upper}/${health}/${diet}`;
     window.location.replace(destUrl);
 
-    // send data to "/api/recipeSearch"
-    // $.ajax({
-    //   url: "/api/recipeSearch",
-    //   method: "POST",
-    //   data: {
-    //     protein: protein,
-    //     lowerCalorieRange: lowerCalorieRange,
-    //     upperCalorieRange: upperCalorieRange,
-    //     health: health,
-    //     diet: diet,
-    //     mealCount: mealCount 
-    //   }}).then(function (data) {
-    //   console.log(data);
-    //   var destUrl = 
-    //     `/`
-    // });
-
   });
 
 });

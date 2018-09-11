@@ -82,14 +82,26 @@ module.exports = function (app) {
     });
   });
 
-  // Recipe search
+  // Add to favorites
+  app.post("/api/addToFavs", function(req,res) {
+    var user = req.user.id;
+    var recipeInfo = req.body;
+    recipeInfo.UserId = user;
+
+    db.Favorite.create(recipeInfo).then(function) {
+      res.json({success: true, message: "Successfully added to favorites."});
+    };
+    
+  });
+
+  // Recipe search JSON output
   app.post("/api/recipeSearch", function (req, res) {
 
     var queryURL = buildQueryURL(req.body.protein, req.body.lowerCalorieRange, req.body.upperCalorieRange, req.body.health, req.body.diet);
 
     request(queryURL, function (err, response, body) {
       if (err) {
-        throw err;
+        throw err + response;
       };
 
       var rawData = JSON.parse(body);
@@ -99,6 +111,7 @@ module.exports = function (app) {
           title: rawData.hits[i].recipe.label,
           url: rawData.hits[i].recipe.url,
           pic: rawData.hits[i].recipe.image,
+          time: rawData.hits[i].recipe.totalTime,
           calories: rawData.hits[i].recipe.calories,
           fats: rawData.hits[i].recipe.totalNutrients.FAT.quantity,
           protein: rawData.hits[i].recipe.totalNutrients.PROCNT.quantity,

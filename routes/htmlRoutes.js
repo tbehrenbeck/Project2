@@ -45,18 +45,28 @@ module.exports = function (app) {
       var data = [];
       for (var i = 0; i < rawData.hits.length; i++) {
         var recipe = {
+          id: i+1,
           title: rawData.hits[i].recipe.label,
           url: rawData.hits[i].recipe.url,
           pic: rawData.hits[i].recipe.image,
+          time: rawData.hits[i].recipe.totalTime,
           calories: rawData.hits[i].recipe.calories,
           fats: rawData.hits[i].recipe.totalNutrients.FAT.quantity,
           protein: rawData.hits[i].recipe.totalNutrients.PROCNT.quantity,
           carbs: rawData.hits[i].recipe.totalNutrients.CHOCDF.quantity,
           serves: rawData.hits[i].recipe.yield
         };
+        // Calculate date for individual servings
+        recipe.calories = Math.round(recipe.calories / recipe.serves);
+        recipe.carbs = Math.round(recipe.carbs / recipe.serves);
+        recipe.protein = Math.round(recipe.protein / recipe.serves);
+        recipe.fats = Math.round(recipe.fats / recipe.serves);
+
+        var recipeString = JSON.stringify(recipe);
+        recipe.jsonData = recipeString;
+
         data.push(recipe);
       };
-      console.log(data);
       res.render("results", { data: data });
     });
   });
