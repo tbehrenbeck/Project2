@@ -6,90 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS RESET -->
-    <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/reset.css" />
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- Font Awesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
     <title>Project 2</title>
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="regForm" action="">
 
-    <div class="jumbotron jumbotron-fluid" style="height: 180px; padding-top: 30px">
-        <div class="container" style="text-align: center">
-            <h1 class="display-4">Project 2</h1>
-            <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ab.</p>
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div id="progress" style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+
+                    <!-- One "tab" for each step in the form: -->
+                    <div class="tab">
+                        <h3 style="text-decoration: underline">CREATE YOUR ACCOUNT</h3>
+                        <span>Answer a couple quick questions and you'll be all set!</span>
+                        <p><input type="text" class="form-control" id="fullName" placeholder="Full Name" oninput="this.className = ''"></p>
+                        <p><input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email"
+                                oninput="this.className = ''"></p>
+                        <p><input type="text" class="form-control" id="username" placeholder="Username" oninput="this.className = ''"></p>
+                        <p><input type="password" class="form-control" id="password" placeholder="Password" oninput="this.className = ''"></p>
+                    </div>
+
+                    <div class="tab">
+                        <div class="form-group" id="fitness-goal">
+                            <label for="goal">I want to...</label>
+                            <select class="form-control" id="goal">
+                                <option></option>
+                                <option class="goal" id="bf-goal" value="1">Lose Body Fat</option>
+                                <option class="goal" id="gm-goal" value="2">Gain Muscle</option>
+                                <option class="goal" id="mw-goal" value="3">Maintain weight</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="pa-factor">
+                            <label for="activity">I exercise:</label>
+                            <select class="form-control" id="goal">
+                                <option></option>
+                                <option name="pa" class="pa" value="1" data-multiplier="1.2">0 days a week</option>
+                                <option name="pa" class="pa" value="2" data-multiplier="1.375">1-2 days a week</option>
+                                <option name="pa" class="pa" value="3" data-multiplier="1.55">3-4 days a week</option>
+                                <option name="pa" class="pa" value="4" data-multiplier="1.725">5-6 days a week</option>
+                                <option name="pa" class="pa" value="5" data-multiplier="1.9">5-7 days a week (athletic
+                                    training)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="tab">
+                        <p><input placeholder="Gender" name="gender" oninput="this.className = ''"></p>
+                        <p><input placeholder="Age" id="age" oninput="this.className = ''"></p>
+                        <span><input id="feet" placeholder="Height-ft" oninput="this.className = ''" style="width: 48.99%;"></span>
+                        <span><input id="inches" placeholder="Height-in" oninput="this.className = ''" style="width: 48.99%"></span>
+                        <br>
+                        <p><input id="weight" placeholder="Weight- lbs" oninput="this.className = ''"></p>
+                    </div>
+
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
         </div>
     </div>
 
-    <div class="card" style="width: 50%; margin: auto; margin-bottom: 50px;">
-        <form style="margin: 10px">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="fullName" placeholder="First & Last Name">
-            </div>
-            <div class="form-group">
-                <label for="name">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
-            </div>
-            <div class="form-group" id="fitness-goal">
-                <label for="goal">I want to...</label>
-                <select class="form-control" id="goal">
-                    <option></option>
-                    <option class="goal" id="bf-goal" value="1">Lose Body Fat</option>
-                    <option class="goal" id="gm-goal" value="2">Gain Muscle</option>
-                    <option class="goal" id="mw-goal" value="3">Maintain weight</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="gender">Gender:</label>
-                <label>Male <input type="radio" name="gender" value="male"></label>
-                <label>Female <input type="radio" name="gender" value="female"></label>
-            </div>
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" placeholder="Age" min="1" max="100"><br>
-                <label for="height">Height</label>
-
-                <input type="number" id="feet" placeholder="ft" min="1" max="10">
-                <input type="number" id="inches" placeholder="in" min="1" max="12">
-                <label for="weight">Weight</label>
-                <input type="number" id="weight" placeholder="lbs" min="1" max="100">
-            </div>
-            <div class="form-group" id="pa-factor">
-                <label for="activity">I exercise:</label>
-                <select class="form-control" id="goal">
-                    <option></option>
-                    <option name="pa" class="pa" value="1" data-multiplier="1.2">0 days a week</option>
-                    <option name="pa" class="pa" value="2" data-multiplier="1.375">1-2 days a week</option>
-                    <option name="pa" class="pa" value="3" data-multiplier="1.55">3-4 days a week</option>
-                    <option name="pa" class="pa" value="4" data-multiplier="1.725">5-6 days a week</option>
-                    <option name="pa" class="pa" value="5" data-multiplier="1.9">5-7 days a week (athletic training)</option>
-                </select>
-            </div>
-            <div class="form-group" id="meals">
-                <label for="meals">I eat...</label>
-                <input type="number" id="meal-count" placeholder="5" min="1" max="10"> <span>meals per day</span>
-            </div>
-
-            <button type="button" class="btn btn-primary" id="submit">Submit</button>
-
-        </form>
-    </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -108,6 +111,7 @@
         </div>
     </div>
 
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -118,7 +122,9 @@
         crossorigin="anonymous"></script>
     <!-- JAVASCRIPT -->
     <!-- <script src="/js/index.js"></script> -->
-    <script src="/js/macro.js"></script>
+
+    <script src="js/newAccount.js"></script>
+    <script src="js/macro.js"></script>
 </body>
 
 </html>

@@ -38,17 +38,24 @@
             <i class="fas fa-lock" aria-hidden="true"></i>
             <input type="password" id="password" placeholder="Password" name="" value="">
         </div>
+
         <div class="checkbox">
-            <label><input type="checkbox" value="No" id="remember-me"> Remember me</label>
+            <span><input type="checkbox" class="form-check-input" value="No" id="remember-me">Remember me</span>
         </div>
+
         <input class="btn" type="submit" name="" id="submit-button" value="Sign In">
-        
+        <div class="newAccount text-right">
+            <span>Don't have an account? <a href="/createAccount">Create one</a>
+            </span>
+        </div>
+
         <div id="welcome-back-box"></div>
 
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
