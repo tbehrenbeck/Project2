@@ -65,4 +65,10 @@ module.exports = function (app) {
     }
   });
 
+  // 
+  app.post("/api/recipeSearch", function(req,res) {
+    console.log(req.body);
+    res.json({success: true});
+  });
+
 };
