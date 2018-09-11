@@ -73,6 +73,11 @@ module.exports = function(sequelize, DataTypes) {
 
     fats: {
       type: DataTypes.INTEGER
+    },
+
+    profilePic: {
+      type: DataTypes.STRING,
+      defaultValue: "http://advaion.com/wp-content/uploads/2017/11/placeholder.png"
     }
 
   });
