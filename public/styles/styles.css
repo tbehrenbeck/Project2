@@ -160,7 +160,7 @@ input.invalid {
 }
 /* Profile Page */
 .circle {
-  border: 2px solid black;
+  border: 4px solid #a38c94;
   border-radius: 50%;
   height: 100px;
   width: 100px;
@@ -179,3 +179,30 @@ input.invalid {
 .card.summary {
   border: none;
 }
+<<<<<<< HEAD
+
+#profile-summary, 
+#profile-search{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dropdown {
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  height: 45px;
+  width: 200px;
+  background: #eaeae7;
+  border: 1px solid;
+  border-color: white #f7f7f7 whitesmoke;
+  border-radius: 3px;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+ 
+}
+=======
+>>>>>>> master
