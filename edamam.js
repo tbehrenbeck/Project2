@@ -134,6 +134,7 @@ function callEdamamAPI(){
         recipeResultsArray.push(recipe);
       }
       console.log(recipeResultsArray);
+      return recipeResultsArray;
     }
   });
 }

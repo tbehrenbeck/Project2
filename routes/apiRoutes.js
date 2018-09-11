@@ -84,8 +84,22 @@ module.exports = function (app) {
   // Recipe search
   app.post("/api/recipeSearch", function(req,res) {
     console.log(req.body);
-    callEdamamAPI();
-    res.json({success: true});
+    var rawData = callEdamamAPI();
+    var recipes = [];
+    for (var i=0; i < rawData.hits.length; i++) {
+      var recipe = {
+        title: rawData.hits[i].recipe.label,
+        url: rawData.hits[i].recipe.url,
+        pic: rawData.hits[i].recipe.image,
+        calories: rawData.hits[i].recipe.calories,
+        fats: rawData.hits[i].recipe.totalNutrients.FAT.quantity,
+        protein: rawData.hits[i].recipe.totalNutrients.PROCNT.quantity,
+        carbs: rawData.hits[i].recipe.totalNutrients.CHOCDF.quantity,
+        serves: rawData.hits[i].recipe.yield
+      };
+      recipes.push(recipe);
+    };
+    res.json(recipes);
   });
 
 };
