@@ -109,14 +109,12 @@ $(document).ready(function() {
       method: "POST",
       data: macros
     }).then(function(data) {
-      if (data.success) {
-        return showModal(
-          "Success!",
-          "Your profile has been created successfully!<br><a href='/profile'>View profile</a>"
-        );
-      } else {
-        return showModal("Oops!", data.message);
-      }
+      window.location.replace(data.url);
+      // return showModal(
+      //   "Success!",
+      //   "Your profile has been created successfully!<br><a href='/profile'>View profile</a>"
+      // );
+      return showModal("Oops!", data.message);
     });
   });
 });
