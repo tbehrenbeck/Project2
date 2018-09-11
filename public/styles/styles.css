@@ -74,12 +74,21 @@ body {
   text-align: center;
   margin: 75px 0 50px 0;
 }
+/* Modal */
+.modal {
+  text-align: center;
+}
+.modal-title {
+  width: 100%;
+  position: relative;
+  left: 14px;
+}
 /* Create an Account */
 #regForm {
   border: none;
   outline: none;
   background: none;
-  margin: 100px auto;
+  margin: 30px auto;
   padding: 40px;
   width: 60%;
   min-width: 300px;
