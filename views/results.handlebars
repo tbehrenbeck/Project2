@@ -3,7 +3,9 @@
           <h1>Recipes</h1>
           <div></div>
       </div>
-      <div class="card mx-auto my-3" style="width:70%">
+
+      {{!-- {{#each}} --}}
+      <div class="card mx-auto my-3" id="recipe-card" style="width:70%">
           <div class="card-header">
               <h3 class="card-title"> Recipe Title </h3>
           </div>
@@ -24,13 +26,15 @@
                   <div class="col-md-3">
                       <h6>Cook Time: 1 hour</h6>
                       <h6>Servings: 6</h6>
-                      <a href="#">recipe link</a>
+                      <a href="#">recipe link</a><br>
+                      <button class="fa fa-heart p-1 my-1" id="heart" style="border-radius:5px;"></button>
                     </div>
-              </div>
-             
-            
+              </div> 
           </div>
       </div>
+      {{!-- {{/each}} --}}
+
+      
 
   </div>
 
