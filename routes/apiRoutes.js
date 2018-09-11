@@ -65,9 +65,26 @@ module.exports = function (app) {
     }
   });
 
-  // 
+  // Edit profile pic
+  app.post("/api/updateProfilePic", function(req,res) {
+    var newObj = {
+      profilePic: req.body.link
+    };
+
+    db.User.update(newObj, {
+      where: {
+        id: req.user.id
+      }
+    }).then(function() {
+      res.json({success: true})
+    });
+
+  });
+
+  // Recipe search
   app.post("/api/recipeSearch", function(req,res) {
     console.log(req.body);
+    // USE REQUEST MODULE??
     res.json({success: true});
   });
 
