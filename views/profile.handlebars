@@ -1,4 +1,4 @@
-<div class="card" style="width: 70%; margin: 50px auto;">
+    <div class="card" id="profile-summary" style="width: 70%; margin: 50px auto;">
 
         <div class="card-header">
             <h2>{{data.fullName}}</h2>
@@ -52,62 +52,77 @@
 
     </div>
     
-    <div class="card" style="width: 70%; margin: 50px auto;">
+    <div class="card" id="profile-search" style="width: 70%; margin: 50px auto;">
         <div class="card-header">
             <h2>Search Recipes</h2>
         </div>
         <div class="card-body">
             <form>
-                <label for="protein-options"><h5>Pick your Protein</h5></label>
-                <select id="protein-options">
-                    <option></option>
-                    <option value="chicken">chicken</option>
-                    <option value="beef">beef</option>
-                    <option value="pork">pork</option>
-                    <option value="turkey">turkey</option>
-                    <option value="fish">fish</option>
-                    <option value="shrimp">shrimp</option>
-                </select>
-                <br>
-                <label for="calorie-range"><h5>Calorie Range</h5></label>
-                <input type="number" id="min-cals" placeholder="min" name="min-cals" min="0" max="5000">
-                <input type="number" id="max-cals" placeholder="max" name="max-cals" min="0" max="5000">
-                <div id="diet">
-                    <label for="diet-options"><h5>Diet Options</h5></label>
-                    <select id="diet-options">
-                        <option></option>
-                        <option value="high-protein">high protein</option>
-                        <option value="high-fiber">high fiber</option>
-                        <option value="low-fat">low fat</option>
-                        <option value="low-carb">low carb</option>
-                        <option value="low-sodium">low sodium</option>
-                    </select>
+                <div class="row text-center">
+                  <div class="mx-auto" style="width:80%; position:relative">
+                    <span id="protein">
+                        {{!-- <label for="protein-options"><h5>Pick your Protein</h5></label> --}}
+                        <select class="dropdown float-left" id="protein-options">
+                            <option>Protein</option>
+                            <option value="chicken">chicken</option>
+                            <option value="beef">beef</option>
+                            <option value="pork">pork</option>
+                            <option value="turkey">turkey</option>
+                            <option value="fish">fish</option>
+                            <option value="shrimp">shrimp</option>
+                        </select>
+                    </span>
+                    <span id="diet">
+                        {{!-- <label for="diet-options"><h5>Diet Options</h5></label> --}}
+                        <select class="dropdown" id="diet-options">
+                            <option>Diet Options</option>
+                            <option value="high-protein">high protein</option>
+                            <option value="high-fiber">high fiber</option>
+                            <option value="low-fat">low fat</option>
+                            <option value="low-carb">low carb</option>
+                            <option value="low-sodium">low sodium</option>
+                        </select>
+                    </span>
+                    <span id="health">
+                        {{!-- <label for="health-options"><h5>Additional Health Options</h5></label> --}}
+                        <select class="dropdown float-right" id="health-options">
+                            <option>Health Options</option>
+                            <option value="pescatarian">pescatarian</option>
+                            <option value="vegetarian">vegetarian</option>
+                            <option value="vegan">vegan</option>
+                            <option value="paleo">paleo</option>
+                            <option value="kosher">kosher</option>
+                            <option value="dairy-free">dairy-free</option>
+                            <option value="gluten-free">gluten-free</option>
+                            <option value="peanut-free">peanut-free</option>
+                            <option value="shellfish-free">shellfish-free</option>
+                            <option value="pork-free">pork-free</option>
+                            <option value="alcohol-free">alcohol-free</option>
+                            <option value="soy-free">soy-free</option>
+                            <option value="egg-free">egg-free</option>
+                            <option value="wheat-free">wheat-free</option>
+                            <option value="low-sugar">low-sugar</option>
+                            <option value="celery-free">celery-free</option>
+                        </select>
+                    </span>
+                  </div>
+                </div><br>
+                <div class="row">
+                    <div class="mx-auto" style="width:80%">
+                        <div id="calories" style="border:1px solid #f7f7f7 height:45px width:50% float-left">
+                            <label for="calorie-range"><h6>Recipes between</h6></label>
+                            <input type="number" id="min-cals" placeholder=" min" name="min-cals" min="0" max="5000"> and 
+                            <input type="number" id="max-cals" placeholder=" max" name="max-cals" min="0" max="5000"> calories
+                        </div>
+                         <div id="meals" style="border:1px solid #f7f7f7 height:45px float-right">
+                            <label for="meal-count"><h6>I eat </h6></label>
+                            <input type="number" id="meal-count" placeholder="5" name="meal-count" min="0" max="10"> meals per day
+                        </div>
+                    </div>
                 </div>
-                   <div id="health">
-                    <label for="health-options"><h5>Additional Health Options</h5></label>
-                    <select id="health-options">
-                        <option></option>
-                        <option value="pescatarian">pescatarian</option>
-                        <option value="vegetarian">vegetarian</option>
-                        <option value="vegan">vegan</option>
-                        <option value="paleo">paleo</option>
-                        <option value="kosher">kosher</option>
-                        <option value="dairy-free">dairy-free</option>
-                        <option value="gluten-free">gluten-free</option>
-                        <option value="peanut-free">peanut-free</option>
-                        <option value="shellfish-free">shellfish-free</option>
-                        <option value="pork-free">pork-free</option>
-                        <option value="alcohol-free">alcohol-free</option>
-                        <option value="soy-free">soy-free</option>
-                        <option value="egg-free">egg-free</option>
-                        <option value="wheat-free">wheat-free</option>
-                        <option value="low-sugar">low-sugar</option>
-                        <option value="celery-free">celery-free</option>
-                        
-                    </select>
-                </div>
+               
 
-                <button id="search">Search</button>
+                <button id="search-btn">Search</button>
             </form>
             
         </div>
