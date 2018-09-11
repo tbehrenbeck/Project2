@@ -35,8 +35,10 @@
 
                     <!-- One "tab" for each step in the form: -->
                     <div class="tab">
-                        <h3 style="text-decoration: underline">CREATE YOUR ACCOUNT</h3>
-                        <span>Answer a couple quick questions and you'll be all set!</span>
+                        <div class="form-info">
+                            <h3 style="text-decoration: underline">CREATE YOUR ACCOUNT</h3>
+                            <span>Answer a couple quick questions and you'll be all set!</span>
+                        </div>
                         <p><input type="text" class="form-control" id="fullName" placeholder="Full Name" oninput="this.className = ''"></p>
                         <p><input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email"
                                 oninput="this.className = ''"></p>
@@ -82,6 +84,10 @@
                             <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                             <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                         </div>
+                    </div>
+                    <div class="login text-right">
+                        <span>Already have an account? <a href="/main">Login</a>
+                        </span>
                     </div>
                 </form>
 
