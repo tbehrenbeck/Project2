@@ -1,10 +1,11 @@
+// Modal helper function
+function showModal(modalTitle, modalBody) {
+  $("#modal-title").html(modalTitle);
+  $("#modal-body").html(modalBody);
+  $("#error-modal").modal("toggle");
+};
+
 $(document).ready(function() {
-  // Modal helper function
-  function showModal(modalTitle, modalBody) {
-    $("#modal-title").html(modalTitle);
-    $("#modal-body").html(modalBody);
-    $("#error-modal").modal("toggle");
-  }
 
   //calculate maintenance calories
   function calcCals(kg, pa, age, ht, gender) {
@@ -59,32 +60,17 @@ $(document).ready(function() {
     return recommended;
   }
 
-  $("#submit").on("click touchstart", function(event) {
+  $("#regForm").on("submit", function(event) {
+    event.preventDefault();
+  });
+
+  $(document).on("click", "#nextBtn.submitButton", function(event) {
     event.preventDefault();
 
-    // Validate input
-    var inputs = document.getElementsByTagName("input");
-    for (var i = 0; i < inputs.length; i++) {
-      if (inputs[i].value === "") {
-        return showModal(
-          "Oops!",
-          "Please fill out all the forms before submitting!"
-        );
-      }
-    }
-
-    var fullName = $("#fullName")
-      .val()
-      .trim();
-    var username = $("#username")
-      .val()
-      .trim();
-    var email = $("#email")
-      .val()
-      .trim();
-    var password = $("#password")
-      .val()
-      .trim();
+    var fullName = $("#fullName").val().trim();
+    var username = $("#username").val().trim();
+    var email = $("#email").val().trim();
+    var password = $("#password").val().trim();
 
     var goal = parseInt($(".goal:selected").val());
     var pa = parseFloat($(".pa:selected").attr("data-multiplier"));
@@ -126,9 +112,8 @@ $(document).ready(function() {
       if (data.success) {
         return showModal(
           "Success!",
-          `Your profile has been created successfully!<br><a href='/profile/${username}'>View profile</a>`
+          "Your profile has been created successfully!<br><a href='/profile'>View profile</a>"
         );
-        console.log("Successfully added your profile!");
       } else {
         return showModal("Oops!", data.message);
       }
