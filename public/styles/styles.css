@@ -74,12 +74,34 @@ body {
   text-align: center;
   margin: 75px 0 50px 0;
 }
+/* Modal */
+.modal {
+  text-align: center;
+}
+.modal-title {
+  width: 100%;
+  position: relative;
+  left: 14px;
+}
+/* Welcome Back */
+#welcome-back-box {
+  margin: 75px 0 5px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+#welcome-back-box a {
+  color: #4caf50;
+}
+#welcome-back-box a:hover {
+  color: #000000;
+}
 /* Create an Account */
 #regForm {
   border: none;
   outline: none;
   background: none;
-  margin: 100px auto;
+  margin: 30px auto;
   padding: 40px;
   width: 60%;
   min-width: 300px;
@@ -202,12 +224,10 @@ input.invalid {
 .card.summary {
   border: none;
 }
-
-#profile-summary, 
-#profile-search{
+#profile-summary,
+#profile-search {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .dropdown {
   display: inline-block;
   /* position: absolute; */
@@ -218,11 +238,18 @@ input.invalid {
   border: 1px solid;
   border-color: white #f7f7f7 whitesmoke;
   border-radius: 3px;
-  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+  background-image: -webkit-linear-gradient(
+    top,
+    transparent,
+    rgba(0, 0, 0, 0.06)
+  );
   background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
   background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+  background-image: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.06)
+  );
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
- 
 }
