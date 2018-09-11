@@ -83,6 +83,19 @@ body {
   position: relative;
   left: 14px;
 }
+/* Welcome Back */
+#welcome-back-box {
+  margin: 75px 0 5px 0;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+#welcome-back-box a {
+  color: #4caf50;
+}
+#welcome-back-box a:hover {
+  color: #000000;
+}
 /* Create an Account */
 #regForm {
   border: none;
@@ -217,7 +230,7 @@ input.invalid {
 }
 .dropdown {
   display: inline-block;
-  position: absolute;
+  /* position: absolute; */
   overflow: hidden;
   height: 45px;
   width: 200px;
