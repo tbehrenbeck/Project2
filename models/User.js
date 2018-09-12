@@ -81,6 +81,12 @@ module.exports = function(sequelize, DataTypes) {
     }
 
   });
+  // Add foreign key to favorites
+  User.associate = function(models) {
+    User.hasMany(models.Favorite, {
+      onDelete: "cascade"
+    });
+  };
 
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);

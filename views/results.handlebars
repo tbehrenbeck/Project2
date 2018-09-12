@@ -1,40 +1,38 @@
 <div class="main">
-      <div class="jumbotron m-auto text-center" style="width:70%; background:transparent">
-          <h1>Recipes</h1>
-          <div></div>
-      </div>
-
-      {{!-- {{#each}} --}}
-      <div class="card mx-auto my-3" id="recipe-card" style="width:70%">
-          <div class="card-header">
-              <h3 class="card-title"> Recipe Title </h3>
-          </div>
-          <div class="card-body">
-              <div class="row">
-                  <div class="col-md-4">
-                    <img src="https://via.placeholder.com/200x150">
-                  </div>
-                  <div class="col-md-5">
-                      <h5>Nutrition Profile (per serving):</h5>
-                    <ul>
-                        <li>calories: 500</li>
-                        <li>protein: 25g</li>
-                        <li>carbs: 200g</li>
-                        <li>fats: 20g</li>
+    <div class="jumbotron m-auto text-center" style="width:70%; background:transparent">
+        <h1>Recipes</h1>
+        <div></div>
+    </div>
+    {{#each data}}
+    <div class="card mx-auto my-3" style="width:70%">
+        <div class="card-header">
+            <h3 class="card-title">{{this.title}}</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{this.pic}}" class="img-fluid">
+                </div>
+                <div class="col-md-5">
+                    <h5>Nutrition Profile (per serving):</h5>
+                    <ul data-serves="{{this.serves}}" id="list-{{this.id}}">
+                        <li>calories: {{this.calories}}</li>
+                        <li>protein: {{this.protein}}g</li>
+                        <li>carbs: {{this.carbs}}g</li>
+                        <li>fats: {{this.fats}}g</li>
                     </ul>
-                  </div>
-                  <div class="col-md-3">
-                      <h6>Cook Time: 1 hour</h6>
-                      <h6>Servings: 6</h6>
-                      <a href="#">recipe link</a><br>
-                      <button class="fa fa-heart p-1 my-1" id="heart" style="border-radius:5px;"></button>
-                    </div>
-              </div> 
-          </div>
-      </div>
-      {{!-- {{/each}} --}}
+                </div>
+                <div class="col-md-3">
+                    <h6>Cook Time: {{this.time}}</h6>
+                    <h6>Servings: {{this.serves}}</h6>
+                    <a href="{{this.url}}" target="_blank">recipe link</a>
+                    <br><button class="addToFavsBtn" data-json='{{this.jsonData}}'>Favorite</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
 
-      
+</div>
 
-  </div>
-
+<script src="/js/addToFavs.js"></script>

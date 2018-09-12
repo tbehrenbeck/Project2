@@ -7,6 +7,11 @@ $(document).ready(function() {
     event.preventDefault();
     newLink = prompt("URL to profile pic:");
 
+    if (newLink == "") {
+      return alert("Invalid URL");
+    }
+
+
     $.ajax({
       url: "/api/updateProfilePic",
       method: "POST",
