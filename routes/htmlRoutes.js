@@ -19,16 +19,25 @@ module.exports = function (app) {
   // Load a user's profile
   app.get("/profile", isAuthenticated, function (req, res) {
     var username = req.user.username;
+    var userId = req.user.id;
 
     db.User.findOne({
       where: {
         username: username
-      }
+      },
+      include: [{
+        model: db.Favorite,
+        where: {
+          UserId: userId
+        }
+      }]
     }).then(function (data) {
       if (data == null) {
         return res.send(`Username ${username} not found`);
       };
-      res.render("profile", { data: data });
+      var favs = data.Favorites;
+      console.log(favs[0].title);
+      res.render("profile", { data: data, favs: favs });
     });
   });
 

@@ -6,6 +6,9 @@ $(document).ready(function() {
   $("#edit-profile-pic").on("click", function(event) {
     event.preventDefault();
     newLink = prompt("URL to profile pic:");
+    if (newLink == "") {
+      return alert("Invalid URL");
+    }
 
     $.ajax({
       url: "/api/updateProfilePic",

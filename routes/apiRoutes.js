@@ -88,10 +88,39 @@ module.exports = function (app) {
     var recipeInfo = req.body;
     recipeInfo.UserId = user;
 
-    db.Favorite.create(recipeInfo).then(function) {
+    db.Favorite.create(recipeInfo).then(function() {
       res.json({success: true, message: "Successfully added to favorites."});
-    };
-    
+    });
+  });
+
+  // Load favorites
+  app.get("/api/loadFavs", function(req,res) {
+    if (!req.user) {
+      return res.json({success: false, message: "Not signed in"});
+    }
+    userId = req.user.id;
+
+    db.Favorite.findAll({
+      where: {
+        UserId: userId
+      }
+    }).then(function(data) {
+      return res.json(data);
+    });
+  });
+
+  // Delete favorite
+  app.get("/api/deleteFav/:id", function(req,res) {
+    if (!req.user) {
+      return res.json({success: false, message: "Not signed in"});
+    }
+    db.Favorite.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function() {
+      return res.json({success: true});
+    });
   });
 
   // Recipe search JSON output

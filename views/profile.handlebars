@@ -137,6 +137,17 @@
 
 </div>
 
+<div class="card" id="profile-summary" id="favorites-section" style="width: 70%; margin: 50px auto;">
+    <p align="center">Favorites:</p>
+    <ul id="insert-favs-here">
+        {{#each favs}}
+        <li>
+            <a href="{{this.url}}" target="_blank">{{this.title}}</a> <button class="delete-fav-button" data-id="{{this.id}}">Delete</button>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+
 <p align="center">
     <a href="/api/logout">Logout</a> |
     <a href="/">Home</a>
@@ -144,3 +155,4 @@
 
 <script src="/js/profilePic.js"></script>
 <script src="/js/recipeSearch.js"></script>
+<script src="/js/showFavorites.js"></script>

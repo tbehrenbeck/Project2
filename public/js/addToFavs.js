@@ -14,7 +14,7 @@ $(document).ready(function () {
       data: recipeInfo
     }).then(function(data) {
       if (data.success) {
-        console.log(data.message);
+        $(this).html("Added!");
       } else {
         console.log("Something went wrong");
       }
