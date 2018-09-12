@@ -40,6 +40,7 @@ module.exports = function (app) {
       res.render("profile", { data: data, favs: favs });
     });
   });
+  
 
   // Search for a recipe, render handlebars
   app.get("/recipeSearch/:protein/:lower/:upper/:health/:diet", function (req, res) {
@@ -82,6 +83,10 @@ module.exports = function (app) {
       };
       res.render("results", { data: data });
     });
+  });
+
+  app.get("/updateMacros", function(req,res) {
+    res.sendFile(path.resolve(__dirname, "../public/updateMacros.html"));
   });
 
   // Render 404 page for any unmatched routes

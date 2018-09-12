@@ -35,15 +35,9 @@ module.exports = function (app) {
       res.redirect(307, "/api/login");
       // res.json({ success: true, message: "User data added to database" });
     }).catch(function (err) {
+      console.log(err);
       if (err.errors) {
-        switch (err.errors[0].validatorKey) {
-          case "isEmail":
-            return res.json({ success: false, message: "Invalid email address" });
-          case "not_unique":
-            return res.json({ success: false, message: "Username/email already registerd. <a href='/'>Click here to login.</a>" });
-          default:
-            return res.json({ success: false, message: "Internal server error" });
-        }
+        return res.json({success: false, message: "Email address or uesrname already registered."})
       }
     });
   });
@@ -121,6 +115,27 @@ module.exports = function (app) {
       }
     }).then(function() {
       return res.json({success: true});
+    });
+  });
+
+  // Edit macros route
+  app.post("/api/editMacros", function(req,res) {
+    if (!req.user) {
+      return res.json({success: false, message: "Not signed in"});
+    };
+    var userId = req.user.id;
+    var newMacros = {
+      recCals: parseInt(req.body.recCals),
+      protein: parseInt(req.body.protein),
+      carbs: parseInt(req.body.carbs),
+      fats: parseInt(req.body.fats)
+    };
+    db.User.update(newMacros, {
+      where: {
+        id: userId
+      }
+    }).then(function() {
+      res.json({success: true, message: "Success!", url: "/profile"});
     });
   });
 

@@ -5,7 +5,7 @@ function showModal(modalTitle, modalBody) {
   $("#error-modal").modal("toggle");
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   //calculate maintenance calories
   function calcCals(kg, pa, age, ht, gender) {
@@ -60,11 +60,11 @@ $(document).ready(function() {
     return recommended;
   }
 
-  $("#regForm").on("submit", function(event) {
+  $("#regForm").on("submit", function (event) {
     event.preventDefault();
   });
 
-  $(document).on("click", "#nextBtn.submitButton", function(event) {
+  $(document).on("click", "#nextBtn.submitButton", function (event) {
     event.preventDefault();
 
     var fullName = $("#fullName").val().trim();
@@ -108,13 +108,18 @@ $(document).ready(function() {
       url: "/api/createAccount",
       method: "POST",
       data: macros
-    }).then(function(data) {
-      window.location.replace(data.url);
-      // return showModal(
-      //   "Success!",
-      //   "Your profile has been created successfully!<br><a href='/profile'>View profile</a>"
-      // );
-      return showModal("Oops!", data.message);
+    }).then(function (data) {
+      if (data.url === undefined) {
+        alert("Email or username already taken.");
+        window.location.replace("/createAccount");
+      } else {
+        window.location.replace(data.url);
+        // return showModal(
+        //   "Success!",
+        //   "Your profile has been created successfully!<br><a href='/profile'>View profile</a>"
+        // );
+        return showModal("Oops!", data.message);
+      };
     });
   });
 });
