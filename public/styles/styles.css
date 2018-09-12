@@ -233,23 +233,24 @@ input.invalid {
   border: 1px solid;
   border-color: white #f7f7f7 whitesmoke;
   border-radius: 3px;
-  /* background-image: -webkit-linear-gradient(
-    top,
-    transparent,
-    rgba(0, 0, 0, 0.06)
-  );
-  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0, 0, 0, 0.06)
-  );
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08); */
 }
 .fav-scroll {
   width: 710px;
   height: 330px;
   overflow: scroll;
+}
+#picture {
+  text-align: center;
+}
+.testimg {
+  width: 100%;
+  height: auto;
+}
+#edit-btn {
+  width: 20%;
+  font-size: 1rem;
+}
+#block1 {
+  background: none;
+  border: none;
 }
