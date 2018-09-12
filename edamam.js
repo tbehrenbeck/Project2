@@ -52,9 +52,21 @@ var queryUrl = "";
 //   return queryUrl;
 // };
 
+if (process.env.appID) {
+  var appID = process.env.appID;
+} else {
+  var appID = keys.edamam.appID;
+}
+
+if (process.env.apiKey) {
+  var apiKey = process.env.apiKey;
+} else {
+  var apiKey = keys.edamam.apiKey;
+}
+
 function buildQueryURL(protein, lower, upper, health, diet) {
   var queryURL = 
-    `https://api.edamam.com/search?app_id=${keys.edamam.appID}&app_key=${keys.edamam.apiKey}&` +
+    `https://api.edamam.com/search?app_id=${appID}&app_key=${apiKey}&` +
     `q=${protein}&calories=${lower}-${upper}&` +
     `health=${health}&diet=${diet}`;
   console.log(queryURL);
