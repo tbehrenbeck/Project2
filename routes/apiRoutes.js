@@ -35,7 +35,7 @@ module.exports = function (app) {
       res.redirect(307, "/api/login");
       // res.json({ success: true, message: "User data added to database" });
     }).catch(function (err) {
-      if (err) {
+      if (err.errors) {
         switch (err.errors[0].validatorKey) {
           case "isEmail":
             return res.json({ success: false, message: "Invalid email address" });
