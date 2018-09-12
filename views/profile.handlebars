@@ -16,21 +16,21 @@
 
             </div>
 
-            <div class="card my-4">
-                <h5 class="card-header">Search Recipes</h5>
+            <div class="card my-4" id="searchblock">
+                <h3 class="card-header">Search for Recipes</h3>
                 <div class="card-body">
                     <span id="protein">
                         <label for="protein-options">
                             <h5>Pick your Protein</h5>
                         </label>
                         <select class="dropdown float-left" id="protein-options">
-                            <option>Select your protein...</option>
-                            <option value="chicken">chicken</option>
-                            <option value="beef">beef</option>
-                            <option value="pork">pork</option>
-                            <option value="turkey">turkey</option>
-                            <option value="fish">fish</option>
-                            <option value="shrimp">shrimp</option>
+                            <option></option>
+                            <option value="chicken">Chicken</option>
+                            <option value="beef">Beef</option>
+                            <option value="pork">Pork</option>
+                            <option value="turkey">Turkey</option>
+                            <option value="fish">Fish</option>
+                            <option value="shrimp">Shrimp</option>
                         </select>
                     </span><br>
                     <span id="diet">
@@ -38,26 +38,26 @@
                             <h5>Diet Options</h5>
                         </label>
                         <select class="dropdown" id="diet-options">
-                            <option>Special diet options...</option>
-                            <option value="high-protein">high protein</option>
-                            <option value="low-fat">low fat</option>
-                            <option value="low-carb">low carb</option>
-                            <option value="low-sodium">low sodium</option>
+                            <option></option>
+                            <option value="high-protein">High Protein</option>
+                            <option value="low-fat">Low Fat</option>
+                            <option value="low-carb">Low Carb</option>
+                            <option value="low-sodium">Low Sodium</option>
                         </select>
                     </span>
-                    <div id="calories" style="border:1px solid #f7f7f7 height:45px width:50% float-left">
+                    <div id="calories">
                         <label for="calorie-range">
-                            <h6>Recipes between</h6>
+                            <h6>Calorie Range</h6>
                         </label>
                         <input type="number" id="min-cals" placeholder=" min" name="min-cals" min="0" max="5000"> and
                         <input type="number" id="max-cals" placeholder=" max" name="max-cals" min="0" max="5000">
-                        calories
                     </div>
-                    <div id="meals" style="border:1px solid #f7f7f7 height:45px float-right">
+                    <div id="meals">
                         <label for="meal-count">
                             <h6>I eat </h6>
                         </label>
-                        <input type="number" id="meal-count" placeholder="5" name="meal-count" min="0" max="10"> meals
+                        <input type="number" id="meal-count" placeholder="" name="meal-count" min="0" max="10">
+                        meals
                         per day
                     </div>
                     <button id="search-btn">Search</button>
@@ -121,13 +121,6 @@
         </div>
     </div>
 </div>
-
-<!-- Footer -->
-<footer class="py-2 bg-dark">
-    <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Project 2</p>
-    </div>
-</footer>
 
 
 <script src="/js/profilePic.js"></script>
