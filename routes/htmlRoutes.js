@@ -40,6 +40,7 @@ module.exports = function (app) {
       res.render("profile", { data: data, favs: favs });
     });
   });
+  
 
   // Search for a recipe, render handlebars
   app.get("/recipeSearch/:protein/:lower/:upper/:health/:diet", function (req, res) {
