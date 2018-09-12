@@ -50,6 +50,10 @@ module.exports = function (app) {
         throw err + response;
       };
 
+      if (body[0] === "<" ) {
+        return res.json({success: false, message: "Bad API input"})
+      }
+
       var rawData = JSON.parse(body);
       var data = [];
       for (var i = 0; i < rawData.hits.length; i++) {
