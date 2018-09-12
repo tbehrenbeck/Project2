@@ -133,24 +133,28 @@
             <!-- Blog Post -->
             <div class="card mb-4">
                 <h2 class="card-title">favorites</h2>
-                <ul id="insert-favs-here">
-                    {{#each favs}}
-                    <li>
-                        <a href="{{this.url}}" target="_blank">{{this.title}}</a> <button class="delete-fav-button"
-                            data-id="{{this.id}}">Delete</button>
-                    </li>
-                    {{/each}}
-                </ul>
+                <div class="fav-scroll">
+                    <ul id="insert-favs-here">
+                        {{#each favs}}
+                        <li>
+                            <img src="{{this.pic}}" class="img-fluid">
+                            <a href="{{this.url}}" target="_blank">{{this.title}}</a>
+                            <button class="delete-fav-button" data-id="{{this.id}}">Delete</button>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Footer -->
-{{!-- <footer class="py-2 bg-dark">
+<footer class="py-2 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Project 2</p>
     </div>
-</footer> --}}
+</footer>
 
 
 <script src="/js/profilePic.js"></script>

@@ -224,17 +224,8 @@ input.invalid {
 .card.summary {
   border: none;
 }
-
-#profile-summary, 
-#recipe-search,
-#recipe-card,
-#favorites-list{
-
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 .dropdown {
   display: inline-block;
-  /* position: absolute; */
   overflow: hidden;
   height: 45px;
   width: 200px;
@@ -242,7 +233,7 @@ input.invalid {
   border: 1px solid;
   border-color: white #f7f7f7 whitesmoke;
   border-radius: 3px;
-  background-image: -webkit-linear-gradient(
+  /* background-image: -webkit-linear-gradient(
     top,
     transparent,
     rgba(0, 0, 0, 0.06)
@@ -255,5 +246,10 @@ input.invalid {
     rgba(0, 0, 0, 0.06)
   );
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08); */
+}
+.fav-scroll {
+  width: 710px;
+  height: 330px;
+  overflow: scroll;
 }
