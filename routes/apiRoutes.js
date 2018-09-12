@@ -124,6 +124,27 @@ module.exports = function (app) {
     });
   });
 
+  // Edit macros route
+  app.post("/api/editMacros", function(req,res) {
+    if (!req.user) {
+      return res.json({success: false, message: "Not signed in"});
+    };
+    var userId = req.user.id;
+    var newMacros = {
+      recCals: parseInt(req.body.recCals),
+      protein: parseInt(req.body.protein),
+      carbs: parseInt(req.body.carbs),
+      fats: parseInt(req.body.fats)
+    };
+    db.User.update(newMacros, {
+      where: {
+        id: userId
+      }
+    }).then(function() {
+      res.json({success: true, message: "Success!", url: "/profile"});
+    });
+  });
+
   // Recipe search JSON output
   app.post("/api/recipeSearch", function (req, res) {
 
