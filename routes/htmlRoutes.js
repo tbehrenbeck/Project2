@@ -28,15 +28,15 @@ module.exports = function (app) {
       include: [{
         model: db.Favorite,
         where: {
-          UserId: userId
-        }
+          UserId: userId,
+        },
+        required: false
       }]
     }).then(function (data) {
       if (data == null) {
         return res.send(`Username ${username} not found`);
       };
       var favs = data.Favorites;
-      console.log(favs[0].title);
       res.render("profile", { data: data, favs: favs });
     });
   });
