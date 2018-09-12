@@ -67,44 +67,46 @@
         </div>
         <!-- User Name -->
         <div class="col-md-8">
-            <h1 class="my-4" style="color: white; font-size: 4rem;">{{data.fullName}}</h1>
+            <div class="display-name">
+                <h1 class="my-4">{{data.fullName}}</h1>
+            </div>
 
             <!-- Nutrition Breakdown -->
-            <div class="card mb-4">
+            <div class="card mb-4" id="nutrition-block">
                 <div class="card-body">
-                    <h2 class="card-title">Nutrition Breakdown</h2>
+                    <h3 class="card-title">Nutrition Breakdown</h3>
                     <div class="row">
                         <div class="card summary">
-                            <span class="circle">
+                            <span class="yellow_circle">
                                 <p class="circle-text">{{data.recCals}}</p>
                             </span>
-                            <div class="card-text text-center">calories</div>
+                            <div class="card-text text-center">Calories</div>
                         </div>
                         <div class="card summary">
-                            <span class="circle">
+                            <span class="green_circle">
                                 <p class="circle-text">{{data.protein}}g</p>
                             </span>
-                            <div class="card-text text-center">protein</div>
+                            <div class="card-text text-center">Protein</div>
                         </div>
                         <div class="card summary">
-                            <span class="circle">
+                            <span class="blue_circle">
                                 <p class="circle-text ">{{data.carbs}}g</p>
                             </span>
-                            <div class="card-text text-center">carbs</div>
+                            <div class="card-text text-center">Carbs</div>
                         </div>
                         <div class="card summary">
-                            <span class="circle">
+                            <span class="red_circle">
                                 <p class="circle-text">{{data.fats}}g</p>
                             </span>
-                            <div class="card-text text-center">fat</div>
+                            <div class="card-text text-center">Fat</div>
                         </div>
                     </div>
-                    <button class="mt-3">Update Macros</button>
+                    <button class="float-right">Update Macros</button>
                 </div>
             </div>
 
             <!-- Favorites -->
-            <div class="card mb-4">
+            <div class="card mb-4" id="favorites-block">
                 <h2 class="card-title">favorites</h2>
                 <div class="fav-scroll">
                     <ul id="insert-favs-here">
