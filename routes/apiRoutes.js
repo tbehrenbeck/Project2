@@ -77,6 +77,7 @@ module.exports = function (app) {
       where: {
         id: req.user.id
       }
+
     }).then(function () {
       res.json({ success: true });
     });

@@ -6,6 +6,7 @@ $(document).ready(function () {
 
     // take data from search parameter fields
     var protein = $("#protein-options").val().trim();
+
     var lower = parseInt($("#min-cals").val().trim());
     var upper = parseInt($("#max-cals").val().trim());
     var health = $("#health-options").val().trim();
