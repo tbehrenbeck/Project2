@@ -57,14 +57,6 @@ $(document).ready(function() {
       event.preventDefault();
       console.log("click")
   
-  
-   
-  
-    //   var fullName = $("#fullName").val().trim();
-    //   var username = $("#username").val().trim();
-    //   var email = $("#email").val().trim();
-    //   var password = $("#password").val().trim();
-  
       var goal = parseInt($(".goal:selected").val());
       var pa = parseFloat($(".pa:selected").attr("data-multiplier"));
   
@@ -80,10 +72,6 @@ $(document).ready(function() {
   
       var macros = calcMacros(goal, maintenanceCals, wt);
   
-    //   macros.fullName = fullName;
-    //   macros.username = username;
-    //   macros.email = email;
-    //   macros.password = password;
       macros.goal = goal;
       macros.gender = gender;
       macros.age = age;
