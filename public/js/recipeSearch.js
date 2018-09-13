@@ -19,8 +19,7 @@ $(document).ready(function() {
         .val()
         .trim()
     );
-    alert(lower);
-    alert(upper);
+
     if (lower === "") {
       lower = 10;
     }
