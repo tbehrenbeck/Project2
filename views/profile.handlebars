@@ -3,8 +3,10 @@
 
     <!-- User Name -->
     <div class="row">
-        <div class="display-name">
-            <h1>{{data.fullName}}</h1>
+        <div class="col-lg-12">
+            <div class="display-name">
+                <h1>{{data.fullName}}</h1>
+            </div>
         </div>
     </div>
 
@@ -13,7 +15,7 @@
 
         <!-- Profile Pic -->
         <div class="col-md-4">
-            <div class="card mb-4" id="block1">
+            <div class="card my-4" id="block1">
                 <div class="card-body" id="picture">
                     <img id="profphoto" class="img-fluid" src="{{data.profilePic}}" style="height:290px;">
                     <div class="middle">
@@ -24,10 +26,9 @@
         </div>
         <!-- Nutrition Breakdown -->
         <div class="col-md-8">
-            <div class="card mb-4" id="nutrition-block">
+            <div class="card my-4" id="nutrition-block">
                 <div class="card-body">
                     <h3 class="card-title">Nutrition Breakdown</h3>
-                    <hr class="m-1">
                     <div class="row">
                         <div class="card summary">
                             <span class="yellow_circle">
@@ -59,7 +60,7 @@
             </div>
         </div>
 
-            
+
     </div>
 
     <!-- Bottom Row -->
@@ -68,9 +69,8 @@
         <!-- Favorites -->
         <div class="col-md-8">
             <div class="card" id="favorites-block">
+                <h3 class="card-header">Favorites</h3>
                 <div class="card-body">
-                    <h3 class="card-title">Favorites</h3>
-                    <hr class="m-1">
                     <div class="fav-scroll">
                         <ul id="insert-favs-here">
                             {{#each favs}}
@@ -97,9 +97,8 @@
         <!-- Search Block -->
         <div class="col-md-4">
             <div class="card" id="searchblock">
+                <h3 class="card-header">Search for Recipes</h3>
                 <div class="card-body">
-                    <h3 class="card-title">Search for Recipes</h3>
-                    <hr class="m-1">
                     <span id="protein">
                         <label for="protein-options">
                             <h5>Meal Types</h5>
@@ -150,7 +149,14 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="row" id="bottom-row">
+        <div class="col-lg-12">
+            <div class="logout text-right">
+                <span><a href="/">Logout</a>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
 

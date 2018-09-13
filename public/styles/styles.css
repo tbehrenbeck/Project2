@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   background: url("../img/landing.jpg") no-repeat;
   background-size: cover;
 }
@@ -51,6 +51,11 @@ body {
   cursor: pointer;
   margin: 10px 0;
 }
+.btn-submit:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
 .newAccount {
   margin: 5px;
   font-size: 0.9rem;
@@ -73,8 +78,9 @@ body {
   text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1), 14px 14px 0px rgba(0, 0, 0, 0.05);
   text-align: center;
   margin: 75px 0 50px 0;
-  letter-spacing:2px;
+  letter-spacing: 2px;
 }
+
 /* Modal */
 .modal {
   text-align: center;
@@ -84,6 +90,7 @@ body {
   position: relative;
   left: 14px;
 }
+
 /* Welcome Back */
 #welcome-back-box {
   margin: 75px 0 5px 0;
@@ -97,12 +104,13 @@ body {
 #welcome-back-box a:hover {
   color: #000000;
 }
+
 /* Create an Account */
 #regForm {
-  border: none;
   outline: none;
-  background: none;
-  margin: 30px auto;
+  border: 2px solid #4caf50;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 76px auto;
   padding: 40px;
   width: 60%;
   min-width: 300px;
@@ -179,6 +187,11 @@ input.invalid {
   cursor: pointer;
   margin: 10px 0;
 }
+#prevBtn:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
 #prevBtn:focus {
   outline: none;
 }
@@ -191,8 +204,33 @@ input.invalid {
   cursor: pointer;
   margin: 10px 0;
 }
+#nextBtn:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
 #nextBtn:focus {
   outline: none;
+}
+#submitBtn {
+  background: none;
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+#submitBtn:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+#submitBtn:focus {
+  outline: none;
+}
+#passwordHint {
+  font-size: 60%;
 }
 .login {
   margin: 5px;
@@ -204,16 +242,27 @@ input.invalid {
 .login a:hover {
   color: #000000;
 }
+#personal-info-tab {
+  margin-bottom: 12px;
+}
+#personal-info-tab #feet {
+  width: 48.99%;
+  margin-right: 6px;
+}
+#personal-info-tab #inches {
+  width: 48.99%;
+}
+
 /* Profile Page */
 .display-name h1 {
   color: #000000;
-  font-size: 4rem;
-  /* text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff,
-    2px 2px 0 #ffffff; */
-  margin-top: 1.5rem;
-  letter-spacing:5px;
+  font-size: 3.5rem;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+  margin-top: 1rem;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  float:right;
+  float: right;
   font-weight: 900;
   text-align: right;
 }
@@ -259,10 +308,12 @@ input.invalid {
 #edit-profile-pic {
   width: 100%;
   position: relative;
-  top: 140px;
+  top: 170px;
   background: none;
   border: 2px solid #4caf50;
-  color: #ffffff;
+  color: #000000;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
   cursor: pointer;
   font-size: 1.2rem;
 }
@@ -273,7 +324,6 @@ input.invalid {
 #searchblock h3 {
   color: #000000;
   letter-spacing: 2px;
-  padding-bottom: 0px;
 }
 #searchblock label {
   margin-bottom: 0px;
@@ -314,15 +364,28 @@ input.invalid {
   cursor: pointer;
   margin: 5px 0 5px 0;
 }
+#search-btn:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+#search-btn:focus {
+  outline: none;
+}
+.mt-4,
+.my-4 {
+  margin-top: 0 !important;
+}
 #nutrition-block {
   background: rgba(255, 255, 255, 0.7);
   border: 2px solid #4caf50;
-  /* margin-top: 0px */
+}
+#nutrition-block {
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #4caf50;
 }
 #nutrition-block h3 {
-  /* text-decoration: underline; */
   letter-spacing: 2px;
-
 }
 #nutrition-block .row {
   margin: 3px;
@@ -380,7 +443,15 @@ input.invalid {
   padding: 5px;
   font-size: 18px;
   cursor: pointer;
-  margin: 15px 0 0 0;
+  margin: 17px 0 0 0;
+}
+#nutrition-block button:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+#nutrition-block button:focus {
+  outline: none;
 }
 #favorites-block {
   background: rgba(255, 255, 255, 0.7);
@@ -393,6 +464,15 @@ input.invalid {
   margin: 15px;
   border: 2px solid #4caf50;
   background: rgba(255, 255, 255, 0.8);
+}
+#favorites-block .card-header {
+  letter-spacing: 2px;
+}
+#favorites-block .card-title {
+  margin-bottom: 0.5rem;
+}
+#favorites-block .card-body {
+  padding-top: 0px;
 }
 #insert-favs-here {
   overflow-x: hidden;
@@ -412,12 +492,32 @@ input.invalid {
 }
 .fav-scroll {
   width: auto;
-  height: 330px;
+  height: 346px;
   overflow: scroll;
 }
+#bottom-row {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.logout a {
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 7px 16px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 5px 0 5px 0;
+}
+.logout a:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
 /* update macros */
 #update-form {
   border: 2px solid #4caf50;
+  background: rgba(255, 255, 255, 0.7);
   outline: none;
   margin: 30px auto;
   padding: 40px;
@@ -425,12 +525,36 @@ input.invalid {
   min-width: 300px;
   font-size: 18px;
 }
-#age,
-#feet,
-#inches,
-#weight {
-  border: 2px solid #4caf50;
-  background: rgba(255, 255, 255, 0.7);
+.personal-info {
+  padding-top: 16px;
+}
+.personal-info #age {
+  background: none;
+  width: 24.99%;
+}
+.personal-info #age:focus {
+  outline: none;
+}
+.personal-info #weight {
+  background: none;
+  width: 24.99%;
+}
+.personal-info #weight:focus {
+  outline: none;
+}
+.personal-info #feet {
+  background: none;
+  width: 24.99%;
+}
+.personal-info #feet:focus {
+  outline: none;
+}
+.personal-info #inches {
+  background: none;
+  width: 24.99%;
+}
+.personal-info #inches:focus {
+  outline: none;
 }
 .btn-update {
   width: 100px;
@@ -442,6 +566,19 @@ input.invalid {
   cursor: pointer;
   margin-top: 30px;
 }
+#update-cancel:focus {
+  outline: none;
+}
+#update-submit:focus {
+  outline: none;
+}
+#age,
+#feet,
+#inches,
+#weight {
+  border: 2px solid #4caf50;
+}
+
 /* Recipe results */
 .addToFavsBtn {
   border-radius: 8px;
@@ -497,12 +634,11 @@ input.invalid {
 #insert-results-here i:hover {
   color: #f74847;
 }
-/* when a recipe is favorited */
 .isFavorited {
   color: #f74847 !important;
 }
 #insert-results-here a {
-  margin: 10px;
+  margin: 12px;
   color: #000000;
 }
 #insert-results-here a:hover {
@@ -513,13 +649,15 @@ input.invalid {
 }
 #perMealBreakdown {
   margin: 0px 15px 15px 15px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
 }
 #perMealBreakdown .card-header {
   background: rgba(255, 255, 255, 0.8);
 }
 #perMealBreakdown .card-body {
   padding: 1.25rem 1.25rem 0.8rem 1.25rem;
+  border: 2px solid #4caf50;
 }
 #perMealBreakdown h3 {
   font-size: 3rem;
@@ -527,9 +665,57 @@ input.invalid {
   padding: 12px 0px;
 }
 .back-to-profile a {
+  background: rgba(255, 255, 255, 0.7);
   border: 2px solid #4caf50;
   color: #000000;
-  padding: 5px;
-  font-size: 16px;
+  padding: 7px 16px;
+  font-size: 18px;
   cursor: pointer;
+  margin: 5px 0 5px 0;
+}
+.back-to-profile a:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+.yellow_circle_result {
+  border: 4px solid #fdfd2c;
+  border-radius: 50%;
+  height: 87px;
+  width: 95px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
+}
+.green_circle_result {
+  border: 4px solid #97cb04;
+  border-radius: 50%;
+  height: 87px;
+  width: 95px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
+}
+.blue_circle_result {
+  border: 4px solid #297ba2;
+  border-radius: 50%;
+  height: 87px;
+  width: 95px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
+}
+.red_circle_result {
+  border: 4px solid #f74847;
+  border-radius: 50%;
+  height: 87px;
+  width: 95px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
+}
+.circle-text-result {
+  text-align: center;
+  line-height: 83px;
+  font-size: 24px;
 }
