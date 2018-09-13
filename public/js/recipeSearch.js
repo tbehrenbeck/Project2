@@ -4,16 +4,16 @@ $(document).ready(function() {
     event.preventDefault();
 
     // take data from search parameter fields
-    var protein = $("#protein-options")
-      .val()
-      .trim();
+    var protein = $("#protein-options").val().trim();
 
     var lower = $("#min-cals").val().trim();
     var upper = $("#max-cals").val().trim();
 
-    var diet = $("#diet-options")
-      .val()
-      .trim();
+    var diet = $("#diet-options").val().trim();
+
+    if ( protein === "" || diet === "" ) {
+      return alert("Please select a Meal Type and Diet Option");
+    }
 
     var mealCount = $("#meal-count").val().trim();
 

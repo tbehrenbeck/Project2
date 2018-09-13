@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: "Untitled"
     },
     url: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      unique: true,
     },
     pic: {
       type: DataTypes.STRING

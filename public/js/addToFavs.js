@@ -13,11 +13,10 @@ $(document).ready(function () {
       method: "POST",
       data: recipeInfo
     }).then(function(data) {
-      console.log("Added to favs");
       if (data.success) {
-        $(this).html("Added!");
+        console.log(data.message);
       } else {
-        console.log("Something went wrong");
+        console.log(data.message);
       }
     });
 
