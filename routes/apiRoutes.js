@@ -37,7 +37,7 @@ module.exports = function (app) {
     }).catch(function (err) {
       console.log(err);
       if (err.errors) {
-        return res.json({success: false, message: "Email address or uesrname already registered."})
+        return res.json({success: false, message: "Email address or uesrname already registered."});
       }
     });
   });
@@ -122,7 +122,7 @@ module.exports = function (app) {
   app.post("/api/editMacros", function(req,res) {
     if (!req.user) {
       return res.json({success: false, message: "Not signed in"});
-    };
+    }
     var userId = req.user.id;
     var newMacros = {
       recCals: parseInt(req.body.recCals),
@@ -147,7 +147,7 @@ module.exports = function (app) {
     request(queryURL, function (err, response, body) {
       if (err) {
         throw err + response;
-      };
+      }
 
       var rawData = JSON.parse(body);
       var recipes = [];
@@ -164,7 +164,7 @@ module.exports = function (app) {
           serves: rawData.hits[i].recipe.yield
         };
         recipes.push(recipe);
-      };
+      }
       return res.json(recipes);
     });
 
