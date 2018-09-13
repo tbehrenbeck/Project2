@@ -8,26 +8,26 @@ $(document).ready(function() {
       .val()
       .trim();
 
-    var lower = parseInt(
-      $("#min-cals")
-        .val()
-        .trim()
-    );
-    var upper = parseInt(
-      $("#max-cals")
-        .val()
-        .trim()
-    );
+    var lower = $("#min-cals").val().trim();
+    var upper = $("#max-cals").val().trim();
+
     var diet = $("#diet-options")
       .val()
       .trim();
-    var mealCount = parseInt(
-      $("#meal-count")
-        .val()
-        .trim()
-    );
 
-    var destUrl = `/recipeSearch/${protein}/${lower}/${upper}/${diet}`;
+    var mealCount = $("#meal-count").val().trim();
+
+    if (lower === "") {
+      lower = 10;
+    }
+    if (upper === "") {
+      upper = 2000;
+    }
+    if (mealCount === "") {
+      mealCount = 4;
+    }
+
+    var destUrl = `/recipeSearch/${protein}/${lower}/${upper}/${diet}?mealCount=${mealCount}`;
     window.location.replace(destUrl);
   });
 });
