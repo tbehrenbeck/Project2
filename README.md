@@ -1,8 +1,8 @@
-# Project 2
+# Macros + Meals
 
 ## Motivation
 
-... was designed to create a simple, easy to use app for users to best optimize their nutrition according to their lifestyle. In the fast pace world we live in ... helps the user quickly determine their daily macro needs based upon their fitness goals, then search for and save recipes that meet this criteria.
+Macros + Meals was designed to create a simple, easy to use app for users to best optimize their nutrition according to their lifestyle. In the fast pace world we live in, Macros + Meals helps the user quickly determine their daily macro needs based upon their fitness goals, then search for and save recipes that meet this criteria.
 
 ## Features
 
@@ -12,11 +12,11 @@
 
 ## Technologies
 
-- Edamam API
-- Handlebars 
+- [Edamam API](https://developer.edamam.com/)
+- [Handlebars](https://handlebarsjs.com/)
 - [Bootstrap CSS Framework](http://getbootstrap.com/)
-- [Bcrypt](https://www.npmjs.com/package/bcrypt) & [Jwt](https://jwt.io/) node modules and libraries for authentication
-- [Sequelize](http://docs.sequelizejs.com/) as a database
+- [Passport](http://www.passportjs.org/)
+- [Sequelize](http://docs.sequelizejs.com/) 
 
 
 ## How to use
@@ -37,4 +37,4 @@
 
 ## Link 
 
-https://enigmatic-peak-10419.herokuapp.com/
+https://project2-ey.herokuapp.com/
