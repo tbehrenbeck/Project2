@@ -363,7 +363,7 @@ input.invalid {
 .card.summary {
   border: none;
   background: none;
-  margin: 0px;
+  margin: 0px auto;
 }
 #nutrition-block button {
   background: none;
@@ -407,27 +407,7 @@ input.invalid {
   height: 330px;
   overflow: scroll;
 }
-
-/* Recipe results */
-
-.recipe-nutrition {
-  font-size:20px;
-  line-height:1.9em; 
-}
-
-#recipe-servings,
-#recipe-link {
-  font-size:20px;
-  line-height:1em;
-}
-
-.addToFavsBtn {
-  border-radius:8px;
-
-}
-
 /* update macros */
-
 #update-form {
   border: 2px solid #4caf50;
   outline: none;
@@ -436,29 +416,14 @@ input.invalid {
   width: 60%;
   min-width: 300px;
   font-size: 18px;
-  background: rgba(255, 255, 255, 0.8);
 }
-
-/* .personal-info {
-  border:2px solid #4caf50;
-} */
-
 #age,
 #feet,
 #inches,
-#weight{
-  border:2px solid #4caf50;
-  width: 24.99%; 
-  background:none;
-  
-}
-
-#results-block li {
-  margin: 15px;
+#weight {
   border: 2px solid #4caf50;
   background: rgba(255, 255, 255, 0.7);
 }
-
 .btn-update {
   width: 100px;
   background: none;
@@ -467,8 +432,96 @@ input.invalid {
   padding: 3px;
   font-size: 16px;
   cursor: pointer;
-  margin-top:30px;
-
+  margin-top: 30px;
 }
-
-
+/* Recipe results */
+.addToFavsBtn {
+  border-radius: 8px;
+}
+#results-block {
+  background: none;
+  border: 2px solid #4caf50;
+}
+#results-block h2 {
+  font-size: 2.8rem;
+  color: #000000;
+  line-height: 33px;
+  margin-top: 9px;
+}
+#results-block h3 {
+  text-decoration: underline;
+  color: #000000;
+}
+#insert-results-here .card-header {
+  background: rgba(255, 255, 255, 0.5);
+}
+#insert-results-here .card-header h3 {
+  color: black;
+  font-size: 2rem;
+  line-height: 12px;
+  padding-top: 10px;
+}
+#results-block li {
+  margin: 15px;
+  border: 2px solid #4caf50;
+  background: rgba(255, 255, 255, 0.8);
+}
+#insert-results-here h5 {
+  text-decoration: underline;
+}
+#insert-results-here .userinfo {
+  padding: 28px 0 0 92px;
+}
+.recipe-nutrition {
+  line-height: 1.2em;
+}
+#insert-results-here p {
+  font-size: 1.2rem;
+}
+#recipe-link {
+  font-size: 1rem;
+}
+#insert-results-here i {
+  font-size: 2rem;
+  color: #000000;
+  margin: 10px 15px;
+}
+#insert-results-here i:hover {
+  color: #f74847;
+}
+/* when a recipe is favorited */
+.isFavorited {
+  color: #f74847 !important;
+}
+#insert-results-here a {
+  margin: 10px;
+  color: #000000;
+}
+#insert-results-here a:hover {
+  color: #44ccaa;
+}
+#insert-results-here a:visited {
+  color: #44ccaa;
+}
+#perMealBreakdown {
+  margin: 0px 15px 15px 15px;
+  background: rgba(255, 255, 255, 0.8);
+}
+#perMealBreakdown .card-header {
+  background: rgba(255, 255, 255, 0.8);
+}
+#perMealBreakdown .card-body {
+  padding: 1.25rem 1.25rem 0.8rem 1.25rem;
+}
+#perMealBreakdown h3 {
+  font-size: 3rem;
+  line-height: 12px;
+  padding: 12px 0px;
+}
+.back-to-profile a {
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
