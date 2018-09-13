@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   // Check for favs and load them in
   $.ajax({
     url: "/api/loadFavs",
@@ -20,8 +19,7 @@ $(document).ready(function() {
         location.reload();
       } else {
         console.log(data);
-      };
+      }
     });
   });
-
 });

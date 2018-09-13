@@ -256,6 +256,7 @@ input.invalid {
   border: 2px solid #4caf50;
   color: #ffffff;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 #searchblock {
   background: none;
@@ -282,9 +283,10 @@ input.invalid {
 }
 #searchblock input {
   background: none;
+  border: 2px solid #4caf50;
 }
 #searchblock input:hover {
-  border: 2px solid #4caf50;
+  border: 2px solid #ffffff;
 }
 #calories {
   margin-bottom: 15px;
@@ -384,6 +386,19 @@ input.invalid {
 }
 #insert-favs-here {
   overflow-x: hidden;
+}
+#insert-favs-here a {
+  font-size: 1.3rem;
+  position: relative;
+  top: 40%;
+}
+#insert-favs-here i {
+  font-size: 2rem;
+  color: #f74847;
+  margin: 10px 15px;
+}
+#insert-favs-here i:hover {
+  color: black;
 }
 .fav-scroll {
   width: auto;
