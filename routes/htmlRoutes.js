@@ -13,7 +13,7 @@ module.exports = function (app) {
 
   // Load create account page
   app.get("/createAccount", function (req, res) {
-    res.redirect("/createAccount.html");
+    res.sendFile(path.resolve(__dirname, "../public/createAccount.html"));
   });
 
   // Load a user's profile
@@ -43,8 +43,8 @@ module.exports = function (app) {
   
 
   // Search for a recipe, render handlebars
-  app.get("/recipeSearch/:protein/:lower/:upper/:health/:diet", function (req, res) {
-    var queryURL = buildQueryURL(req.params.protein, req.params.lower, req.params.upper, req.params.health, req.params.diet);
+  app.get("/recipeSearch/:protein/:lower/:upper/:diet", function (req, res) {
+    var queryURL = buildQueryURL(req.params.protein, req.params.lower, req.params.upper, "alcohol-free", req.params.diet);
 
     request(queryURL, function (err, response, body) {
       if (err) {

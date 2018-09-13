@@ -31,6 +31,7 @@
                             <option value="turkey">Turkey</option>
                             <option value="fish">Fish</option>
                             <option value="shrimp">Shrimp</option>
+                            {{!-- <option value="vegan">Vegan</option> --}}
                         </select>
                     </span><br>
                     <span id="diet">
@@ -45,17 +46,7 @@
                             <option value="low-sodium">Low Sodium</option>
                         </select>
                     </span>
-                    {{!-- DELETE --}}
-                    <span id="health-opt">
-                        <label for="health-options">
-                            <h5>Diet Options</h5>
-                        </label>
-                        <select class="dropdown" id="health-options">
-                            <option></option>
-                            <option value="vegan">Vegan</option>
-                        </select>
-                    </span>
-                    {{!-- ------------------- --}}
+
                     <div id="calories">
                         <label for="calorie-range">
                             <h6>Calorie Range</h6>
@@ -112,7 +103,7 @@
                             <div class="card-text text-center">Fat</div>
                         </div>
                     </div>
-                    <button class="float-right">Update Macros</button>
+                    <a href="/updateMacros"><button class="float-right">Update Macros</button></a>
                 </div>
             </div>
 
