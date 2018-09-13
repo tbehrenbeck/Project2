@@ -380,7 +380,7 @@ input.invalid {
   text-decoration: underline;
 }
 #favorites-block li {
-  margin-bottom: 15px;
+  margin: 15px;
   border: 2px solid #4caf50;
   background: rgba(255, 255, 255, 0.8);
 }
