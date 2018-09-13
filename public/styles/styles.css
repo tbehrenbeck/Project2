@@ -482,6 +482,9 @@ input.invalid {
 #perMealBreakdown {
   margin: 0px 15px 15px 15px;
 }
+#perMealBreakdown .card-body {
+  padding: 1.25rem 1.25rem 0 1.25rem;
+}
 #perMealBreakdown h3 {
   font-size: 3rem;
   line-height: 12px;
