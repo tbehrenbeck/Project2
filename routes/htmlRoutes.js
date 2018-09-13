@@ -13,7 +13,7 @@ module.exports = function (app) {
 
   // Load create account page
   app.get("/createAccount", function (req, res) {
-    res.redirect("/createAccount.html");
+    res.sendFile(path.resolve(__dirname, "../public/createAccount.html"));
   });
 
   // Load a user's profile

@@ -64,7 +64,7 @@ $(document).ready(function () {
     event.preventDefault();
   });
 
-  $(document).on("click", "#nextBtn.submitButton", function (event) {
+  $(document).on("click", "#submitBtn", function (event) {
     event.preventDefault();
 
     var fullName = $("#fullName").val().trim();
