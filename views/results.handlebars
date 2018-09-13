@@ -17,13 +17,13 @@
                         </div>
                         <div class="card summary">
                             <span class="green_circle">
-                                <p class="circle-text">{{suggested.proteinPerMeal}}g</p>
+                                <p class="circle-text">{{suggested.proteinPerMeal}} g</p>
                             </span>
                             <div class="card-text text-center">Protein</div>
                         </div>
                         <div class="card summary">
                             <span class="blue_circle">
-                                <p class="circle-text ">{{suggested.carbsPerMeal}}g</p>
+                                <p class="circle-text ">{{suggested.carbsPerMeal}} g</p>
                             </span>
                             <div class="card-text text-center">Carbs</div>
                         </div>
@@ -61,11 +61,10 @@
                         <div class="userinfo">
                             <h5>Nutrition Profile (per serving)</h5>
                             <div class="recipe-nutrition mt-2" data-serves="{{this.serves}}" id="list-{{this.id}}">
-                                <p>Calories: {{this.calories}}</p>
-                                <p>Protein: {{this.protein}}g</p>
-                                <p>Carbs: {{this.carbs}}g</p>
-                                <p>Fats: {{this.fats}}g
-                                </p>
+                                <p>Calories: {{{this.calories.html}}}</p>
+                                <p>Protein: {{{this.protein.html}}}</p>
+                                <p>Carbs: {{{this.carbs.html}}}</p>
+                                <p>Fats: {{{this.fats.html}}}</p>
                                 <p id="recipe-servings">Servings: {{this.serves}}</p>
                             </div>
                         </div>
