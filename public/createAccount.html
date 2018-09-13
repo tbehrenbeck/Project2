@@ -43,12 +43,15 @@
                         <p><input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email"
                                 oninput="this.className = ''"></p>
                         <p><input type="text" class="form-control" id="username" placeholder="Username" oninput="this.className = ''"></p>
-                        <p><input type="password" class="form-control" id="password" placeholder="Password" oninput="this.className = ''"></p>
+                        <p><input type="password" class="form-control" id="password" placeholder="Password" oninput="this.className = ''">
+                            <small id="passwordHint">Must contain six (6) characters, one (1) uppercase, one (1)
+                                lowercase,
+                                and one (1) number</small></p>
                     </div>
                     <div class="tab">
                         <div class="form-group" id="fitness-goal">
                             <label for="goal">I want to...</label>
-                            <select class="form-control" id="goal">
+                            <select class="form-control" id="body-goal">
                                 <option></option>
                                 <option class="goal" id="bf-goal" value="1">Lose Body Fat</option>
                                 <option class="goal" id="gm-goal" value="2">Gain Muscle</option>
@@ -68,9 +71,16 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="tab">
-                        <p><input placeholder="Gender" name="gender" oninput="this.className = ''"></p>
+                        <div class="form-group" id="gender">
+                            <label for="gender">Gender</label>
+                            <select class="form-control" id="gender">
+                                <option></option>
+                                <option class="gender" id="male" value="1">Male</option>
+                                <option class="gender" id="female" value="2">Female</option>
+                            </select>
+                        </div>
+
                         <p><input placeholder="Age" id="age" oninput="this.className = ''"></p>
                         <span><input id="feet" placeholder="Height-ft" oninput="this.className = ''" style="width: 48.99%;"></span>
                         <span><input id="inches" placeholder="Height-in" oninput="this.className = ''" style="width: 48.99%"></span>

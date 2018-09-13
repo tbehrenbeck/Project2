@@ -3,10 +3,9 @@ function showModal(modalTitle, modalBody) {
   $("#modal-title").html(modalTitle);
   $("#modal-body").html(modalBody);
   $("#error-modal").modal("toggle");
-};
+}
 
-$(document).ready(function () {
-
+$(document).ready(function() {
   //calculate maintenance calories
   function calcCals(kg, pa, age, ht, gender) {
     if (gender == "male" || gender == "Male") {
@@ -60,17 +59,25 @@ $(document).ready(function () {
     return recommended;
   }
 
-  $("#regForm").on("submit", function (event) {
+  $("#regForm").on("submit", function(event) {
     event.preventDefault();
   });
 
-  $(document).on("click", "#submitBtn", function (event) {
+  $(document).on("click", "#submitBtn", function(event) {
     event.preventDefault();
 
-    var fullName = $("#fullName").val().trim();
-    var username = $("#username").val().trim();
-    var email = $("#email").val().trim();
-    var password = $("#password").val().trim();
+    var fullName = $("#fullName")
+      .val()
+      .trim();
+    var username = $("#username")
+      .val()
+      .trim();
+    var email = $("#email")
+      .val()
+      .trim();
+    var password = $("#password")
+      .val()
+      .trim();
 
     var goal = parseInt($(".goal:selected").val());
     var pa = parseFloat($(".pa:selected").attr("data-multiplier"));
@@ -78,7 +85,7 @@ $(document).ready(function () {
     var wt = parseInt($("#weight").val());
     var kg = Math.round(wt / 2.2);
     var age = parseInt($("#age").val());
-    var gender = $("input[name='gender']:checked").val();
+    var gender = parseInt($(".gender:selected").val());
     var feet = parseFloat($("#feet").val());
     var inches = parseFloat($("#inches").val());
     var ht = Math.round((feet * 12 + inches) * 2.54);
@@ -108,7 +115,7 @@ $(document).ready(function () {
       url: "/api/createAccount",
       method: "POST",
       data: macros
-    }).then(function (data) {
+    }).then(function(data) {
       if (data.url === undefined) {
         alert("Email or username already taken.");
         window.location.replace("/createAccount");
@@ -119,7 +126,7 @@ $(document).ready(function () {
         //   "Your profile has been created successfully!<br><a href='/profile'>View profile</a>"
         // );
         return showModal("Oops!", data.message);
-      };
+      }
     });
   });
 });
