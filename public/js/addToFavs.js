@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
   $(document).on("click", ".addToFavsBtn", function(event) {
     event.preventDefault();
 
