@@ -5,8 +5,9 @@ $(document).ready(function() {
   $("#edit-profile-pic").on("click", function(event) {
     event.preventDefault();
     newLink = prompt("URL to profile pic:");
-
-    if (newLink == "") {
+    if (newLink === null){
+      return;
+    } else if (newLink == "") {
       return alert("Invalid URL");
     }
 
