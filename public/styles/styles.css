@@ -41,7 +41,7 @@ body {
 .checkbox {
   margin: 15px 0 0 23px;
 }
-.btn {
+.btn-submit {
   width: 100%;
   background: none;
   border: 2px solid #4caf50;
@@ -68,7 +68,7 @@ body {
   transform: translate(-50%, -25%);
   width: 100%;
   overflow: visible;
-  font: 400 120px/1.5 "Pacifico", Helvetica, sans-serif;
+  font: 400 140px/1.5 "Pacifico", Helvetica, sans-serif;
   color: #ffffff;
   text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1), 14px 14px 0px rgba(0, 0, 0, 0.05);
   text-align: center;
@@ -204,58 +204,191 @@ input.invalid {
   color: #000000;
 }
 /* Profile Page */
-.circle {
-  border: 4px solid #a38c94;
+.display-name h1 {
+  color: #000000;
+  font-size: 4rem;
+  text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff,
+    2px 2px 0 #ffffff;
+  margin-top: 1.5rem;
+}
+#block1 {
+  background: none;
+  border: none;
+}
+#picture {
+  text-align: center;
+  position: relative;
+}
+#profphoto {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+#picture:hover .image {
+  opacity: 0.3;
+}
+#picture:hover .middle {
+  opacity: 1;
+}
+.text {
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+#edit-profile-pic {
+  width: 100%;
+  position: relative;
+  top: 140px;
+  background: none;
+  border: 2px solid #4caf50;
+  color: #ffffff;
+  cursor: pointer;
+}
+#searchblock {
+  background: none;
+  border: 2px solid #4caf50;
+}
+#searchblock h3 {
+  color: #000000;
+  text-decoration: underline;
+  padding-bottom: 0px;
+}
+#searchblock label {
+  margin-bottom: 0px;
+}
+#searchblock select {
+  margin-bottom: 15px;
+}
+.dropdown {
+  overflow: hidden;
+  height: 40px;
+  width: 100%;
+  background: none;
+  border: 2px solid #4caf50;
+  border-radius: 3px;
+}
+#searchblock input {
+  background: none;
+}
+#searchblock input:hover {
+  border: 2px solid #4caf50;
+}
+#calories {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+#meals {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+#search-btn {
+  width: 100%;
+  background: none;
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 5px 0 5px 0;
+}
+#nutrition-block {
+  background: none;
+  border: 2px solid #4caf50;
+  margin-top: 0px !important;
+}
+#nutrition-block h3 {
+  text-decoration: underline;
+}
+#nutrition-block .row {
+  margin: 3px;
+}
+.circle-text {
+  text-align: center;
+  line-height: 134px;
+  font-size: 25px;
+}
+.yellow_circle {
+  border: 4px solid #fdfd2c;
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 140px;
+  width: 140px;
   margin: 10px 15px;
   position: relative;
   text-align: center;
 }
-.circle-text {
-  position: absolute;
-  top: 35%;
-  left: 20%;
-  margin: auto;
-  font-size: 25px;
-  line-height: 1.6;
+.green_circle {
+  border: 4px solid #97cb04;
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
+}
+.blue_circle {
+  border: 4px solid #297ba2;
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
+}
+.red_circle {
+  border: 4px solid #f74847;
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+  margin: 10px 15px;
+  position: relative;
+  text-align: center;
 }
 .card.summary {
   border: none;
+  background: none;
+  margin: 0px;
 }
-
-#profile-summary, 
-#recipe-search,
-#recipe-card,
-#favorites-list{
-
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#nutrition-block button {
+  background: none;
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 15px 0 0 0;
 }
-.dropdown {
-  display: inline-block;
-  /* position: absolute; */
-  overflow: hidden;
-  height: 45px;
-  width: 200px;
-  background: #eaeae7;
-  border: 1px solid;
-  border-color: white #f7f7f7 whitesmoke;
-  border-radius: 3px;
-  background-image: -webkit-linear-gradient(
-    top,
-    transparent,
-    rgba(0, 0, 0, 0.06)
-  );
-  background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
-  background-image: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0, 0, 0, 0.06)
-  );
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+#favorites-block {
+  background: none;
+  border: 2px solid #4caf50;
+}
+#favorites-block h3 {
+  text-decoration: underline;
+}
+#favorites-block li {
+  margin-bottom: 15px;
+  border: 2px solid #4caf50;
+  background: rgba(255, 255, 255, 0.8);
+}
+#insert-favs-here {
+  overflow-x: hidden;
+}
+.fav-scroll {
+  width: auto;
+  height: 330px;
+  overflow: scroll;
 }
 
 /* Recipe results */
