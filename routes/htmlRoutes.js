@@ -43,8 +43,8 @@ module.exports = function (app) {
   
 
   // Search for a recipe, render handlebars
-  app.get("/recipeSearch/:protein/:lower/:upper/:health/:diet", function (req, res) {
-    var queryURL = buildQueryURL(req.params.protein, req.params.lower, req.params.upper, req.params.health, req.params.diet);
+  app.get("/recipeSearch/:protein/:lower/:upper/:diet", function (req, res) {
+    var queryURL = buildQueryURL(req.params.protein, req.params.lower, req.params.upper, "alcohol-free", req.params.diet);
 
     request(queryURL, function (err, response, body) {
       if (err) {
