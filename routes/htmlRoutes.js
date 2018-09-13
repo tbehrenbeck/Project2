@@ -44,7 +44,18 @@ module.exports = function (app) {
 
   // Search for a recipe, render handlebars
   app.get("/recipeSearch/:protein/:lower/:upper/:diet", function (req, res) {
+    if (!req.user) {
+      return res.json({success: false, message: "You are not signed in"});
+    }
     var queryURL = buildQueryURL(req.params.protein, req.params.lower, req.params.upper, "alcohol-free", req.params.diet);
+    var mealCount = parseInt(req.query.mealCount) || 4;
+    var suggested = {
+      mealCount: mealCount,
+      calsPerMeal: req.user.recCals / mealCount,
+      proteinPerMeal: req.user.protein / mealCount,
+      fatsPerMeal: req.user.fats / mealCount,
+      carbsPerMeal: req.user.carbs / mealCount
+    };
 
     request(queryURL, function (err, response, body) {
       if (err) {
@@ -81,7 +92,7 @@ module.exports = function (app) {
 
         data.push(recipe);
       };
-      res.render("results", { data: data });
+      res.render("results", { data: data, suggested: suggested });
     });
   });
 
