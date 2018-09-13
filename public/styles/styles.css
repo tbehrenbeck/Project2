@@ -417,11 +417,6 @@ input.invalid {
   font-size: 18px;
 }
 /* Recipe results */
-#recipe-servings,
-#recipe-link {
-  font-size: 20px;
-  line-height: 1em;
-}
 .addToFavsBtn {
   border-radius: 8px;
 }
@@ -458,4 +453,29 @@ input.invalid {
 }
 #insert-results-here p {
   font-size: 1.2rem;
+}
+#recipe-link {
+  font-size: 1rem;
+}
+#insert-results-here i {
+  font-size: 2rem;
+  color: #000000;
+  margin: 10px 15px;
+}
+#insert-results-here i:hover {
+  color: #f74847;
+}
+/* when a recipe is favorited */
+.is-favorited {
+  color: #f74847;
+}
+#insert-results-here a {
+  margin: 10px;
+  color: #000000;
+}
+#insert-results-here a:hover {
+  color: #44ccaa;
+}
+#insert-results-here a:visited {
+  color: #44ccaa;
 }
