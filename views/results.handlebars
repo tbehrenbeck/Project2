@@ -2,45 +2,46 @@
     <div class="card-body">
 
         <div class="card" id="perMealBreakdown">
-            {{!-- <div class="card-header">
-                <h2>Recipes</h2>
-            </div> --}}
             <div class="card-body">
-                <h2>Recipes</h2>
+                <span style="font-size: 2.8rem; line-height: .9;">Recipes</span><span> (Based on
+                    {{suggested.mealCount}}
+                    meals per day-
+                    recommended nutrition per
+                    meal)</span>
+                <hr style="margin-bottom: 0;">
                 <div class="text-black">
-                    <h6>Based on {{suggested.mealCount}} meals per day- recommended nutrition per meal:</h6>
-                    <div class="row">
+                    {{!-- <h6>Based on {{suggested.mealCount}} meals per day- recommended nutrition per meal:</h6> --}}
+                    <div class="row" style="line-height: 1;">
                         <div class=" card summary">
-                            <span class="yellow_circle">
-                                <p class="circle-text">{{suggested.calsPerMeal}}</p>
+                            <span class="yellow_circle_result">
+                                <p class="circle-text-result">{{suggested.calsPerMeal}}</p>
                             </span>
                             <div class="card-text text-center">Calories</div>
                         </div>
                         <div class="card summary">
-                            <span class="green_circle">
-                                <p class="circle-text">{{suggested.proteinPerMeal}}g</p>
+                            <span class="green_circle_result">
+                                <p class="circle-text-result">{{suggested.proteinPerMeal}}g</p>
                             </span>
                             <div class="card-text text-center">Protein</div>
                         </div>
                         <div class="card summary">
-                            <span class="blue_circle">
-                                <p class="circle-text ">{{suggested.carbsPerMeal}}g</p>
+                            <span class="blue_circle_result">
+                                <p class="circle-text-result">{{suggested.carbsPerMeal}}g</p>
                             </span>
                             <div class="card-text text-center">Carbs</div>
                         </div>
                         <div class="card summary">
-                            <span class="red_circle">
-                                <p class="circle-text">{{suggested.fatsPerMeal}} g</p>
+                            <span class="red_circle_result">
+                                <p class="circle-text-result">{{suggested.fatsPerMeal}}g</p>
                             </span>
                             <div class="card-text text-center">Fat</div>
                         </div>
                     </div>
-
                 </div>
-                <div class="back-to-profile text-right">
+                {{!-- <div class="back-to-profile text-right">
                     <span><a href="/profile">Back</a>
                     </span>
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -80,6 +81,10 @@
             </li>
             {{/each}}
         </ul>
+        <div class="back-to-profile text-right">
+            <span><a href="/profile">Back</a>
+            </span>
+        </div>
     </div>
 </div>
 
