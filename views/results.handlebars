@@ -1,46 +1,45 @@
-<div class="main">
-    <div class="jumbotron m-auto" style="width:70%; background:transparent">
-        <h1 style="color:white">Recipes</h1>
-        <div>
-            
-        </div>
-        <div class="back-to-profile text-right">
-            <span><a href="/profile">Back to Profile</a>
-            </span>
-        </div>
-    </div>
-    {{#each data}}
-    <div class="card mx-auto my-3" style="width:70%; max-width:900px">
-        <div class="card-header">
-            <h3 class="card-title">{{this.title}}</h3>
-        </div>
-        <div class="card-body" >
-            <div class="row" style="height:auto">
-                <div class="col-md-4">
-                    <img src="{{this.pic}}" class="img-fluid mx-auto" style="max-height:200px; display:block; margin:auto">
-                </div>
-                <div class="col-md-5">
-                    <h4>Nutrition Profile (per serving):</h4>
-                    <ul class="recipe-nutrition mt-2" data-serves="{{this.serves}}" id="list-{{this.id}}">
-                        <li>Calories: {{this.calories}}</li>
-                        <li>Protein: {{this.protein}}g</li>
-                        <li>Carbs: {{this.carbs}}g</li>
-                        <li>Fats: {{this.fats}}g</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <div class="mt-5">
-                        {{!-- <p id="recipe-cook-time">Cook Time: {{this.time}}</p> --}}
-                        <p id="recipe-servings">Servings: {{this.serves}}</p>
-                        <a id="recipe-link" href="{{this.url}}" target="_blank">Get the recipe!</a>
-                        <br><button class="addToFavsBtn fa fa-heart p-2 mt-2" data-json='{{this.jsonData}}'></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{/each}}
+{{!-- <div class="main"> --}}
 
-</div>
+    <div class="card my-4" id="results-block" style="width: 70%; margin: auto;">
+        <div class="card-body">
+            <h3 class="card-title">Recipes</h3>
+            <div class="back-to-profile text-right">
+                <span><a href="/profile">Back to Profile</a>
+                </span>
+            </div>
+            <hr>
+            {{!-- <div class="fav-scroll"> --}}
+                <ul id="insert-favs-here">
+                    {{#each data}}
+                    <li>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img src="{{this.pic}}" class="img-fluid" style="width: 200px; height: auto;">
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <h6>Nutrition Profile (per serving):</h6>
+                                <ul class="recipe-nutrition mt-2" data-serves="{{this.serves}}" id="list-{{this.id}}">
+                                    <li>Calories: {{this.calories}}</li>
+                                    <li>Protein: {{this.protein}}g</li>
+                                    <li>Carbs: {{this.carbs}}g</li>
+                                    <li>Fats: {{this.fats}}g</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 text-right">
+
+                                <p id="recipe-servings">Servings: {{this.serves}}</p>
+                                <a id="recipe-link" href="{{this.url}}" target="_blank">Get the recipe!</a>
+                                <br><button class="addToFavsBtn fa fa-heart p-2 mt-2" data-json='{{this.jsonData}}'></button>
+
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{!-- </div> --}}
+        </div>
+    </div>
+
+    {{!-- </div> --}}
 
 <script src="/js/addToFavs.js"></script>

@@ -405,27 +405,7 @@ input.invalid {
   height: 330px;
   overflow: scroll;
 }
-
-/* Recipe results */
-
-.recipe-nutrition {
-  font-size:20px;
-  line-height:1.9em; 
-}
-
-#recipe-servings,
-#recipe-link {
-  font-size:20px;
-  line-height:1em;
-}
-
-.addToFavsBtn {
-  border-radius:8px;
-
-}
-
 /* update macros */
-
 #update-form {
   border: 2px solid #4caf50;
   outline: none;
@@ -435,4 +415,17 @@ input.invalid {
   width: 60%;
   min-width: 300px;
   font-size: 18px;
+}
+/* Recipe results */
+.recipe-nutrition {
+  font-size: 20px;
+  line-height: 1.9em;
+}
+#recipe-servings,
+#recipe-link {
+  font-size: 20px;
+  line-height: 1em;
+}
+.addToFavsBtn {
+  border-radius: 8px;
 }
