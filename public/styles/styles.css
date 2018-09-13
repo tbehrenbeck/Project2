@@ -426,7 +426,7 @@ input.invalid {
 }
 #results-block h3 {
   text-decoration: underline;
-  color: #ffffff;
+  color: #000000;
 }
 #insert-results-here .card-header {
   background-color: #ffffff;
