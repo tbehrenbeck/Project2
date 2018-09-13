@@ -81,10 +81,13 @@ module.exports = function (app) {
   app.post("/api/addToFavs", function(req,res) {
     var user = req.user.id;
     var recipeInfo = req.body;
+    recipeInfo.id = undefined;
     recipeInfo.UserId = user;
 
     db.Favorite.create(recipeInfo).then(function() {
       res.json({success: true, message: "Successfully added to favorites."});
+    }).catch(function(err) {
+      return console.log(err);
     });
   });
 
