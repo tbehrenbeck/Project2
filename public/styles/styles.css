@@ -417,10 +417,6 @@ input.invalid {
   font-size: 18px;
 }
 /* Recipe results */
-.recipe-nutrition {
-  font-size: 20px;
-  line-height: 1.9em;
-}
 #recipe-servings,
 #recipe-link {
   font-size: 20px;
@@ -428,4 +424,38 @@ input.invalid {
 }
 .addToFavsBtn {
   border-radius: 8px;
+}
+#results-block {
+  background: none;
+  border: 2px solid #4caf50;
+}
+#results-block h3 {
+  text-decoration: underline;
+  color: #ffffff;
+}
+#insert-results-here .card-header {
+  background-color: #ffffff;
+}
+#insert-results-here .card-header h3 {
+  color: black;
+  font-size: 2rem;
+  line-height: 12px;
+  padding-top: 10px;
+}
+#results-block li {
+  margin: 15px;
+  border: 2px solid #4caf50;
+  background: rgba(255, 255, 255, 0.8);
+}
+#insert-results-here h5 {
+  text-decoration: underline;
+}
+#insert-results-here .userinfo {
+  padding: 28px 0 0 92px;
+}
+.recipe-nutrition {
+  line-height: 1.2em;
+}
+#insert-results-here p {
+  font-size: 1.2rem;
 }

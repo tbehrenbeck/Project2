@@ -9,25 +9,36 @@
             </div>
             <hr>
             {{!-- <div class="fav-scroll"> --}}
-                <ul id="insert-favs-here">
+                <ul id="insert-results-here">
                     {{#each data}}
                     <li>
                         <div class="row">
-                            <div class="col-lg-4">
-                                <img src="{{this.pic}}" class="img-fluid" style="width: 200px; height: auto;">
+                            <div class="col-lg-12">
+                                <div class="card-header">
+                                    <h3 class="card-title">{{this.title}}</h3>
+                                </div>
                             </div>
-                            <div class="col-lg-6 text-center">
-                                <h6>Nutrition Profile (per serving):</h6>
-                                <ul class="recipe-nutrition mt-2" data-serves="{{this.serves}}" id="list-{{this.id}}">
-                                    <li>Calories: {{this.calories}}</li>
-                                    <li>Protein: {{this.protein}}g</li>
-                                    <li>Carbs: {{this.carbs}}g</li>
-                                    <li>Fats: {{this.fats}}g</li>
-                                </ul>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <img src="{{this.pic}}" class="img-fluid" style="width: auto; height: 207;">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="userinfo">
+                                    <h5>Nutrition Profile (per serving)</h5>
+                                    <div class="recipe-nutrition mt-2" data-serves="{{this.serves}}" id="list-{{this.id}}">
+                                        <p>Calories: {{this.calories}}</p>
+                                        <p>Protein: {{this.protein}}g</p>
+                                        <p>Carbs: {{this.carbs}}g</p>
+                                        <p>Fats: {{this.fats}}g
+                                        </p>
+                                        <p id="recipe-servings">Servings: {{this.serves}}</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-2 text-right">
 
-                                <p id="recipe-servings">Servings: {{this.serves}}</p>
+
                                 <a id="recipe-link" href="{{this.url}}" target="_blank">Get the recipe!</a>
                                 <br><button class="addToFavsBtn fa fa-heart p-2 mt-2" data-json='{{this.jsonData}}'></button>
 
