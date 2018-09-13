@@ -7,7 +7,7 @@ $(document).ready(function() {
     newLink = prompt("URL to profile pic:");
     if (newLink === null){
       return;
-    } else if (newLink == "") {
+    } else if (newLink === "") {
       return alert("Invalid URL");
     }
 

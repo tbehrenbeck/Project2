@@ -86,7 +86,7 @@ module.exports = function (app) {
 
     db.Favorite.create(recipeInfo).then(function() {
       return res.json({success: true, message: "Successfully added to favorites."});
-    }).catch(function(err) {
+    }).catch(function() {
       return res.json({success: false, message: "Already in favs!"});
     });
   });
