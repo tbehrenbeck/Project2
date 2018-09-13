@@ -218,6 +218,8 @@ input.invalid {
 #picture {
   text-align: center;
   position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #4caf50;
 }
 #profphoto {
   opacity: 1;
@@ -259,7 +261,7 @@ input.invalid {
   font-size: 1.2rem;
 }
 #searchblock {
-  background: none;
+  background: rgba(255, 255, 255, 0.7);
   border: 2px solid #4caf50;
 }
 #searchblock h3 {
@@ -307,9 +309,9 @@ input.invalid {
   margin: 5px 0 5px 0;
 }
 #nutrition-block {
-  background: none;
+  background: rgba(255, 255, 255, 0.7);
   border: 2px solid #4caf50;
-  margin-top: 0px !important;
+  /* margin-top: 0px */
 }
 #nutrition-block h3 {
   text-decoration: underline;
@@ -373,7 +375,7 @@ input.invalid {
   margin: 15px 0 0 0;
 }
 #favorites-block {
-  background: none;
+  background: rgba(255, 255, 255, 0.7);
   border: 2px solid #4caf50;
 }
 #favorites-block h3 {
@@ -420,8 +422,7 @@ input.invalid {
 #inches,
 #weight {
   border: 2px solid #4caf50;
-  width: 24.99%;
-  background: none;
+  background: rgba(255, 255, 255, 0.7);
 }
 .btn-update {
   width: 100px;
