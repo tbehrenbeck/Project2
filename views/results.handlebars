@@ -9,6 +9,15 @@
             </span>
         </div>
     </div>
+
+    <div class="text-white">
+        <p>Based on {{suggested.mealCount}} meals per day:</p>
+        <p>Recommended calories per meal: {{suggested.calsPerMeal}}</p>
+        <p>Recommended protein per meal: {{suggested.proteinPerMeal}}</p>
+        <p>Recommended carbs per meal: {{suggested.carbsPerMeal}}</p>
+        <p>Recommended fats per meal: {{suggested.fatsPerMeal}}</p>
+    </div>
+
     {{#each data}}
     <div class="card mx-auto my-3" style="width:70%; max-width:900px">
         <div class="card-header">
