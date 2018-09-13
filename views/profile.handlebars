@@ -45,6 +45,17 @@
                             <option value="low-sodium">Low Sodium</option>
                         </select>
                     </span>
+                    {{!-- DELETE --}}
+                    <span id="health-opt">
+                        <label for="health-options">
+                            <h5>Diet Options</h5>
+                        </label>
+                        <select class="dropdown" id="health-options">
+                            <option></option>
+                            <option value="vegan">Vegan</option>
+                        </select>
+                    </span>
+                    {{!-- ------------------- --}}
                     <div id="calories">
                         <label for="calorie-range">
                             <h6>Calorie Range</h6>
@@ -68,11 +79,11 @@
         <!-- User Name -->
         <div class="col-md-8">
             <div class="display-name">
-                <h1 class="my-4">{{data.fullName}}</h1>
+                <h1>{{data.fullName}}</h1>
             </div>
 
             <!-- Nutrition Breakdown -->
-            <div class="card mb-4" id="nutrition-block">
+            <div class="card my-4" id="nutrition-block">
                 <div class="card-body">
                     <h3 class="card-title">Nutrition Breakdown</h3>
                     <div class="row">
@@ -106,18 +117,28 @@
             </div>
 
             <!-- Favorites -->
-            <div class="card mb-4" id="favorites-block">
-                <h2 class="card-title">favorites</h2>
-                <div class="fav-scroll">
-                    <ul id="insert-favs-here">
-                        {{#each favs}}
-                        <li>
-                            <img src="{{this.pic}}" class="img-fluid">
-                            <a href="{{this.url}}" target="_blank">{{this.title}}</a>
-                            <button class="delete-fav-button" data-id="{{this.id}}">Delete</button>
-                        </li>
-                        {{/each}}
-                    </ul>
+            <div class="card my-4" id="favorites-block">
+                <div class="card-body">
+                    <h3 class="card-title">Favorites</h3>
+                    <div class="fav-scroll">
+                        <ul id="insert-favs-here">
+                            {{#each favs}}
+                            <li>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{this.pic}}" class="img-fluid" style="width: 200px; height: auto;">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <a href="{{this.url}}" target="_blank">{{this.title}}</a>
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <button class="delete-fav-button" data-id="{{this.id}}">Delete</button>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
