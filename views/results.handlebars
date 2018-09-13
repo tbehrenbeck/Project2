@@ -1,14 +1,14 @@
 <div class="card my-4" id="results-block" style="width: 70%; margin: auto;">
     <div class="card-body">
 
-        <div class="card" style="margin: 15px;">
+        <div class="card" id="perMealBreakdown">
             <div class="card-header">
                 <h3>Recipes</h3>
             </div>
             <div class="card-body">
                 <div class="text-black">
-                    <h6>Based on {{suggested.mealCount}} meals per day:</h6>
-                    <div class="row">
+                    <h6>Based on {{suggested.mealCount}} meals per day- recommended nutrition per meal:</h6>
+                    <div class="row" id="circleRow">
                         <div class="card summary">
                             <span class="yellow_circle">
                                 <p class="circle-text">{{suggested.calsPerMeal}}</p>
@@ -34,22 +34,15 @@
                             <div class="card-text text-center">Fat</div>
                         </div>
                     </div>
-                    {{!-- <span>Recommended calories per meal: {{suggested.calsPerMeal}}</span><br>
-                    <span>Recommended protein per meal: {{suggested.proteinPerMeal}}</span><br>
-                    <span>Recommended carbs per meal: {{suggested.carbsPerMeal}}</span><br>
-                    <span>Recommended fats per meal: {{suggested.fatsPerMeal}} <span><a class="back-to-profile text-right"
-                                href="/profile">Back to
-                                Profile</a>
-                        </span></span> --}}
+
                 </div>
-                {{!-- <div class="back-to-profile text-right">
+                <div class="back-to-profile text-right">
                     <span><a href="/profile">Back to Profile</a>
                     </span>
-                </div> --}}
+                </div>
             </div>
         </div>
 
-        <hr>
         <ul id="insert-results-here">
             {{#each data}}
             <li>

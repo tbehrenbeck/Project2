@@ -479,3 +479,14 @@ input.invalid {
 #insert-results-here a:visited {
   color: #44ccaa;
 }
+#perMealBreakdown {
+  margin: 0px 15px 15px 15px;
+}
+#perMealBreakdown h3 {
+  font-size: 3rem;
+  line-height: 12px;
+  padding: 12px 0px;
+}
+#circleRow {
+  margin: 10px 50px 0;
+}
