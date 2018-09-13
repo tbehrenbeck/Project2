@@ -14,21 +14,20 @@ $(document).ready(function() {
     var diet = $("#diet-options")
       .val()
       .trim();
-    var mealCount = parseInt(
-      $("#meal-count")
-        .val()
-        .trim()
-    );
-    alert(lower);
-    alert(upper);
+
+    var mealCount = $("#meal-count").val().trim();
+
     if (lower === "") {
       lower = 10;
     }
     if (upper === "") {
       upper = 2000;
     }
+    if (mealCount === "") {
+      mealCount = 4;
+    }
 
-    var destUrl = `/recipeSearch/${protein}/${lower}/${upper}/${diet}`;
+    var destUrl = `/recipeSearch/${protein}/${lower}/${upper}/${diet}?mealCount=${mealCount}`;
     window.location.replace(destUrl);
   });
 });
