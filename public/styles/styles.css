@@ -429,10 +429,46 @@ input.invalid {
 #update-form {
   border: 2px solid #4caf50;
   outline: none;
-  background: transparent;
   margin: 30px auto;
   padding: 40px;
   width: 60%;
   min-width: 300px;
   font-size: 18px;
+  background: rgba(255, 255, 255, 0.8);
 }
+
+/* .personal-info {
+  border:2px solid #4caf50;
+} */
+
+#age,
+#feet,
+#inches,
+#weight{
+  border:2px solid #4caf50;
+  width: 24.99%; 
+  background:none;
+  
+}
+
+#results-block li {
+  margin: 15px;
+  border: 2px solid #4caf50;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-update {
+  width: 100px;
+  background: none;
+  border: 2px solid #4caf50;
+  color: #000000;
+  padding: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top:30px;
+
+}
+
+/* .btn-update:hover {
+
+} */
