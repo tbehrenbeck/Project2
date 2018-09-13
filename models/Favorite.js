@@ -7,7 +7,6 @@ module.exports = function(sequelize, DataTypes) {
     },
     url: {
       type: DataTypes.STRING,
-      unique: true,
     },
     pic: {
       type: DataTypes.STRING
