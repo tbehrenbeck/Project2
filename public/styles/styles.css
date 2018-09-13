@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'PT Sans', sans-serif;
   background: url("../img/landing.jpg") no-repeat;
   background-size: cover;
 }
@@ -73,6 +73,7 @@ body {
   text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1), 14px 14px 0px rgba(0, 0, 0, 0.05);
   text-align: center;
   margin: 75px 0 50px 0;
+  letter-spacing:2px;
 }
 /* Modal */
 .modal {
@@ -207,9 +208,14 @@ input.invalid {
 .display-name h1 {
   color: #000000;
   font-size: 4rem;
-  text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff,
-    2px 2px 0 #ffffff;
+  /* text-shadow: -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff,
+    2px 2px 0 #ffffff; */
   margin-top: 1.5rem;
+  letter-spacing:5px;
+  text-transform: uppercase;
+  float:right;
+  font-weight: 900;
+  text-align: right;
 }
 #block1 {
   background: none;
@@ -266,7 +272,7 @@ input.invalid {
 }
 #searchblock h3 {
   color: #000000;
-  text-decoration: underline;
+  letter-spacing: 2px;
   padding-bottom: 0px;
 }
 #searchblock label {
@@ -314,7 +320,9 @@ input.invalid {
   /* margin-top: 0px */
 }
 #nutrition-block h3 {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  letter-spacing: 2px;
+
 }
 #nutrition-block .row {
   margin: 3px;
@@ -379,7 +387,7 @@ input.invalid {
   border: 2px solid #4caf50;
 }
 #favorites-block h3 {
-  text-decoration: underline;
+  letter-spacing: 2px;
 }
 #favorites-block li {
   margin: 15px;
