@@ -2,7 +2,8 @@ $(document).ready(function () {
 
   $(document).on("click", ".addToFavsBtn", function(event) {
     event.preventDefault();
-    alert("Added to favorites list!");
+    
+    $(this).addClass("isFavorited");
 
     var recipeInfo = $(this).data("json");
     console.log(recipeInfo);
@@ -12,11 +13,10 @@ $(document).ready(function () {
       method: "POST",
       data: recipeInfo
     }).then(function(data) {
-      console.log("Added to favs");
       if (data.success) {
-        $(this).html("Added!");
+        console.log(data.message);
       } else {
-        console.log("Something went wrong");
+        console.log(data.message);
       }
     });
 

@@ -52,45 +52,26 @@
                         </div>
                     
 
-                        <div>
-                            <p><input placeholder="Gender" name="gender" oninput="this.className = ''"></p>
-                            <p><input placeholder="Age" id="age" oninput="this.className = ''"></p>
-                            <span><input id="feet" placeholder="Height-ft" oninput="this.className = ''" style="width: 48.99%;"></span>
-                            <span><input id="inches" placeholder="Height-in" oninput="this.className = ''" style="width: 48.99%"></span>
+                        <div class="personal-info">
+                            <span><input placeholder="Age" id="age" oninput="this.className = ''" style=""></span> 
+                            <span><input id="weight" placeholder="Weight - lbs" oninput="this.className = ''" style="width: 24%;"></span>
+                         
+                            <span><input id="feet" placeholder="Height - ft" oninput="this.className = ''" style="width: 24%;"></span>
+                            <span><input id="inches" placeholder="Height - in" oninput="this.className = ''" style="width: 24%;"></span>
                             <br>
-                            <p><input id="weight" placeholder="Weight- lbs" oninput="this.className = ''"></p>
+                            
                         </div>
 
                     <div style="overflow:auto;">
                         <div>
-                            <button type="button" id="submit">Submit</button>
+                            <button class="btn-update" type="button" id="update-submit">Submit</button>
+                            <a href="/profile"><button class="btn-update" type="button" id="update-cancel">Cancel</button></a>
+
                         </div>
                     </div>
                     </div>
                 </form>
 
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title">Oops!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modal-body">
-                    <!-- Intentionally left blank -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
             </div>
         </div>
     </div>

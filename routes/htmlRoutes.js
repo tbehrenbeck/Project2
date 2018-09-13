@@ -57,10 +57,10 @@ module.exports = function(app) {
     var mealCount = parseInt(req.query.mealCount) || 4;
     var suggested = {
       mealCount: mealCount,
-      calsPerMeal: req.user.recCals / mealCount,
-      proteinPerMeal: req.user.protein / mealCount,
-      fatsPerMeal: req.user.fats / mealCount,
-      carbsPerMeal: req.user.carbs / mealCount
+      calsPerMeal: Math.floor(req.user.recCals / mealCount),
+      proteinPerMeal: Math.floor(req.user.protein / mealCount),
+      fatsPerMeal: Math.floor(req.user.fats / mealCount),
+      carbsPerMeal: Math.floor(req.user.carbs / mealCount)
     };
 
     request(queryURL, function(err, response, body) {

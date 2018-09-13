@@ -55,7 +55,6 @@ $(document).ready(function() {
   
     $("#submit").on("click", function(event) {
       event.preventDefault();
-      console.log("click")
   
       var goal = parseInt($(".goal:selected").val());
       var pa = parseFloat($(".pa:selected").attr("data-multiplier"));
@@ -67,6 +66,14 @@ $(document).ready(function() {
       var feet = parseFloat($("#feet").val());
       var inches = parseFloat($("#inches").val());
       var ht = Math.round((feet * 12 + inches) * 2.54);
+
+      if ($(".goal:selected").val() === undefined || $(".pa:selected").val() === undefined) {
+        return alert("Please fill out all the forms");
+      }
+
+      if ( $("#age").val() === "" || $("#feet").val() === "" || $("#inches").val() === "" || $("#weight").val() === "" ) {
+        return alert("Please fill out all the forms");
+      }
   
       var maintenanceCals = calcCals(kg, pa, age, ht, gender);
   

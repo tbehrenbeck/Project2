@@ -85,9 +85,9 @@ module.exports = function (app) {
     recipeInfo.UserId = user;
 
     db.Favorite.create(recipeInfo).then(function() {
-      res.json({success: true, message: "Successfully added to favorites."});
+      return res.json({success: true, message: "Successfully added to favorites."});
     }).catch(function(err) {
-      return console.log(err);
+      return res.json({success: false, message: "Already in favs!"});
     });
   });
 
