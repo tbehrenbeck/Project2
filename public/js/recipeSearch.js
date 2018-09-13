@@ -18,9 +18,6 @@ $(document).ready(function() {
         .val()
         .trim()
     );
-    var health = $("#health-options")
-      .val()
-      .trim();
     var diet = $("#diet-options")
       .val()
       .trim();
@@ -30,7 +27,7 @@ $(document).ready(function() {
         .trim()
     );
 
-    var destUrl = `/recipeSearch/${protein}/${lower}/${upper}/${health}/${diet}`;
+    var destUrl = `/recipeSearch/${protein}/${lower}/${upper}/${diet}`;
     window.location.replace(destUrl);
   });
 });
