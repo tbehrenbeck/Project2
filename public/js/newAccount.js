@@ -14,12 +14,6 @@ function validateFullName() {
     alert("Error: Full name cannot be blank!");
     return false;
   }
-  letters = /^[A-Za-z]+$/;
-  if (!fullName.match(letters)) {
-    validated = false;
-    alert("Full Name may only contain letters");
-    return false;
-  }
 }
 
 // EMAIL VALIDATION: Rejects inputs in the following cases: @ is not present || starts with dot "." || no character before @ || any character other than a letter, digit, underscore, or dash is present || double dots present
@@ -150,6 +144,7 @@ function nextPrev(n) {
   username = $("#username").val().trim();
   email = $("#email").val().trim();
   password = $("#password").val().trim();
+  console.log("fullName" + fullName);
   validateAll();
   var x = document.getElementsByClassName("tab");
   console.log("n = " + n);
