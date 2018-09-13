@@ -87,11 +87,47 @@ module.exports = function(app) {
           carbs: rawData.hits[i].recipe.totalNutrients.CHOCDF.quantity,
           serves: rawData.hits[i].recipe.yield
         };
-        // Calculate date for individual servings
-        recipe.calories = Math.round(recipe.calories / recipe.serves);
-        recipe.carbs = Math.round(recipe.carbs / recipe.serves);
-        recipe.protein = Math.round(recipe.protein / recipe.serves);
-        recipe.fats = Math.round(recipe.fats / recipe.serves);
+        // Calculate data for individual servings and compare to recommended
+        recipe.calories = {
+          amt: Math.round(recipe.calories / recipe.serves),
+          html: ""
+        };
+        recipe.carbs = {
+          amt: Math.round(recipe.carbs / recipe.serves),
+          html: ""
+        };
+        recipe.protein = {
+          amt: Math.round(recipe.protein / recipe.serves),
+          html: ""
+        };
+        recipe.fats = {
+          amt: Math.round(recipe.fats / recipe.serves),
+          html: ""
+        };
+
+        if (recipe.calories.amt > suggested.calsPerMeal) {
+          recipe.calories.html = `<span style="color: red; font-weight: bold;">${recipe.calories.amt}</span>`;
+        } else {
+          recipe.calories.html = `<span style="color: green; font-weight: bold;">${recipe.calories.amt}</span>`;
+        };
+
+        if (recipe.carbs.amt > suggested.carbsPerMeal) {
+          recipe.carbs.html = `<span style="color: red; font-weight: bold;">${recipe.carbs.amt}g</span>`;
+        } else {
+          recipe.carbs.html = `<span style="color: green; font-weight: bold;">${recipe.carbs.amt}g</span>`;
+        };
+
+        if (recipe.protein.amt > suggested.proteinPerMeal) {
+          recipe.protein.html = `<span style="color: red; font-weight: bold;">${recipe.protein.amt}g</span>`;
+        } else {
+          recipe.protein.html = `<span style="color: green; font-weight: bold;">${recipe.protein.amt}g</span>`;
+        };
+
+        if (recipe.fats.amt > suggested.fatsPerMeal) {
+          recipe.fats.html = `<span style="color: red; font-weight: bold;">${recipe.fats.amt}g</span>`;
+        } else {
+          recipe.fats.html = `<span style="color: green; font-weight: bold;">${recipe.fats.amt}g</span>`;
+        };
 
         var recipeString = JSON.stringify(recipe);
         recipe.jsonData = recipeString;
