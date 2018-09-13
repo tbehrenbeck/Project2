@@ -1,7 +1,7 @@
 {
-  "name": "project-2",
+  "name": "MacrosMeals",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "Find recipes based on your individual needs.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
