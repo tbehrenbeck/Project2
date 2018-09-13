@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
   $(document).on("click", ".addToFavsBtn", function(event) {
     event.preventDefault();
 
@@ -13,6 +11,7 @@ $(document).ready(function () {
       method: "POST",
       data: recipeInfo
     }).then(function(data) {
+      console.log("Added to favs");
       if (data.success) {
         $(this).html("Added!");
       } else {
