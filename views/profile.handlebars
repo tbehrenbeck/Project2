@@ -1,11 +1,18 @@
 <!-- Page Content -->
 <div class="container">
+
+    <!-- User Name -->
+    <div class="row">
+        <div class="display-name">
+            <h1>{{data.fullName}}</h1>
+        </div>
+    </div>
+
+    <!-- Middle Row -->
     <div class="row">
 
-        <!-- Sidebar Column -->
+        <!-- Profile Pic -->
         <div class="col-md-4">
-
-            <!-- Side Widget -->
             <div class="card my-4" id="block1">
                 <div class="card-body" id="picture">
                     <img id="profphoto" class="img-fluid" src="{{data.profilePic}}" style="height:290px;">
@@ -13,10 +20,81 @@
                         <div class="text"><button id="edit-profile-pic">Update</button></div>
                     </div>
                 </div>
-
             </div>
+        </div>
+        <!-- Nutrition Breakdown -->
+        <div class="col-md-8">
+            <div class="card my-4" id="nutrition-block">
+                <div class="card-body">
+                    <h3 class="card-title">Nutrition Breakdown</h3>
+                    <div class="row">
+                        <div class="card summary">
+                            <span class="yellow_circle">
+                                <p class="circle-text">{{data.recCals}}</p>
+                            </span>
+                            <div class="card-text text-center">Calories</div>
+                        </div>
+                        <div class="card summary">
+                            <span class="green_circle">
+                                <p class="circle-text">{{data.protein}}g</p>
+                            </span>
+                            <div class="card-text text-center">Protein</div>
+                        </div>
+                        <div class="card summary">
+                            <span class="blue_circle">
+                                <p class="circle-text ">{{data.carbs}}g</p>
+                            </span>
+                            <div class="card-text text-center">Carbs</div>
+                        </div>
+                        <div class="card summary">
+                            <span class="red_circle">
+                                <p class="circle-text">{{data.fats}}g</p>
+                            </span>
+                            <div class="card-text text-center">Fat</div>
+                        </div>
+                    </div>
+                    <a href="/updateMacros"><button class="float-right">Update Macros</button></a>
+                </div>
+            </div>
+        </div>
 
-            <div class="card my-4" id="searchblock">
+            
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="row">
+
+        <!-- Favorites -->
+        <div class="col-md-8">
+            <div class="card" id="favorites-block">
+                <div class="card-body">
+                    <h3 class="card-title">Favorites</h3>
+                    <div class="fav-scroll">
+                        <ul id="insert-favs-here">
+                            {{#each favs}}
+                            <li>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{this.pic}}" class="img-fluid" style="width: 200px; height: auto;">
+                                    </div>
+                                    <div class="col-lg-6 text-center">
+
+                                        <a href="{{this.url}}" target="_blank">{{this.title}}</a>
+                                    </div>
+                                    <div class="col-lg-2 text-right">
+                                        <i class="fas fa-heart delete-fav-button" data-id="{{this.id}}"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Search Block -->
+        <div class="col-md-4">
+            <div class="card" id="searchblock">
                 <h3 class="card-header">Search for Recipes</h3>
                 <div class="card-body">
                     <span id="protein">
@@ -68,75 +146,8 @@
                     <button id="search-btn">Search</button>
                 </div>
             </div>
-
         </div>
-        <!-- User Name -->
-        <div class="col-md-8">
-            <div class="display-name">
-                <h1>{{data.fullName}}</h1>
-            </div>
 
-            <!-- Nutrition Breakdown -->
-            <div class="card my-4" id="nutrition-block">
-                <div class="card-body">
-                    <h3 class="card-title">Nutrition Breakdown</h3>
-                    <div class="row">
-                        <div class="card summary">
-                            <span class="yellow_circle">
-                                <p class="circle-text">{{data.recCals}}</p>
-                            </span>
-                            <div class="card-text text-center">Calories</div>
-                        </div>
-                        <div class="card summary">
-                            <span class="green_circle">
-                                <p class="circle-text">{{data.protein}}g</p>
-                            </span>
-                            <div class="card-text text-center">Protein</div>
-                        </div>
-                        <div class="card summary">
-                            <span class="blue_circle">
-                                <p class="circle-text ">{{data.carbs}}g</p>
-                            </span>
-                            <div class="card-text text-center">Carbs</div>
-                        </div>
-                        <div class="card summary">
-                            <span class="red_circle">
-                                <p class="circle-text">{{data.fats}}g</p>
-                            </span>
-                            <div class="card-text text-center">Fat</div>
-                        </div>
-                    </div>
-                    <a href="/updateMacros"><button class="float-right">Update Macros</button></a>
-                </div>
-            </div>
-
-            <!-- Favorites -->
-            <div class="card my-4" id="favorites-block">
-                <div class="card-body">
-                    <h3 class="card-title">Favorites</h3>
-                    <div class="fav-scroll">
-                        <ul id="insert-favs-here">
-                            {{#each favs}}
-                            <li>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <img src="{{this.pic}}" class="img-fluid" style="width: 200px; height: auto;">
-                                    </div>
-                                    <div class="col-lg-6 text-center">
-
-                                        <a href="{{this.url}}" target="_blank">{{this.title}}</a>
-                                    </div>
-                                    <div class="col-lg-2 text-right">
-                                        <i class="fas fa-heart delete-fav-button" data-id="{{this.id}}"></i>
-                                    </div>
-                                </div>
-                            </li>
-                            {{/each}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
