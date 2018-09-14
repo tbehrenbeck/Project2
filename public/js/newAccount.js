@@ -5,13 +5,18 @@ var username = "";
 var password = "";
 var validated = false;
 var currentTab = 0; // Current tab is set to be the first tab (0)
-
+function showModal(modalTitle, modalBody) {
+  $("#modal-title").html(modalTitle);
+  $("#modal-body").html(modalBody);
+  $("#error-modal").modal("toggle");
+}
 // FUNCTIONS -- user profile validation functions
 // FULL NAME VALIDATION: Rejects inputs in the following cases: input is blank || contains any character other than letters
 function validateFullName() {
   if (fullName == "") {
     validated = false;
-    alert("Error: Full name cannot be blank!");
+    // alert("Error: Full name cannot be blank!");
+    showModal("Error:", "Full name cannot be blank");
     return false;
   }
 }
@@ -19,12 +24,12 @@ function validateFullName() {
 // EMAIL VALIDATION: Rejects inputs in the following cases: @ is not present || starts with dot "." || no character before @ || any character other than a letter, digit, underscore, or dash is present || double dots present
 function validateEmail() {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    return (true);
-  }
-  else {
+    return true;
+  } else {
     validated = false;
-    alert("Error: Please enter a valid email address!");
-    return (false);
+    //alert("Error: Please enter a valid email address!");
+    showModal("Error:", "Please enter a valid email address");
+    return false;
   }
 }
 
@@ -32,13 +37,20 @@ function validateEmail() {
 function validateUsername() {
   if (username == "") {
     validated = false;
-    alert("Error: Username cannot be blank!");
+    //alert("Error: Username cannot be blank!");
+    showModal("Error:", "Username cannot be blank");
     return false;
   }
   re = /^\w+$/;
   if (!re.test(username)) {
     validated = false;
-    alert("Error: Username may contain only letters, numbers, and underscores!");
+    // alert(
+    //   "Error: Username may contain only letters, numbers, and underscores!"
+    // );
+    showModal(
+      "Error:",
+      "Username may contain only letters, numbers, and underscores"
+    );
     return false;
   }
 }
@@ -48,35 +60,47 @@ function validateUsername() {
 function validatePassword() {
   if (password == "") {
     validated = false;
-    alert("Error: Password cannot be blank!");
+    //alert("Error: Password cannot be blank!");
+    showModal("Error:", "Password cannot be blank");
     return false;
   }
   if (password.length < 6) {
     validated = false;
-    alert("Error: Password must contain at least six characters!");
+    //alert("Error: Password must contain at least six characters!");
+    showModal("Error:", "Password must contain at least six characters");
     return false;
   }
   if (password == username) {
     validated = false;
-    alert("Error: Password must be different from Username!");
+    //alert("Error: Password must be different from Username!");
+    showModal("Error:", "Password must be different from Username");
     return false;
   }
   re = /[0-9]/;
   if (!re.test(password)) {
     validated = false;
-    alert("Error: password must contain at least one number (0-9)!");
+    //alert("Error: password must contain at least one number (0-9)!");
+    showModal("Error:", "Password must contain at least one number (0-9)");
     return false;
   }
   re = /[a-z]/;
   if (!re.test(password)) {
     validated = false;
-    alert("Error: password must contain at least one lowercase letter (a-z)!");
+    //alert("Error: password must contain at least one lowercase letter (a-z)!");
+    showModal(
+      "Error:",
+      "password must contain at least one lowercase letter (a-z)"
+    );
     return false;
   }
   re = /[A-Z]/;
   if (!re.test(password)) {
     validated = false;
-    alert("Error: password must contain at least one uppercase letter (A-Z)!");
+    //alert("Error: password must contain at least one uppercase letter (A-Z)!");
+    showModal(
+      "Error:",
+      "Password must contain at least one uppercase letter (A-Z)"
+    );
     return false;
   }
 }
@@ -140,16 +164,24 @@ function validateAll() {
 // Functions to display correct tabs
 function nextPrev(n) {
   // This function will figure out which tab to display
-  fullName = $("#fullName").val().trim();
-  username = $("#username").val().trim();
-  email = $("#email").val().trim();
-  password = $("#password").val().trim();
+  fullName = $("#fullName")
+    .val()
+    .trim();
+  username = $("#username")
+    .val()
+    .trim();
+  email = $("#email")
+    .val()
+    .trim();
+  password = $("#password")
+    .val()
+    .trim();
   console.log("fullName" + fullName);
   validateAll();
   var x = document.getElementsByClassName("tab");
   console.log("n = " + n);
   // Exit the function if any field in the current tab is invalid:
-  if ((n === 1 && !validateForm()) || (validated === false)) {
+  if ((n === 1 && !validateForm()) || validated === false) {
     console.log("function stopped");
     return false;
   }

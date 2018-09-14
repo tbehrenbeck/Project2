@@ -6,43 +6,8 @@ body {
   background: url("../img/landing.jpg") no-repeat;
   background-size: cover;
 }
-.login-box {
-  width: 280px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #000000;
-}
-.textbox {
-  width: 100%;
-  overflow: hidden;
-  font-size: 20px;
-  padding: 8px 0;
-  margin: 8px 0;
-  border-bottom: 2px solid #4caf50;
-}
-.textbox input {
-  border: none;
-  outline: none;
-  background: none;
-  color: #000000;
-  font-size: 18px;
-  width: 80%;
-  margin: 10px;
-}
-.textbox ::placeholder {
-  color: #000000;
-}
-.textbox i {
-  width: 26px;
-  text-align: center;
-}
-.checkbox {
-  margin: 15px 0 0 23px;
-}
 .btn-submit {
-  width: 100%;
+  /* width: 100%; */
   background: none;
   border: 2px solid #4caf50;
   color: #000000;
@@ -56,9 +21,14 @@ body {
   color: #ffffff;
   border: 2px solid #ffffff;
 }
+.btn-submit:focus {
+  outline: none;
+}
 .newAccount {
   margin: 5px;
   font-size: 0.9rem;
+  position: absolute;
+  bottom: 12px;
 }
 .newAccount a {
   color: #4caf50;
@@ -66,21 +36,6 @@ body {
 .newAccount a:hover {
   color: #000000;
 }
-#title h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -25%);
-  width: 100%;
-  overflow: visible;
-  font: 400 140px/1.5 "Pacifico", Helvetica, sans-serif;
-  color: #ffffff;
-  text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1), 14px 14px 0px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  margin: 75px 0 50px 0;
-  letter-spacing: 2px;
-}
-
 /* Modal */
 .modal {
   text-align: center;
@@ -90,10 +45,9 @@ body {
   position: relative;
   left: 14px;
 }
-
 /* Welcome Back */
 #welcome-back-box {
-  margin: 75px 0 5px 0;
+  margin: 20%;
   text-align: center;
   font-size: 1.2rem;
   line-height: 1.5;
@@ -103,6 +57,96 @@ body {
 }
 #welcome-back-box a:hover {
   color: #000000;
+}
+/* login block */
+.login-block {
+  float: left;
+  width: 100%;
+  padding: 50px 0;
+}
+.banner-sec {
+  background: url("/img/cooking.jpg") no-repeat left bottom;
+  background-size: cover;
+  border-radius: 0 10px 10px 0;
+  padding: 0;
+}
+.wrapper {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+  margin: 50px 90px 0px 70px;
+}
+.carousel-inner {
+  border-radius: 0 10px 10px 0;
+}
+.carousel-caption {
+  text-align: left;
+  left: 5%;
+}
+.login-sec {
+  padding: 50px 30px;
+  position: relative;
+}
+.login-sec label {
+  font-size: 1.2rem;
+}
+.login-sec input {
+  font-size: 1.2rem;
+}
+.login-sec .copy-text {
+  position: absolute;
+  width: 80%;
+  bottom: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+.login-sec h2 {
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 25px;
+  color: #4caf50;
+  text-shadow: -0.5px -0.5px 0 #ffffff, 0.5px -0.5px 0 #ffffff,
+    -0.5px 0.5px 0 #ffffff, 0.5px 0.5px 0 #ffffff;
+}
+.login-sec h2:after {
+  content: " ";
+  width: 100px;
+  height: 2px;
+  background: #000000;
+  display: block;
+  margin-top: 10px;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.banner-text {
+  position: absolute;
+  bottom: 40px;
+  padding-left: 10px;
+}
+.banner-text h1 {
+  font-size: 5.5rem;
+  text-shadow: -0.5px -0.5px 0 #000000, 0.5px -0.5px 0 #000000,
+    -0.5px 0.5px 0 #000000, 0.5px 0.5px 0 #000000;
+}
+.banner-text h2 {
+  color: #fff;
+  font-weight: 600;
+}
+.banner-text h2:after {
+  content: " ";
+  width: 100px;
+  height: 5px;
+  background: #fff;
+  display: block;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+.banner-text p {
+  color: #fff;
+  font-size: 1.4rem;
+  text-shadow: -0.5px -0.5px 0 #000000, 0.5px -0.5px 0 #000000,
+    -0.5px 0.5px 0 #000000, 0.5px 0.5px 0 #000000;
 }
 
 /* Create an Account */
@@ -346,6 +390,9 @@ input.invalid {
 #searchblock input:hover {
   border: 2px solid #ffffff;
 }
+#searchblock input:focus {
+  outline: none;
+}
 #calories {
   margin-bottom: 15px;
   font-size: 18px;
@@ -566,8 +613,18 @@ input.invalid {
   cursor: pointer;
   margin-top: 30px;
 }
+#update-cancel:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
 #update-cancel:focus {
   outline: none;
+}
+#update-submit:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 #update-submit:focus {
   outline: none;
@@ -668,7 +725,7 @@ input.invalid {
   background: rgba(255, 255, 255, 0.7);
   border: 2px solid #4caf50;
   color: #000000;
-  padding: 7px 16px;
+  padding: 2px 8px;
   font-size: 18px;
   cursor: pointer;
   margin: 5px 0 5px 0;

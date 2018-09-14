@@ -22,36 +22,66 @@
 </head>
 
 <body>
-    <div class="container" id="title">
-        <div class="row">
-            <div class="col-lg-12" id="projectName">
-                <h1>Macro + Meals</h1>
+
+    <section class="login-block">
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-4 login-sec">
+                    <h2 class="text-center">Login Now</h2>
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="" name="" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="" name="" value="">
+                        </div>
+                        <div class="form-check">
+                            <div class="checkbox">
+                                <span><input type="checkbox" class="form-check-input" value="No" id="remember-me">Remember
+                                    me</span>
+                            </div>
+                            <input class="btn-submit float-right" type="submit" name="" id="submit-button" value="Sign In">
+                        </div>
+                    </form>
+                    <div id="welcome-back-box"></div>
+                    <div class="newAccount">
+                        <span>Don't have an account? <a href="/createAccount">Create one</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-8 banner-sec">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="/img/cooking.jpg" alt="
+                                    First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="banner-text">
+                                        <h1>Macro + Meals</h1>
+                                        <p>Find meals that fit your nutritional needs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="/img/runner.jpg" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="banner-text">
+                                        <h1>Macro + Meals</h1>
+                                        <p>Fuel your body the right way</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="login-box">
-        <div id="welcome-back-box"></div>
-        <div class="textbox">
-            <i class="fas fa-user" aria-hidden="true"></i>
-            <input type="text" id="username" placeholder="Username" name="" value="">
-        </div>
-        <div class="textbox">
-            <i class="fas fa-lock" aria-hidden="true"></i>
-            <input type="password" id="password" placeholder="Password" name="" value="">
-        </div>
-
-        <div class="checkbox">
-            <span><input type="checkbox" class="form-check-input" value="No" id="remember-me">Remember me</span>
-        </div>
-
-        <input class="btn-submit" type="submit" name="" id="submit-button" value="Sign In">
-        <div class="newAccount text-right">
-            <span>Don't have an account? <a href="/createAccount">Create one</a>
-            </span>
-        </div>
-
-    </div>
+    </section>
 
     <!-- Modal -->
     <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
