@@ -776,77 +776,108 @@ input.invalid {
 
 /*===============  Media Queries ================*/
 
-  /* Very Large Devices, Wide Screens */
-  @media only screen and (max-width : 1300px) {
-    /* .login-block .row {
-      height: 430px;
-    } */
+/* Very Large Devices, Wide Screens */
+@media only screen and (max-width: 1300px) {
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+  #regForm {
+    width: 70%;
   }
-   /* Medium Devices, Desktops */
-   @media only screen and (max-width : 992px) {
-     .login-block .row {
-       height: 357px;
-     }
-     .login-sec {
-      padding: 12px 10px 10px 25px
-     }
-     .btn-submit {
-      padding: 3px;
-      font-size: 12px;
-    }
-    .banner-text h1 {
-      font-size: 3.5rem;
-    }
-    .banner-text p {
-      font-size: 1rem;
-    }
-    .login-sec label {
-      font-size: .9rem;
-    }
-    .login-sec h2 {
-      margin-bottom: 15px;
-    }
-    .login-sec input {
-      font-size: 1rem;
-    }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .login-block .row {
+    height: 357px;
   }
-   /* Small Devices, Tablets */
-   @media only screen and (max-width : 768px) {
-    .login-block .row {
-      height: auto;
-      width: 
-    }
+  .login-sec {
+    padding: 12px 10px 10px 25px;
   }
- 
-
-
-
-
-
-
-    /* Custom, iPhone Retina */
-    @media only screen and (min-width : 320px) {
-      
-    }
-
-    /* Extra Small Devices, Phones */
-    @media only screen and (min-width : 480px) {
-       
-    }
-
-    /* Small Devices, Tablets */
-    @media only screen and (min-width : 768px) {
-  
-
-    /* Medium Devices, Desktops */
-    @media only screen and (min-width : 992px) {
- 
-
-    /* Large Devices, Wide Screens */
-    @media only screen and (min-width : 1200px) {
-      
-    }
-
-  
+  .btn-submit {
+    padding: 3px;
+    font-size: 12px;
+  }
+  .banner-text h1 {
+    font-size: 3.5rem;
+  }
+  .banner-text p {
+    font-size: 1rem;
+  }
+  .login-sec label {
+    font-size: 0.9rem;
+  }
+  .login-sec h2 {
+    margin-bottom: 15px;
+  }
+  .login-sec input {
+    font-size: 1rem;
+  }
+  .newAccount {
+    margin: 2px;
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 12px;
+  }
+  #personal-info-tab #feet {
+    margin-right: 0px;
+  }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .login-block .row {
+    height: auto;
+  }
+  .wrapper {
+    box-shadow: none;
+    padding: 56px;
+    margin: 10px;
+  }
+  .login-sec {
+    padding: 0px;
+  }
+  #regForm {
+    padding: 20px;
+    width: 90%;
+  }
+  .container {
+    margin-bottom: 100%;
+  }
+  .login-block {
+    margin-bottom: 100%;
+  }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .wrapper {
+    box-shadow: none;
+    padding: 40px;
+    margin: 10px;
+  }
+  .form-info h3 {
+    font-size: 1.25rem;
+  }
+  .form-info span {
+    font-size: 0.8rem;
+  }
+  .tab p {
+    margin: 28px 0;
+  }
+  .login {
+    font-size: 0.8rem;
+  }
+  #nextBtn {
+    font-size: 14px;
+  }
+}
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  .wrapper {
+    padding: 28px;
+  }
+  #nextBtn {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
 
 /*================================================*/
