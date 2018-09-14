@@ -1,6 +1,6 @@
 <div class="card my-4" id="results-block" style="width: 70%; margin: auto;">
     <div class="card-body">
-
+        <span id=home></span>
         <div class="card" id="perMealBreakdown">
             <div class="card-body">
                 <span style="font-size: 2.8rem; line-height: .9;">Recipes</span><span> (Based on
@@ -38,10 +38,10 @@
                         </div>
                     </div>
                 </div>
-                {{!-- <div class="back-to-profile text-right">
+                <div class="back-to-profile text-right">
                     <span><a href="/profile">Back</a>
                     </span>
-                </div> --}}
+                </div>
             </div>
         </div>
 
@@ -81,11 +81,30 @@
             {{/each}}
         </ul>
         <div class="back-to-profile text-right">
-            <span><a href="/profile">Back</a>
+            <span><a href="#home" id="homeLink"><i class="fas fa-arrow-up"></i></a>
             </span>
         </div>
     </div>
 </div>
 
+<script>
+    // Scroll Animation
+    $(document).ready(function () {
+        $("#homeLink").on("click", function (event) {
+            event.preventDefault();
+            var hash = this.hash;
+
+            if ($(hash).offset()) {
+                $("html, body").animate(
+                    {
+                        scrollTop: $(hash).offset().top
+                    },
+                    800,
+                    function () { }
+                );
+            }
+        });
+    });
+</script>
 <script src="/js/addToFavs.js"></script>
 <script src="/js/showBreakdown.js"></script>
