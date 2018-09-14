@@ -701,9 +701,6 @@ input.invalid {
 #insert-results-here a:hover {
   color: #44ccaa;
 }
-#insert-results-here a:visited {
-  color: #44ccaa;
-}
 #perMealBreakdown {
   margin: 0px 15px 15px 15px;
   background: rgba(255, 255, 255, 0.9);
