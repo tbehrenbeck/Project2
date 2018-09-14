@@ -246,7 +246,7 @@ input.invalid {
   padding: 5px 15px;
   font-size: 18px;
   cursor: pointer;
-  margin: 10px 0;
+  margin-bottom: 15px;
 }
 #nextBtn:hover {
   background-color: #4caf50;
@@ -773,3 +773,80 @@ input.invalid {
   line-height: 83px;
   font-size: 24px;
 }
+
+/*===============  Media Queries ================*/
+
+  /* Very Large Devices, Wide Screens */
+  @media only screen and (max-width : 1300px) {
+    /* .login-block .row {
+      height: 430px;
+    } */
+  }
+   /* Medium Devices, Desktops */
+   @media only screen and (max-width : 992px) {
+     .login-block .row {
+       height: 357px;
+     }
+     .login-sec {
+      padding: 12px 10px 10px 25px
+     }
+     .btn-submit {
+      padding: 3px;
+      font-size: 12px;
+    }
+    .banner-text h1 {
+      font-size: 3.5rem;
+    }
+    .banner-text p {
+      font-size: 1rem;
+    }
+    .login-sec label {
+      font-size: .9rem;
+    }
+    .login-sec h2 {
+      margin-bottom: 15px;
+    }
+    .login-sec input {
+      font-size: 1rem;
+    }
+  }
+   /* Small Devices, Tablets */
+   @media only screen and (max-width : 768px) {
+    .login-block .row {
+      height: auto;
+      width: 
+    }
+  }
+ 
+
+
+
+
+
+
+    /* Custom, iPhone Retina */
+    @media only screen and (min-width : 320px) {
+      
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (min-width : 480px) {
+       
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+  
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+ 
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+      
+    }
+
+  
+
+/*================================================*/
